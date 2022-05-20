@@ -82,7 +82,7 @@ mod assignment {
     mod test_template {
         use super::solution::add;
 
-        /// feel free to make a test for your code, like this. Especially for later weeks
+        /// feel free to make more tests for your code, like this. Especially for later weeks
         /// this will become necessary.
         #[test]
         fn test_add() {
@@ -119,8 +119,4 @@ mod assignment {
             assert_eq!(modulo(10, 7), 3);
         }
     }
-
-    // The library is optional.
-    #[weblab(library)]
-    mod library {}
 }

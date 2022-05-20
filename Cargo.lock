@@ -437,9 +437,9 @@ checksum = "1a143597ca7c7793eff794def352d41792a93c481eb1042423ff7ff72ba2c31f"
 
 [[package]]
 name = "weblab"
-version = "0.2.12"
+version = "0.2.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7807c92438eed08ce7b23e3e9a88d65e84599447f0d6bd648f13d24367a15450"
+checksum = "8e364b053210ccda9ca3939351602af6aab3ce063eba939687b23b9f8cbba4db"
 dependencies = [
  "clap",
  "pathdiff",
