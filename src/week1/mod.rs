@@ -1,3 +1,5 @@
 use weblab::weblab_folder;
 
-weblab_folder!("week 1",);
+mod basics;
+
+weblab_folder!("week 1", basics,);
