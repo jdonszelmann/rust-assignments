@@ -92,7 +92,8 @@ jobs:
       - name: Generate assignments
         uses: actions-rs/cargo@v1
         with:
-          command: run -- generate zip
+          command: run
+          args: -- generate zip
 
       - uses: actions/upload-artifact@v2
         with:
