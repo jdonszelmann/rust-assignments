@@ -39,7 +39,8 @@ use weblab::weblab;
 /// 8
 /// ```
 ///
-/// NOTE: in `luhn_final`, do note that the modulus operator (`%`) works differently on negative numbers than you might expect.
+/// # NOTE
+/// in `luhn_final`, do note that the modulus operator (`%`) works differently on negative numbers than you might expect.
 /// Unfortunatly, the modulus operator is very hard to define properly.
 /// Search for `rem_euclid`, which has more useful mathematical properties, especially on negative numbers.
 #[weblab(title = "Luhn Algorithm")]
@@ -82,11 +83,11 @@ mod assignment {
 
     #[weblab(test)]
     mod test {
-        use weblab::solution_only;
         /// These imports may be unused if you don't have tests. The `allow` line
         /// simply makes it so the compiler won't give a warning about this.
         #[allow(unused_imports)]
-        use super::solution::{luhn_double, luhn, luhn_final};
+        use super::solution::{luhn, luhn_double, luhn_final};
+        use weblab::solution_only;
 
         #[test]
         fn test_luhn_double() {

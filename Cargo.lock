@@ -401,6 +401,7 @@ version = "0.1.0"
 dependencies = [
  "quickcheck",
  "weblab",
+ "weblab-macros",
 ]
 
 [[package]]
@@ -497,9 +498,9 @@ checksum = "1a143597ca7c7793eff794def352d41792a93c481eb1042423ff7ff72ba2c31f"
 
 [[package]]
 name = "weblab"
-version = "0.2.14"
+version = "0.2.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c19ea44d969dbf323cbe260493032f51b5020a135fc3b079124643fb64b642e8"
+checksum = "f7e9ac85451c3ed1469aec8241cc5b845f378bb79a0edc3f982b346082d58635"
 dependencies = [
  "clap",
  "pathdiff",
@@ -521,9 +522,9 @@ checksum = "239d27f00ae679e6bb99d2ef4a9917c4ac3a11ad248e4a35b6295d141c2e1bb1"
 
 [[package]]
 name = "weblab-macros"
-version = "0.2.10"
+version = "0.2.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b7697ca97b7d6dec41a3151a7a3c403ee143a02a11284bf7598be73d8a9d0fbd"
+checksum = "9514829f6e6cd1a6095b6831e181a9adebde3a8e22273f9398eaba5c26d05d5c"
 dependencies = [
  "proc-macro2",
  "quote",

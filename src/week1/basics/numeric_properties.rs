@@ -35,13 +35,12 @@ mod assignment {
         /// These imports may be unused if you don't have tests. The `allow` line
         /// simply makes it so the compiler won't give a warning about this.
         #[allow(unused_imports)]
-        use super::solution::{is_even, absolute};
-
+        use super::solution::{absolute, is_even};
     }
 
     #[weblab(test)]
     mod test {
-        use super::solution::{is_even, absolute};
+        use super::solution::{absolute, is_even};
 
         #[test]
         fn test_is_even_4() {
