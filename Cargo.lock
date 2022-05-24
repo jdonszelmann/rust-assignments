@@ -296,6 +296,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "quickcheck_macros"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b22a693222d716a9587786f37ac3f6b4faedb5b80c23914e7303ff5a1d8016e9"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "quote"
 version = "1.0.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -400,6 +411,7 @@ name = "software-fundamentals-weekly-assignments"
 version = "0.1.0"
 dependencies = [
  "quickcheck",
+ "quickcheck_macros",
  "weblab",
  "weblab-macros",
 ]
