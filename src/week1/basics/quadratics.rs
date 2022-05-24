@@ -9,7 +9,7 @@ use weblab::weblab;
 /// ```
 ///
 /// Of the real solutions, return the largest. If no real solutions exist, return the special float value `NaN` (Not A Number).
-#[weblab(title = "numeric properties")]
+#[weblab(title = "quadratics")]
 mod assignment {
     #[weblab(solution)]
     mod solution {
