@@ -70,7 +70,6 @@ mod assignment {
             s1.max(s2)
         }
 
-
         #[test]
         fn quadratic_test_nice_value() {
             assert_almost_eq!(quadratic_solutions(1.0, 0.0, -1.0), 1.0);
@@ -111,11 +110,6 @@ mod assignment {
             };
         }
 
-        quadratic_parameterized!(
-            (a, 1, 2, 3),
-            (b, 1, 2, -3),
-            (c, 1, -2, 3),
-            (d, -1, 2, 3),
-        );
+        quadratic_parameterized!((a, 1, 2, 3), (b, 1, 2, -3), (c, 1, -2, 3), (d, -1, 2, 3),);
     }
 }
