@@ -45,6 +45,7 @@ mod assignment {
     }
 
     #[weblab(test)]
+    #[allow(unused)]
     mod test {
         use super::solution::quadratic_solutions;
 
@@ -85,9 +86,36 @@ mod assignment {
             assert_almost_eq!(quadratic_spec(1.0, 0.0, 0.0), 0.0);
         }
 
-        // #[test]
-        // fn quadratic_test_spec() {
-        //     assert!(quadratic_solutions(1.0, 0.0, 1.0).is_nan());
-        // }
+        fn quadratic_helper(a: f64, b: f64, c: f64) -> bool {
+            let a1 = quadratic_solutions(a, b, c);
+            let a2 = quadratic_spec(a, b, c);
+            println!("{a1} {a2} {a} {b} {c}");
+
+            if a1.is_nan() && a2.is_nan() {
+                true
+            } else if a1.is_nan() || a2.is_nan() {
+                false
+            } else {
+                (a1 - a2).abs() < 0.001
+            }
+        }
+
+        macro_rules! quadratic_parameterized {
+            ($(($name: ident, $a: expr, $b: expr, $c: expr)),* $(,)?) => {
+                $(
+                    #[test]
+                    fn $name() {
+                        assert!(quadratic_helper($a as f64, $b as f64, $c as f64));
+                    }
+                )*
+            };
+        }
+
+        quadratic_parameterized!(
+            (a, 1, 2, 3),
+            (b, 1, 2, -3),
+            (c, 1, -2, 3),
+            (d, -1, 2, 3),
+        );
     }
 }
