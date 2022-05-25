@@ -49,6 +49,7 @@ mod assignment {
     mod test {
         use super::solution::quadratic_solutions;
 
+        #[allow(unused_macros)]
         macro_rules! assert_almost_eq {
             ($a: expr, $b: expr, $delta: expr) => {
                 assert!(($b - $a).abs() < $delta);
