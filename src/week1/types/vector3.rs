@@ -11,7 +11,7 @@ use weblab::weblab;
 /// * Define the fields of the Vector3 struct. Make sure the names of the fields are `x`, `y` and `z`, that the fields are `f64`, and **that all fields are pub**.
 /// * Define the global function `new`, which constructs a new Vector3
 /// * Define the global function `add`, which adds two Vector3s
-/// * Bonus: Make a test, in which you make 2 vectors, and add them.
+/// * Bonus: Make a test, in which you make 2 vectors, and add them
 ///
 #[weblab(title = "3D Vectors")]
 mod assignment {
@@ -70,14 +70,6 @@ mod assignment {
             assert_eq!(v1.x, 1.2);
             assert_eq!(v1.y, 3.5);
             assert_eq!(v1.z, 6.0);
-        }
-
-        template_only! {
-            /// The current test is adding two numbers, it may be useful to make a test that adds two Vector3s!
-            #[test]
-            fn test_add() {
-                assert_eq!(1 + 2, 3);
-            }
         }
 
         solution_only! {

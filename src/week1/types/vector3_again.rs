@@ -69,14 +69,6 @@ mod assignment {
             assert_eq!(v1.z, 6.0);
         }
 
-        template_only! {
-            /// The current test is adding two numbers, it may be useful to make a test that adds two Vector3s!
-            #[test]
-            fn test_add() {
-                assert_eq!(1 + 2, 3);
-            }
-        }
-
         solution_only! {
             #[test]
             fn test_more_news() {
