@@ -126,9 +126,12 @@ mod assignment {
         #[test]
         pub fn test_insert_three_v1() {
             assert_eq!(insert_three_v1(vec![]), vec![3]);
-            assert_eq!(insert_three_v1(vec![2]), vec![2,3]);
-            assert_eq!(insert_three_v1(vec![3]), vec![3,3]);
-            assert_eq!(insert_three_v1(vec![1,2,3,4,5,6,7,8,9,0]), vec![1,2,3,4,5,6,7,8,9,0,3]);
+            assert_eq!(insert_three_v1(vec![2]), vec![2, 3]);
+            assert_eq!(insert_three_v1(vec![3]), vec![3, 3]);
+            assert_eq!(
+                insert_three_v1(vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 0]),
+                vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 3]
+            );
         }
 
         #[test]
@@ -139,49 +142,49 @@ mod assignment {
 
             let mut vec = vec![2];
             insert_three_v2(&mut vec);
-            assert_eq!(vec, vec![2,3]);
+            assert_eq!(vec, vec![2, 3]);
 
             let mut vec = vec![3];
             insert_three_v2(&mut vec);
-            assert_eq!(vec, vec![3,3]);
+            assert_eq!(vec, vec![3, 3]);
 
-            let mut vec = vec![1,2,3,4,5,6,7,8,9,0];
+            let mut vec = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
             insert_three_v2(&mut vec);
-            assert_eq!(vec, vec![1,2,3,4,5,6,7,8,9,0,3]);
+            assert_eq!(vec, vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 3]);
         }
 
         #[test]
         pub fn test_length_v1() {
             assert_eq!(length_v1(&vec![]), 0);
             assert_eq!(length_v1(&vec![1]), 1);
-            assert_eq!(length_v1(&vec![1,2]), 2);
-            assert_eq!(length_v1(&vec![1,2,3]), 3);
-            assert_eq!(length_v1(&vec![1,2,3,4,5]), 5);
+            assert_eq!(length_v1(&vec![1, 2]), 2);
+            assert_eq!(length_v1(&vec![1, 2, 3]), 3);
+            assert_eq!(length_v1(&vec![1, 2, 3, 4, 5]), 5);
         }
 
         #[test]
         pub fn test_length_v2() {
             assert_eq!(length_v2(&vec![]), 0);
             assert_eq!(length_v2(&vec![1]), 1);
-            assert_eq!(length_v2(&vec![1,2]), 2);
-            assert_eq!(length_v2(&vec![1,2,3]), 3);
-            assert_eq!(length_v2(&vec![1,2,3,4,5]), 5);
+            assert_eq!(length_v2(&vec![1, 2]), 2);
+            assert_eq!(length_v2(&vec![1, 2, 3]), 3);
+            assert_eq!(length_v2(&vec![1, 2, 3, 4, 5]), 5);
         }
 
         #[test]
         pub fn test_sum_elements() {
-            assert_eq!(sum_elements(&vec![3,4,8,2,5,0]), 22);
+            assert_eq!(sum_elements(&vec![3, 4, 8, 2, 5, 0]), 22);
             assert_eq!(sum_elements(&vec![]), 0);
-            assert_eq!(sum_elements(&vec![19,-19,3]), 3);
+            assert_eq!(sum_elements(&vec![19, -19, 3]), 3);
             assert_eq!(sum_elements(&vec![-99]), -99);
             assert_eq!(sum_elements(&vec![10081, 122, -123]), 10080);
         }
 
         #[test]
         pub fn test_sum_even_elements() {
-            assert_eq!(sum_even_values(&vec![3,4,8,2,5,0]), 14);
+            assert_eq!(sum_even_values(&vec![3, 4, 8, 2, 5, 0]), 14);
             assert_eq!(sum_even_values(&vec![]), 0);
-            assert_eq!(sum_even_values(&vec![19,-19,3]), 0);
+            assert_eq!(sum_even_values(&vec![19, -19, 3]), 0);
             assert_eq!(sum_even_values(&vec![-99]), 0);
             assert_eq!(sum_even_values(&vec![10080, 122, -123]), 10202);
             assert_eq!(sum_even_values(&vec![188]), 188);
@@ -189,9 +192,9 @@ mod assignment {
 
         #[test]
         pub fn test_sum_even_indices() {
-            assert_eq!(sum_even_indices(&vec![3,4,8,2,5,0]), 16);
+            assert_eq!(sum_even_indices(&vec![3, 4, 8, 2, 5, 0]), 16);
             assert_eq!(sum_even_indices(&vec![]), 0);
-            assert_eq!(sum_even_indices(&vec![19,-19,3]), 22);
+            assert_eq!(sum_even_indices(&vec![19, -19, 3]), 22);
             assert_eq!(sum_even_indices(&vec![-99]), -99);
             assert_eq!(sum_even_indices(&vec![10080, 122, -123]), 9957);
             assert_eq!(sum_even_indices(&vec![188]), 188);
@@ -199,9 +202,9 @@ mod assignment {
 
         #[test]
         pub fn test_add_1_to_all_v1() {
-            let mut vec = vec![1,2,3,4,5];
+            let mut vec = vec![1, 2, 3, 4, 5];
             add_1_to_all_v1(&mut vec);
-            assert_eq!(vec, vec![2,3,4,5,6]);
+            assert_eq!(vec, vec![2, 3, 4, 5, 6]);
 
             let mut vec: Vec<i64> = vec![];
             add_1_to_all_v1(&mut vec);
@@ -218,10 +221,13 @@ mod assignment {
 
         #[test]
         pub fn test_add_1_to_all_v2() {
-            assert_eq!(add_1_to_all_v2(vec![1,2,3,4,5]), vec![2,3,4,5,6]);
+            assert_eq!(add_1_to_all_v2(vec![1, 2, 3, 4, 5]), vec![2, 3, 4, 5, 6]);
             assert_eq!(add_1_to_all_v2(vec![]), Vec::<i64>::new());
-            assert_eq!(add_1_to_all_v2(vec![-88,77,23]), vec![-87,78,24]);
-            assert_eq!(add_1_to_all_v2(vec![1212190, 111110]), vec![1212191, 111111]);
+            assert_eq!(add_1_to_all_v2(vec![-88, 77, 23]), vec![-87, 78, 24]);
+            assert_eq!(
+                add_1_to_all_v2(vec![1212190, 111110]),
+                vec![1212191, 111111]
+            );
         }
     }
 }

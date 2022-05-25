@@ -65,18 +65,16 @@ mod assignment {
         use weblab::template_only;
 
         /// TODO: Add attributes of your choice
-        pub struct Stack {
-        }
+        pub struct Stack {}
 
         // TODO: Implement the methods
-        impl Stack {
-        }
+        impl Stack {}
     }
 
     #[weblab(test)]
     mod test {
-        use weblab::template_only;
         use super::solution::*;
+        use weblab::{solution_only, template_only};
 
         #[test]
         fn test_simple() {
@@ -87,10 +85,10 @@ mod assignment {
             assert_eq!(stack.pop(), 0);
         }
 
-        template_only! {
+        solution_only! {
             #[test]
             fn test_len_is_not_mut() {
-                let mut stack = Stack::new();
+                let stack = Stack::new();
                 let stack_ref = &stack;
                 assert_eq!(stack_ref.len(), 0);
             }
@@ -132,16 +130,16 @@ mod assignment {
                 stack.push(15);
                 stack.push(30);
                 assert_eq!(stack.len(), 2);
-                assert_eq!(stack.pop(), 30)
+                assert_eq!(stack.pop(), 30);
                 assert_eq!(stack.len(), 1);
                 stack.push(45);
-                assert_eq!(stack.pop(), 45)
+                assert_eq!(stack.pop(), 45);
                 stack.push(3);
                 stack.push(5);
                 assert_eq!(stack.len(), 3);
-                assert_eq!(stack.pop(), 5)
-                assert_eq!(stack.pop(), 3)
-                assert_eq!(stack.pop(), 15)
+                assert_eq!(stack.pop(), 5);
+                assert_eq!(stack.pop(), 3);
+                assert_eq!(stack.pop(), 15);
             }
         }
     }
