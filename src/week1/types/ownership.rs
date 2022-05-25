@@ -15,16 +15,16 @@ inline_question_list! {
         ///
         /// fn main() {
         ///     let v = vec![1, 2, 3];
-        ///     do_something(a);
+        ///     do_something(v);
         ///
-        ///     println!("{:?}", a);
+        ///     println!("{:?}", v);
         /// }
         /// ```
         answer:
         /// In the call to `do_something`, the ownership of the vector in `v` is moved into the do_something function.
         /// After this call the `do_something` function will deallocate the vector.
         ///
-        /// This means that we cannot print a after the call to `do_something`. The compiler will error when it sees this.
+        /// This means that we cannot print `v` after the call to `do_something`. The compiler will error when it sees this.
     )
 
     open_question!(
@@ -37,15 +37,15 @@ inline_question_list! {
         /// borrow the vector in `v`, and thus it will still be available after the call.
         ///
         /// ```rust
-        /// fn do_something(a: &Vec<u64>) {
+        /// fn do_something(v: &Vec<u64>) {
         ///     // ...
         /// }
         ///
         /// fn main() {
         ///     let v = vec![1, 2, 3];
-        ///     do_something(&a);
+        ///     do_something(&v);
         ///
-        ///     println!("{:?}", a);
+        ///     println!("{:?}", v);
         /// }
         /// ```
         ///
@@ -63,9 +63,9 @@ inline_question_list! {
         ///
         /// fn main() {
         ///     let v = vec![1, 2, 3];
-        ///     do_something(a.clone());
+        ///     do_something(v.clone());
         ///
-        ///     println!("{:?}", a);
+        ///     println!("{:?}", v);
         /// }
         /// ```
     )
