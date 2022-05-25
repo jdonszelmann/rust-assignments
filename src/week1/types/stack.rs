@@ -12,9 +12,6 @@ use weblab::weblab;
 /// In case the datastructure is not clear, you can find more information on the internet.
 /// https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
 ///
-/// For each of the methods, you have to decide whether the method should take `self`, `&self` or `&mut self`.
-/// Hint: Use a `Vec` to store the elements in the stack.
-///
 /// The stack methods need to have the following signatures:
 /// ```
 /// pub fn new() -> Stack
@@ -22,6 +19,10 @@ use weblab::weblab;
 /// pub fn pop(...) -> i64
 /// pub fn len(...) -> usize
 /// ```
+///
+/// For each of the methods, you have to decide whether the method should take `self`, `&self` or `&mut self`.
+///
+/// Hint: Use a `Vec` to store the elements in the stack.
 #[weblab(title = "Wacky Stacky")]
 mod assignment {
     #[weblab(solution)]
@@ -44,7 +45,7 @@ mod assignment {
             /// Removes an element from the top of the stack
             /// In case the stack is empty, return 0.
             pub fn pop(&mut self) -> i64 {
-                if self.vec.len() == 0 {
+                if self.vec.is_empty() {
                     0
                 } else {
                     self.vec.remove(self.vec.len() - 1)

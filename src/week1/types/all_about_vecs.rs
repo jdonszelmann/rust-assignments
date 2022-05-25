@@ -83,6 +83,7 @@ mod assignment {
             template_only! { todo!() }
             solution_only! {
                 let mut sum = 0;
+                #[allow(clippy::needless_range_loop)]
                 for i in 0..vec.len() {
                     if i % 2 == 0 {
                         sum += vec[i];
