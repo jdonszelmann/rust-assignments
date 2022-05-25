@@ -1,6 +1,6 @@
 use weblab::inline_question_list;
 
-inline_question_list!{
+inline_question_list! {
     title: "integer sizes",
     mc_question! {
         title: "1",
@@ -58,6 +58,16 @@ inline_question_list!{
         option "`isize`",
         randomize
     }
+    mc_question! {
+        title: "5",
+        question:
+        /// Which integer type is best when you want to store numbers between 0 and 10000 most space efficiently?
+        explanation:
+        /// A `u16` can hold numbers up to 65535, and can thus comfortably hold numbers up to 10000.
+        option "`u8`",
+        option "`u16`" correct,
+        option "`u32`",
+        option "`u64`",
+        randomize
+    }
 }
-
-
