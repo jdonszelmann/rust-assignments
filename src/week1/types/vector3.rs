@@ -38,6 +38,7 @@ mod assignment {
         }
     }
 
+    #[allow(unused_variables)]
     #[weblab(solution_template)]
     mod solution_template {
         use weblab::{solution_only, template_only};
