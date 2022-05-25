@@ -3,6 +3,23 @@ use weblab::weblab;
 #[weblab(programming_assignment)]
 /// # Fibonacci
 /// A popular mathematical sequence is the Fibonacci sequence.
+/// The Fibonacci sequence is defined mathematically as follows for any non-negative integer $n$:
+/// $$
+/// F_0 = 0
+/// F_1 = 1
+/// F_n = F_{n-1} + F_{n-2}
+/// $$
+///
+/// This means we can find the $n$-th Fibonacci number by adding the previous two.
+/// E.g. we find that
+/// $$
+/// F_4 = 3
+/// F_8 = 21
+/// F_{12} = 144
+/// $$
+///
+/// ## Assignment
+/// Create a function `fibonacci(n: u64) -> u64;` that computes and returns the `n`th fibonacci number for any `n`.
 #[weblab(title = "fibonacci")]
 mod assignment {
     #[weblab(solution)]
@@ -22,11 +39,12 @@ mod assignment {
                 curr = temp1 + temp2;
             }
 
-            return curr;
+            curr
         }
     }
 
     #[weblab(solution_template)]
+    #[allow(unused_variables)]
     mod solution_template {
         use weblab::solution_only;
 
@@ -34,6 +52,7 @@ mod assignment {
             todo!()
         }
     }
+
     #[weblab(test_template)]
     mod test_template {
         use super::solution::fibonacci;
@@ -49,16 +68,15 @@ mod assignment {
         use super::solution::fibonacci;
         use quickcheck::{Arbitrary, Gen};
         use quickcheck_macros::quickcheck;
+        use rand::prelude::*;
 
         #[derive(Debug, Clone)]
         struct SmallNumber(u64);
 
         impl Arbitrary for SmallNumber {
-            fn arbitrary(g: &mut Gen) -> SmallNumber {
-                let range: Vec<_> = (0..90).into_iter().collect();
-                let n: u64 = *g.choose(&range).unwrap();
-
-                SmallNumber(n)
+            fn arbitrary(_: &mut Gen) -> SmallNumber {
+                let mut rng = rand::thread_rng();
+                SmallNumber(rng.gen_range(0..90))
             }
         }
 
@@ -77,7 +95,7 @@ mod assignment {
                 curr = temp1 + temp2;
             }
 
-            return curr;
+            curr
         }
 
         #[test]

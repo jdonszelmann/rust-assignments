@@ -9,7 +9,7 @@ use weblab::weblab;
 /// ```
 ///
 /// Of the real solutions, return the largest. If no real solutions exist, return the special float value `NaN` (Not A Number).
-#[weblab(title = "numeric properties")]
+#[weblab(title = "quadratics")]
 mod assignment {
     #[weblab(solution)]
     mod solution {
@@ -48,6 +48,7 @@ mod assignment {
     mod test {
         use super::solution::quadratic_solutions;
 
+        #[allow(unused_macros)]
         macro_rules! assert_almost_eq {
             ($a: expr, $b: expr, $delta: expr) => {
                 assert!(($b - $a).abs() < $delta);
@@ -68,7 +69,6 @@ mod assignment {
 
             s1.max(s2)
         }
-
 
         #[test]
         fn quadratic_test_nice_value() {
