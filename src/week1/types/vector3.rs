@@ -26,7 +26,7 @@ mod assignment {
             }
         }
         solution_only! {
-           pub struct Vector3 {
+            pub struct Vector3 {
                 pub x: f64,
                 pub y: f64,
                 pub z: f64,
@@ -60,8 +60,8 @@ mod assignment {
 
     #[weblab(test)]
     mod test {
-        use weblab::{solution_only, template_only};
         use super::solution::*;
+        use weblab::{solution_only, template_only};
 
         /// This test tests the new method, it is already complete
         #[test]
