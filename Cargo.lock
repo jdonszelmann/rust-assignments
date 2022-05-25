@@ -240,6 +240,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "029d8d0b2f198229de29dca79676f2738ff952edf3fde542eb8bf94d8c21b435"
 
 [[package]]
+name = "path-slash"
+version = "0.1.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3cacbb3c4ff353b534a67fb8d7524d00229da4cb1dc8c79f4db96e375ab5b619"
+
+[[package]]
 name = "pathdiff"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -529,11 +535,12 @@ checksum = "1a143597ca7c7793eff794def352d41792a93c481eb1042423ff7ff72ba2c31f"
 
 [[package]]
 name = "weblab"
-version = "0.2.16"
+version = "0.2.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f7e9ac85451c3ed1469aec8241cc5b845f378bb79a0edc3f982b346082d58635"
+checksum = "0cab0f95cd84945d2d0c8a470a41d7e7c43b083ecf8c6f862e2d2e5c8878b14e"
 dependencies = [
  "clap",
+ "path-slash",
  "pathdiff",
  "regex",
  "sanitize-filename",
@@ -547,15 +554,15 @@ dependencies = [
 
 [[package]]
 name = "weblab-assignment-structure"
-version = "0.2.5"
+version = "0.2.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "239d27f00ae679e6bb99d2ef4a9917c4ac3a11ad248e4a35b6295d141c2e1bb1"
+checksum = "5e68f30182c59b6948e8ebcf598246b96243c1bc2a5c146c81dcb9306da033b9"
 
 [[package]]
 name = "weblab-macros"
-version = "0.2.16"
+version = "0.2.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9514829f6e6cd1a6095b6831e181a9adebde3a8e22273f9398eaba5c26d05d5c"
+checksum = "d707eab21ea4d09abe456789a59101937d98d97c0425746ff71755f10228bc42"
 dependencies = [
  "proc-macro2",
  "quote",
