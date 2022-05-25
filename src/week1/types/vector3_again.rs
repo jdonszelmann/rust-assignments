@@ -17,43 +17,36 @@ mod assignment {
     mod solution {
         use weblab::{solution_only, template_only};
 
-        template_only! {
-            /// TODO add fields
-            pub struct Vector3 {
-
-            }
-        }
-        solution_only! {
-            pub struct Vector3 {
-                pub x: f64,
-                pub y: f64,
-                pub z: f64,
-            }
+        pub struct Vector3 {
+            pub x: f64,
+            pub y: f64,
+            pub z: f64,
         }
 
-        template_only! {
-            //TODO, add the new() method and the add() method
-            impl Vector3 {
-
+        impl Vector3 {
+            pub fn new(x: f64, y: f64, z: f64) -> Vector3 {
+                Vector3 { x, y, z }
             }
-        }
-        solution_only! {
-            impl Vector3 {
-                pub fn new(x: f64, y: f64, z: f64) -> Vector3 {
-                    Vector3 {
-                        x, y, z
-                    }
-                }
 
-                pub fn add(self, other: Vector3) -> Vector3 {
-                    Vector3 {
-                        x: self.x + other.x,
-                        y: self.y + other.y,
-                        z: self.z + other.z
-                    }
+            pub fn add(self, other: Vector3) -> Vector3 {
+                Vector3 {
+                    x: self.x + other.x,
+                    y: self.y + other.y,
+                    z: self.z + other.z,
                 }
             }
         }
+    }
+
+    #[weblab(solution_template)]
+    mod solution_template {
+        use weblab::{solution_only, template_only};
+
+        /// TODO add fields
+        pub struct Vector3 {}
+
+        //TODO, add the new() method and the add() method
+        impl Vector3 {}
     }
 
     #[weblab(test)]
@@ -68,14 +61,6 @@ mod assignment {
             assert_eq!(v1.x, 1.2);
             assert_eq!(v1.y, 3.5);
             assert_eq!(v1.z, 6.0);
-        }
-
-        template_only! {
-            /// The current test is adding two numbers, it may be useful to make a test that adds two Vector3s!
-            #[test]
-            fn test_add() {
-                assert_eq!(1 + 2, 3);
-            }
         }
 
         solution_only! {
