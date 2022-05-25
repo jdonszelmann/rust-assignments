@@ -1,5 +1,5 @@
 use weblab::weblab_folder;
 
-mod passing_data_around;
+mod ownership;
 
-weblab_folder!("types",);
+weblab_folder!("types", ownership);
