@@ -8,7 +8,7 @@ use weblab::weblab;
 ///
 /// For this assignment:
 ///
-/// * Define the fields of the Vector3 struct. Make sure the names of the fields are `x`, `y` and `z`, that the fields are `f64`, and **that all fields are pub**.
+/// * Define the fields of the Vector3 struct. Make sure the names of the fields are `x`, `y` and `z`, that the field's **types** are `f64`, and **that all fields are marked as public using the `pub` keyword**.
 /// * Define the global function `new`, which constructs a new Vector3
 /// * Define the global function `add`, which adds two Vector3s
 /// * Bonus: Make a test, in which you make 2 vectors, and add them

@@ -2,7 +2,8 @@ use weblab::weblab;
 
 #[weblab(programming_assignment)]
 /// In the last assignment, you've implemented a 3D Vector and written some functions to make the struct useful.
-/// These functions were global, which is not ideal. The better way of doing this is to use *method syntax*.
+/// This is the way that you'd have implemented a 3D Vector in C. In rust, there is a better way.
+/// The functions are global, which is not ideal. The better way of doing this is to use *method syntax*.
 /// Then, we could use our functions like this:
 /// ```
 /// let v1 = Vector3::new(1.0, 2.0, 3.0);
