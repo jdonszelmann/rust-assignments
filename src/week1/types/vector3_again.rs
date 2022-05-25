@@ -25,16 +25,14 @@ mod assignment {
 
         impl Vector3 {
             pub fn new(x: f64, y: f64, z: f64) -> Vector3 {
-                Vector3 {
-                    x, y, z
-                }
+                Vector3 { x, y, z }
             }
 
             pub fn add(self, other: Vector3) -> Vector3 {
                 Vector3 {
                     x: self.x + other.x,
                     y: self.y + other.y,
-                    z: self.z + other.z
+                    z: self.z + other.z,
                 }
             }
         }
@@ -45,14 +43,10 @@ mod assignment {
         use weblab::{solution_only, template_only};
 
         /// TODO add fields
-        pub struct Vector3 {
-
-        }
+        pub struct Vector3 {}
 
         //TODO, add the new() method and the add() method
-        impl Vector3 {
-
-        }
+        impl Vector3 {}
     }
 
     #[weblab(test)]
