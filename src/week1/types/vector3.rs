@@ -1,14 +1,14 @@
 use weblab::weblab;
 
 #[weblab(programming_assignment)]
-/// In math, a tool that is commonly used is vectors (not to be confused with Rust `Vec`!).
+/// In math, vectors are a commonly used tool (not to be confused with Rust `Vec`!).
 /// For this assignment, implement a struct that represents a 3D vector.
 /// A 3D vector can be imagined as an arrow in 3D space, starting at the origin, going to a certain point.
 /// This point can be represented using 3 numbers. For this assignment, give these numbers the type `f64`, a 64-bit floating point number.
 ///
 /// For this assignment:
 ///
-/// * Define the fields of the Vector3 struct. Make sure the names of the fields are `x`, `y` and `z`, that the fields are `f64`, and *that all fields are pub*.
+/// * Define the fields of the Vector3 struct. Make sure the names of the fields are `x`, `y` and `z`, that the fields are `f64`, and **that all fields are pub**.
 /// * Define the global function `new`, which constructs a new Vector3
 /// * Define the global function `add`, which adds two Vector3s
 /// * Bonus: Make a test, in which you make 2 vectors, and add them.
@@ -19,42 +19,42 @@ mod assignment {
     mod solution {
         use weblab::{solution_only, template_only};
 
-        template_only! {
-            /// TODO add fields
-            pub struct Vector3 {
-
-            }
-        }
-        solution_only! {
-            pub struct Vector3 {
-                pub x: f64,
-                pub y: f64,
-                pub z: f64,
-            }
+        pub struct Vector3 {
+            pub x: f64,
+            pub y: f64,
+            pub z: f64,
         }
 
         pub fn new(x: f64, y: f64, z: f64) -> Vector3 {
-            template_only! {
-                todo!()
-            }
-            solution_only! {
-                Vector3 {
-                    x, y, z
-                }
+            Vector3 {
+                x, y, z
             }
         }
 
         pub fn add(a: Vector3, b: Vector3) -> Vector3 {
-            template_only! {
-                todo!()
+            Vector3 {
+                x: a.x + b.x,
+                y: a.y + b.y,
+                z: a.z + b.z
             }
-            solution_only! {
-                Vector3 {
-                    x: a.x + b.x,
-                    y: a.y + b.y,
-                    z: a.z + b.z
-                }
-            }
+        }
+    }
+
+    #[weblab(solution_template)]
+    mod solution_template {
+        use weblab::{solution_only, template_only};
+
+        /// TODO add fields
+        pub struct Vector3 {
+
+        }
+
+        pub fn new(x: f64, y: f64, z: f64) -> Vector3 {
+            todo!()
+        }
+
+        pub fn add(a: Vector3, b: Vector3) -> Vector3 {
+            todo!()
         }
     }
 
