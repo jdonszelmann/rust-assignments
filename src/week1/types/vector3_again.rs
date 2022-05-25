@@ -31,8 +31,8 @@ mod assignment {
             }
         }
 
-        //TODO, add the new() method and the add() method
         template_only! {
+            //TODO, add the new() method and the add() method
             impl Vector3 {
 
             }
