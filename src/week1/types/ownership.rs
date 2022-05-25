@@ -28,7 +28,7 @@ inline_question_list! {
     )
 
     open_question!(
-        title: "solutions",
+        title: "solving the problem",
         question:
         /// Explain two strategies to fix the code from the previous question.
         answer:
