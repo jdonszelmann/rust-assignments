@@ -4,6 +4,8 @@ use weblab::weblab;
 /// In this assignment, you will learn to work with the Vec type.
 /// A Vec is a re-sizable array, which can store any type of value. For example, a `Vec<i64>` is a list of `i64` values.
 /// You are asked to implement all of the functions, the comment above each function explains what the function should do.
+///
+/// In this assignment, changing any of the signatures is not allowed.
 #[weblab(title = "All about vecs")]
 mod assignment {
     #[weblab(solution)]
@@ -11,7 +13,6 @@ mod assignment {
         use weblab::{solution_only, template_only};
 
         /// Insert the value `3` at the end of the given Vec.
-        /// Note that the vec is passed in by value instead of by reference.
         pub fn insert_three_v1(vec: Vec<i64>) -> Vec<i64> {
             template_only! { todo!() }
             solution_only! {
@@ -22,7 +23,6 @@ mod assignment {
         }
 
         /// Insert the value `3` at the end of the given Vec.
-        /// Note that the vec is passed in by mutable reference.
         pub fn insert_three_v2(vec: &mut Vec<i64>) {
             template_only! { todo!() }
             solution_only! {
@@ -31,7 +31,6 @@ mod assignment {
         }
 
         /// Return the length of the Vec
-        /// Note that the vec is passed in by normal reference now, since the vec is not mutated.
         pub fn length_v1(vec: &Vec<i64>) -> usize {
             template_only! { todo!() }
             solution_only! {

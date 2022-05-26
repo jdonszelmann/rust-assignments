@@ -12,31 +12,26 @@ mod assignment {
         use weblab::{solution_only, template_only};
 
         /// Return whether these number are equal.
-        /// Note that both numbers are passed by value
         pub fn is_equal_v1(a: i64, b: i64) -> bool {
             a == b
         }
 
         /// Return whether these number are equal.
-        /// Note that one number is passed by reference, the other is passed by value.
         pub fn is_equal_v2(a: &i64, b: i64) -> bool {
             *a == b
         }
 
         /// Return whether these number are equal.
-        /// Note that both numbers are passed by reference.
         pub fn is_equal_v3(a: &i64, b: &i64) -> bool {
             *a == *b // or just a == b
         }
 
         /// Add the value of y to x.
-        /// Note that x is passed by mutable reference, and y by reference.
         pub fn add_y_to_x(x: &mut i64, y: &i64) {
             *x += *y; // or just *x += y
         }
 
         /// Increment (add 1 to) x.
-        /// Note that x is passed by mutable reference.
         pub fn increment_v1(x: &mut i64) {
             *x += 1;
         }
