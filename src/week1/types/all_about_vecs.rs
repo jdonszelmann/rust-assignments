@@ -225,10 +225,7 @@ mod assignment {
             assert_eq!(add_1_to_all(vec![1, 2, 3, 4, 5]), vec![2, 3, 4, 5, 6]);
             assert_eq!(add_1_to_all(vec![]), Vec::<i64>::new());
             assert_eq!(add_1_to_all(vec![-88, 77, 23]), vec![-87, 78, 24]);
-            assert_eq!(
-                add_1_to_all(vec![1212190, 111110]),
-                vec![1212191, 111111]
-            );
+            assert_eq!(add_1_to_all(vec![1212190, 111110]), vec![1212191, 111111]);
         }
     }
 }
