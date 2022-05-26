@@ -4,7 +4,7 @@ use weblab::weblab;
 /// For each of the following assignments, you are asked to implement a function related to references.
 /// The comment above the function will explain what each function should do.
 ///
-/// In this assignment, changing any of the signatures is not allowed.
+/// You are not allowed to change any function signatures.
 #[weblab(title = "References")]
 mod assignment {
     #[weblab(solution)]
@@ -37,9 +37,9 @@ mod assignment {
         }
 
         /// Return x + 1.
-        /// This MUST be implemented by calling the `increment_v1` function above
+        /// This should be implemented by calling the `increment_v1` function above
         pub fn increment_v2(x: i64) -> i64 {
-            let mut x = x; // Changing `x` to `mut x` in the method signature is also allowed.
+            let mut x = x;
             increment_v1(&mut x);
             x
         }
@@ -81,7 +81,7 @@ mod assignment {
         }
 
         /// Return x + 1.
-        /// This MUST be implemented by calling the `increment` function above
+        /// This should be implemented by calling the `increment` function above
         pub fn increment_v2(x: i64) -> i64 {
             todo!()
         }

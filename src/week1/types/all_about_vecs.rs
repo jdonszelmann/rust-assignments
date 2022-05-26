@@ -3,9 +3,9 @@ use weblab::weblab;
 #[weblab(programming_assignment)]
 /// In this assignment, you will learn to work with the Vec type.
 /// A Vec is a re-sizable array, which can store any type of value. For example, a `Vec<i64>` is a list of `i64` values.
-/// You are asked to implement all of the functions, the comment above each function explains what the function should do.
+/// You should implement each function according to the description provided in the comment above it.
 ///
-/// In this assignment, changing any of the signatures is not allowed.
+/// You are not allowed to change any function signatures.
 #[weblab(title = "All about vecs")]
 mod assignment {
     #[weblab(solution)]
