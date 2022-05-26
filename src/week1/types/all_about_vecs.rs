@@ -11,7 +11,7 @@ mod assignment {
         use weblab::{solution_only, template_only};
 
         /// Insert the value `3` at the end of the given Vec.
-        /// Note that the vec is moved in.
+        /// Note that the vec is passed in by value instead of by reference.
         pub fn insert_three_v1(vec: Vec<i64>) -> Vec<i64> {
             template_only! { todo!() }
             solution_only! {
@@ -40,7 +40,7 @@ mod assignment {
         }
 
         /// Return the length of the Vec
-        /// Note that the return type is now `i64`, the integer type will need to be converted.
+        /// Note that the return type is now `i64`, don't change it.
         pub fn length_v2(vec: &Vec<i64>) -> i64 {
             template_only! { todo!() }
             solution_only! {

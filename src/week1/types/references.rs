@@ -4,6 +4,7 @@ use weblab::weblab;
 /// For each of the following assignments, you are asked to implement a function related to references.
 /// The comment above the function will explain what each function should do.
 ///
+/// In this assignment, changing any of the signatures is not allowed.
 #[weblab(title = "References")]
 mod assignment {
     #[weblab(solution)]

@@ -6,7 +6,7 @@ use weblab::weblab;
 ///
 /// - Push, which adds an element to the top of the stack.
 /// - Pop, which removes an element from the top of the stack. (So it removes the most recently pushed element)
-///   In case the vec is empty, return 0.
+///   In case no elements remain, return 0.
 /// - Len, which returns the amount of elements currently on the stack.
 ///
 /// In case the datastructure is not clear, you can find more information on the internet.
