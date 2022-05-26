@@ -105,11 +105,11 @@ mod assignment {
         }
 
         /// Add 1 to each value in the vec. Note that the vec is moved in.
-        /// This function MUST be implemented by calling the `add_1_to_all_v1` function above.
+        /// This function should be implemented by calling the `add_1_to_all_v1` function above.
         pub fn add_1_to_all_v2(vec: Vec<i64>) -> Vec<i64> {
             template_only! { todo!() }
             solution_only! {
-                let mut vec = vec; // Changing `vec` to `mut vec` in the method signature is also allowed.
+                let mut vec = vec;
                 add_1_to_all_v1(&mut vec);
                 vec
             }
