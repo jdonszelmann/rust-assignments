@@ -1,3 +1,4 @@
+mod integer_sizes;
 mod all_about_vecs;
 mod references;
 mod stack;
@@ -8,6 +9,7 @@ use weblab::weblab_folder;
 
 weblab_folder!(
     "types",
+    integer_sizes,
     vector3,
     vector3_again,
     references,
