@@ -1,7 +1,7 @@
 use weblab::inline_question_list;
 
 inline_question_list! {
-    title: "Is it sized?",
+    title: "Is it sized",
     question:
     /// Does this type have a size known at compile time? In other words, is this type `Sized`?
     mc_question! {
@@ -11,7 +11,7 @@ inline_question_list! {
         explanation:
         /// A single byte has a known size! It's always 8 bits.
         option "yes, it's `Sized`" correct,
-        option "no, it's not `Sized`"
+        option "no, it's not `Sized`",
     }
     mc_question! {
         title: "2",
@@ -20,7 +20,7 @@ inline_question_list! {
         explanation:
         /// Even if the size is larger, the size is still known by the compiler.
         option "yes, it's `Sized`" correct,
-        option "no, it's not `Sized`"
+        option "no, it's not `Sized`",
     }
     mc_question! {
         title: "3",
@@ -32,7 +32,7 @@ inline_question_list! {
         /// compiles the code for a specific machine, so the compiler knows this size for the specific machine
         /// that it compiles for.
         option "yes, it's `Sized`" correct,
-        option "no, it's not `Sized`"
+        option "no, it's not `Sized`",
     }
     mc_question! {
         title: "4",
