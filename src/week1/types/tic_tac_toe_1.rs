@@ -27,6 +27,7 @@ mod assignment {
             }
 
             //Check vertical
+            #[allow(clippy::needless_range_loop)]
             for x in 0..3 {
                 if board[x][0] && board[x][1] && board[x][2] {
                     return true;
@@ -41,7 +42,7 @@ mod assignment {
                 return true;
             }
 
-            return false;
+            false
         }
     }
 
@@ -129,6 +130,7 @@ mod assignment {
                 }
 
                 //Check vertical
+                #[allow(clippy::needless_range_loop)]
                 for x in 0..3 {
                     if board[x][0] && board[x][1] && board[x][2] {
                         return true;
@@ -143,7 +145,7 @@ mod assignment {
                     return true;
                 }
 
-                return false;
+                false
             }
 
             #[test]
