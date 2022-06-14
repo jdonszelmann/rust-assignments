@@ -10,3 +10,4 @@ weblab="0.2.27"
 quickcheck = "1.0.3"
 quickcheck_macros = "1.0.0"
 rand = { version = "0.8", features = ["std", "std_rng"] }
+itertools = "0.10.3"

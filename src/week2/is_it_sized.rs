@@ -114,4 +114,13 @@ inline_question_list! {
         option "yes, it's `Sized`" correct,
         option "no, it's not `Sized`",
     }
+    mc_question! {
+        title: "12",
+        question:
+        /// `char`
+        explanation:
+        /// A char is always 4 bytes.
+        option "yes, it's `Sized`" correct,
+        option "no, it's not `Sized`",
+    }
 }
