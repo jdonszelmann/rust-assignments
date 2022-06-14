@@ -58,34 +58,6 @@ mod assignment {
         use super::solution::*;
         use weblab::{solution_only, template_only};
 
-        pub fn check_board_ref(board: [[bool; 3]; 3]) -> bool {
-            //Consider board[x][y]
-
-            //Check horizontal
-            for y in 0..3 {
-                if board[0][y] && board[1][y] && board[2][y] {
-                    return true;
-                }
-            }
-
-            //Check vertical
-            for x in 0..3 {
-                if board[x][0] && board[x][1] && board[x][2] {
-                    return true;
-                }
-            }
-
-            //Check diagonal
-            if board[0][0] && board[1][1] && board[2][2] {
-                return true;
-            }
-            if board[2][0] && board[1][1] && board[0][2] {
-                return true;
-            }
-
-            return false;
-        }
-
         #[test]
         fn test_board() {
             // --x
@@ -145,6 +117,35 @@ mod assignment {
                 ];
                 assert_eq!(check_board(board), true);
             }
+
+            pub fn check_board_ref(board: [[bool; 3]; 3]) -> bool {
+                //Consider board[x][y]
+
+                //Check horizontal
+                for y in 0..3 {
+                    if board[0][y] && board[1][y] && board[2][y] {
+                        return true;
+                    }
+                }
+
+                //Check vertical
+                for x in 0..3 {
+                    if board[x][0] && board[x][1] && board[x][2] {
+                        return true;
+                    }
+                }
+
+                //Check diagonal
+                if board[0][0] && board[1][1] && board[2][2] {
+                    return true;
+                }
+                if board[2][0] && board[1][1] && board[0][2] {
+                    return true;
+                }
+
+                return false;
+            }
+
             #[test]
             fn test_all_boards() {
                 for i in 0..(2<<9) {
