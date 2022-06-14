@@ -71,11 +71,7 @@ mod assignment {
             // --x
             // -xx
             // x-x
-            let board = [
-                [' ', ' ', 'x'],
-                [' ', 'x', 'x'],
-                ['x', ' ', 'x'],
-            ];
+            let board = [[' ', ' ', 'x'], [' ', 'x', 'x'], ['x', ' ', 'x']];
             assert_eq!(check_board(board), true);
         }
 
