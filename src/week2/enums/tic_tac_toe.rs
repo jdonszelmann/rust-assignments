@@ -1,4 +1,5 @@
 use weblab::weblab;
+// TODO: rewrite to use enums
 
 #[weblab(programming_assignment)]
 /// Last assignment, you implemented a 1-player version of tic tac toe. In this assignment, you need to implement the full game.
