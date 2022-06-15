@@ -1,6 +1,6 @@
 use weblab::weblab_folder;
 
-mod ownership;
 mod enums;
+mod ownership;
 
 weblab_folder!("week 2", ownership, enums);
