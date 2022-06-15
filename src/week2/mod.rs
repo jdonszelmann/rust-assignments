@@ -1,5 +1,6 @@
 use weblab::weblab_folder;
 
+mod enums;
 mod is_it_sized;
 mod stack;
 mod vector3_again;
