@@ -26,6 +26,6 @@ inline_question_list! {
         question:
         /// Explain why it makes sense for this function to return `String`, rather than `&str`
         answer:
-        /// It is not possible to return `&str` without leaking memory, unless the returned `&str` would point into one of the input `&str`s or it would return a &'static str, neither of which is possible given the function specification.
+        /// It is not possible to return `&str` without leaking memory, unless the returned `&str` would point into one of the input `&str`s or it would return a `&'static str`, neither of which is possible given the function specification.
     )
 }

@@ -65,7 +65,7 @@ mod assignment {
                 if i % 11 == 0 {
                     subbuf += "Yum";
                 }
-                if subbuf.len() == 0 {
+                if subbuf.is_empty() {
                     subbuf += &i.to_string();
                 }
                 buffer.push(subbuf);
@@ -89,38 +89,14 @@ mod assignment {
 
         #[test]
         fn test_thirty() {
-            assert_eq!(fizzbuzzwoofyum(30), vec![
-                "1",
-                "2",
-                "Fizz",
-                "4",
-                "Buzz",
-                "Fizz",
-                "Woof",
-                "8",
-                "Fizz",
-                "Buzz",
-                "Yum",
-                "Fizz",
-                "13",
-                "Woof",
-                "FizzBuzz",
-                "16",
-                "17",
-                "Fizz",
-                "19",
-                "Buzz",
-                "FizzWoof",
-                "Yum",
-                "23",
-                "Fizz",
-                "Buzz",
-                "26",
-                "Fizz",
-                "Woof",
-                "29",
-                "FizzBuzz",
-            ]);
+            assert_eq!(
+                fizzbuzzwoofyum(30),
+                vec![
+                    "1", "2", "Fizz", "4", "Buzz", "Fizz", "Woof", "8", "Fizz", "Buzz", "Yum",
+                    "Fizz", "13", "Woof", "FizzBuzz", "16", "17", "Fizz", "19", "Buzz", "FizzWoof",
+                    "Yum", "23", "Fizz", "Buzz", "26", "Fizz", "Woof", "29", "FizzBuzz",
+                ]
+            );
         }
 
         solution_only! {
@@ -140,7 +116,7 @@ mod assignment {
                     if i % 11 == 0 {
                         subbuf += "Yum";
                     }
-                    if subbuf.len() == 0 {
+                    if subbuf.is_empty() {
                         subbuf += &i.to_string();
                     }
                     buffer.push(subbuf);
