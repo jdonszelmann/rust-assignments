@@ -2,8 +2,8 @@ mod all_about_vecs;
 mod integer_sizes;
 mod ownership;
 mod references;
-mod vector3;
 mod tic_tac_toe;
+mod vector3;
 
 use weblab::weblab_folder;
 
