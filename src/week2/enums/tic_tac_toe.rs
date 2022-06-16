@@ -17,7 +17,7 @@ mod assignment {
         pub enum Square {
             X,
             O,
-            Empty
+            Empty,
         }
 
         pub fn check_board(board: [[Square; 3]; 3]) -> bool {
@@ -64,7 +64,7 @@ mod assignment {
         pub enum Square {
             X,
             O,
-            Empty
+            Empty,
         }
 
         pub fn check_board(board: [[Square; 3]; 3]) -> bool {
@@ -82,7 +82,11 @@ mod assignment {
             // --x
             // -xx
             // x-x
-            let board = [[Square::Empty, Square::Empty, Square::X], [Square::Empty, Square::X, Square::X], [Square::X, Square::Empty, Square::X]];
+            let board = [
+                [Square::Empty, Square::Empty, Square::X],
+                [Square::Empty, Square::X, Square::X],
+                [Square::X, Square::Empty, Square::X],
+            ];
             assert_eq!(check_board(board), true);
         }
 
