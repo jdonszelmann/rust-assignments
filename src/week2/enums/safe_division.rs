@@ -2,7 +2,7 @@ use weblab::weblab;
 
 #[weblab(programming_assignment)]
 /// In rust, dividing by zero results in a panic.
-/// In this assignment, create a function `safe_division(i64, i64) -> Option<i64>` that returns an Option.
+/// In this assignment, create a function `safe_division(i64, i64) -> Option<i64>` that returns an Option instead.
 ///
 /// - In case the division is possible, return Some(result)
 /// - In case the division is not possible, return None
