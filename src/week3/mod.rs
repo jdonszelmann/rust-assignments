@@ -1,3 +1,5 @@
 use weblab::weblab_folder;
 
-weblab_folder!("week 3",);
+mod binary_search;
+
+weblab_folder!("week 3", binary_search);
