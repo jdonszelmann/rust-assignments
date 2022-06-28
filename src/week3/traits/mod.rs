@@ -1,5 +1,6 @@
 use weblab::weblab_folder;
 
 mod shapes;
+mod increment;
 
-weblab_folder!("traits", shapes);
+weblab_folder!("traits", shapes, increment);
