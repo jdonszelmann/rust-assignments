@@ -31,11 +31,11 @@ mod assignment {
     #[allow(unused_variables)]
     #[weblab(solution_template)]
     mod solution_template {
-        /// TODO
+        /// TODO Add variants
         pub enum LoginState {
         }
 
-        /// TODO
+        /// TODO Add variants
         pub enum IpAddress {
         }
     }
