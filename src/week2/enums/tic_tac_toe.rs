@@ -1,25 +1,28 @@
 use weblab::weblab;
-// TODO: rewrite to use enums
 
 #[weblab(programming_assignment)]
-/// Last assignment, you implemented a 1-player version of tic tac toe. In this assignment, you need to implement the full game.
-/// This board is now represented using `[[char; 3]; 3]`, which is a 3x3 array of characters.
+/// Last week, you implemented a 1-player version of tic tac toe. In this assignment, you need to implement the full game.
+/// This board is now represented using `[[Square; 3]; 3]`, which is a 3x3 array of Squares.
 ///
-/// - A cross is represented using the character 'x'
-/// - A nought is represented using the character 'o' (not 0!)
-/// - An empty square is represented using the character ' ' (space)
-/// - You can assume all characters in the array will be 'x', 'o' or ' '
+/// - A Square is defined as an enum that is either `X`, `O` or `Empty`.
 ///
 /// Implement a function that is given a board, and checks if any player has won.
 ///
-/// Hint: It may help to define a helper function `has_won(char, char, char) -> bool` that checks if any player has won in a certain row.
+/// Hint: It may help to define a helper function `has_won(Square, Square, Square) -> bool` that checks if any player has won in a certain row.
 #[weblab(title = "Tic Tac Toe - 2 Player")]
 mod assignment {
     #[weblab(solution)]
     mod solution {
-        pub fn check_board(board: [[char; 3]; 3]) -> bool {
-            fn has_won(a: char, b: char, c: char) -> bool {
-                if a == ' ' {
+        #[derive(Copy, Clone, Eq, PartialEq)]
+        pub enum Square {
+            X,
+            O,
+            Empty,
+        }
+
+        pub fn check_board(board: [[Square; 3]; 3]) -> bool {
+            fn has_won(a: Square, b: Square, c: Square) -> bool {
+                if a == Square::Empty {
                     return false;
                 }
                 a == b && b == c
@@ -57,7 +60,14 @@ mod assignment {
     #[allow(unused_variables)]
     #[weblab(solution_template)]
     mod solution_template {
-        pub fn check_board(board: [[char; 3]; 3]) -> bool {
+        #[derive(Copy, Clone, Eq, PartialEq)]
+        pub enum Square {
+            X,
+            O,
+            Empty,
+        }
+
+        pub fn check_board(board: [[Square; 3]; 3]) -> bool {
             todo!()
         }
     }
@@ -72,7 +82,11 @@ mod assignment {
             // --x
             // -xx
             // x-x
-            let board = [[' ', ' ', 'x'], [' ', 'x', 'x'], ['x', ' ', 'x']];
+            let board = [
+                [Square::Empty, Square::Empty, Square::X],
+                [Square::Empty, Square::X, Square::X],
+                [Square::X, Square::Empty, Square::X],
+            ];
             assert_eq!(check_board(board), true);
         }
 
@@ -80,80 +94,80 @@ mod assignment {
             #[test]
             fn test_empty_board() {
                 let board = [
-                    [' ', ' ', ' '],
-                    [' ', ' ', ' '],
-                    [' ', ' ', ' '],
+                    [Square::Empty, Square::Empty, Square::Empty],
+                    [Square::Empty, Square::Empty, Square::Empty],
+                    [Square::Empty, Square::Empty, Square::Empty],
                 ];
                 assert_eq!(check_board(board), false);
             }
             #[test]
             fn test_full_board() {
                 let board = [
-                    ['x', 'x', 'x'],
-                    ['x', 'x', 'x'],
-                    ['x', 'x', 'x'],
+                    [Square::X, Square::X, Square::X],
+                    [Square::X, Square::X, Square::X],
+                    [Square::X, Square::X, Square::X],
                 ];
                 assert_eq!(check_board(board), true);
             }
             #[test]
             fn test_horizontal_x() {
                 let board = [
-                    [' ', ' ', ' '],
-                    ['x', 'x', 'x'],
-                    [' ', ' ', ' '],
+                    [Square::Empty, Square::Empty, Square::Empty],
+                    [Square::X, Square::X, Square::X],
+                    [Square::Empty, Square::Empty, Square::Empty],
                 ];
                 assert_eq!(check_board(board), true);
             }
             #[test]
             fn test_vertical_x() {
                 let board = [
-                    [' ', 'x', ' '],
-                    [' ', 'x', ' '],
-                    [' ', 'x', ' '],
+                    [Square::Empty, Square::X, Square::Empty],
+                    [Square::Empty, Square::X, Square::Empty],
+                    [Square::Empty, Square::X, Square::Empty],
                 ];
                 assert_eq!(check_board(board), true);
             }
             #[test]
             fn test_diagonal_x() {
                 let board = [
-                    [' ', ' ', 'x'],
-                    [' ', 'x', ' '],
-                    ['x', ' ', ' '],
+                    [Square::Empty, Square::Empty, Square::X],
+                    [Square::Empty, Square::X, Square::Empty],
+                    [Square::X, Square::Empty, Square::Empty],
                 ];
                 assert_eq!(check_board(board), true);
             }
             #[test]
             fn test_horizontal_o() {
                 let board = [
-                    [' ', ' ', ' '],
-                    ['o', 'o', 'o'],
-                    [' ', ' ', ' '],
+                    [Square::Empty, Square::Empty, Square::Empty],
+                    [Square::O, Square::O, Square::O],
+                    [Square::Empty, Square::Empty, Square::Empty],
                 ];
                 assert_eq!(check_board(board), true);
             }
             #[test]
             fn test_vertical_o() {
                 let board = [
-                    [' ', 'o', ' '],
-                    [' ', 'o', ' '],
-                    [' ', 'o', ' '],
+                    [Square::Empty, Square::O, Square::Empty],
+                    [Square::Empty, Square::O, Square::Empty],
+                    [Square::Empty, Square::O, Square::Empty],
                 ];
                 assert_eq!(check_board(board), true);
             }
             #[test]
             fn test_diagonal_o() {
                 let board = [
-                    [' ', ' ', 'o'],
-                    [' ', 'o', ' '],
-                    ['o', ' ', ' '],
+                    [Square::Empty, Square::Empty, Square::O],
+                    [Square::Empty, Square::O, Square::Empty],
+                    [Square::O, Square::Empty, Square::Empty],
                 ];
                 assert_eq!(check_board(board), true);
             }
 
 
-            pub fn check_board_ref(board: [[char; 3]; 3]) -> bool {
-                fn has_won(a: char, b: char, c: char) -> bool {
-                    if a == ' ' {
+            pub fn check_board_ref(board: [[Square; 3]; 3]) -> bool {
+                fn has_won(a: Square, b: Square, c: Square) -> bool {
+                    if a == Square::Empty {
                         return false;
                     }
                     a == b && b == c
@@ -191,7 +205,7 @@ mod assignment {
             fn test_all_boards() {
                 use itertools::*;
 
-                let x = [' ', 'x', 'o'];
+                let x = [Square::Empty, Square::X, Square::O];
                 for (a,b,c,d,e,f,g,h,i) in iproduct!(x,x,x,x,x,x,x,x,x) {
                     let board = [
                         [a,b,c],
