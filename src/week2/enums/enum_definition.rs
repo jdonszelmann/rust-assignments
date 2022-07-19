@@ -19,7 +19,7 @@ mod assignment {
     mod solution {
         pub enum LoginState {
             LoggedOut,
-            LoggedIn(u64)
+            LoggedIn(u64),
         }
 
         pub enum IpAddress {
@@ -32,12 +32,10 @@ mod assignment {
     #[weblab(solution_template)]
     mod solution_template {
         /// TODO Add variants
-        pub enum LoginState {
-        }
+        pub enum LoginState {}
 
         /// TODO Add variants
-        pub enum IpAddress {
-        }
+        pub enum IpAddress {}
     }
 
     #[weblab(test)]

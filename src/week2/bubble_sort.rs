@@ -26,6 +26,7 @@ mod assignment {
 
     #[allow(unused_variables)]
     #[weblab(solution_template)]
+    #[allow(clippy::ptr_arg)]
     mod solution_template {
         pub fn bubble_sort(list: &mut Vec<i64>) {
             todo!()
