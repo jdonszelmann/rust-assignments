@@ -23,6 +23,7 @@ mod assignment {
             //Or just a.checked_div(b)
         }
 
+        /// Do not change the definition of Vector3!
         #[derive(Eq, PartialEq)]
         pub struct Vector3 {
             pub x: i64,
@@ -46,6 +47,7 @@ mod assignment {
             todo!()
         }
 
+        /// Do not change the definition of Vector3!
         #[derive(Eq, PartialEq)]
         pub struct Vector3 {
             pub x: i64,
