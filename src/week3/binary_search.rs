@@ -20,7 +20,7 @@ mod assignment {
         use std::cmp::Ordering;
 
         pub fn binary_search(list: &Vec<i64>, value: i64) -> Option<i64> {
-            let mut min = 0 as i64;
+            let mut min = 0i64;
             let mut max = list.len() as i64 - 1;
 
             while min <= max {
@@ -43,6 +43,7 @@ mod assignment {
 
     #[allow(unused_variables)]
     #[weblab(solution_template)]
+    #[allow(clippy::ptr_arg)]
     mod solution_template {
         pub fn binary_search(list: &Vec<i64>) -> Option<usize> {
             todo!()
