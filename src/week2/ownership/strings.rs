@@ -32,7 +32,7 @@ mod assignment {
             // The solution without iterators
             let mut rest_a = a;
             let mut rest_b = b;
-            while rest_a.len() > 0 && rest_b.len() > 0 {
+            while !rest_a.is_empty() && !rest_b.is_empty() {
                 let ca = rest_a.chars().next().unwrap();
                 let cb = rest_b.chars().next().unwrap();
 
