@@ -19,13 +19,13 @@ inline_question_list! {
         answer:
         /// Some good reasons:
         /// - The function does not need ownership of `a` and `b`, since it only reads them.
-        /// - A String can be converted to a `&str` efficiently, whereas converting `&str` to `String` requires cloning. So choosing `&str` as input type makes our function the most useful.
+        /// - A String can be converted to a `&str` by slicing it which is fast, whereas converting `&str` to `String` requires cloning. So choosing `&str` as input type makes our function work on the largest amount of types without cloning.
     )
     open_question!(
         title: "Why return String",
         question:
         /// Explain why it makes sense for this function to return `String`, rather than `&str`
         answer:
-        /// It is not possible to return `&str` without leaking memory, unless the returned `&str` would point into one of the input `&str`s or it would return a `&'static str`, neither of which is possible given the function specification.
+        /// The function constructs a new String. It needs to pass ownership of that String to the calling function, so it returns `String`.
     )
 }
