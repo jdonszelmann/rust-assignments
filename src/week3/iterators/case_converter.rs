@@ -40,7 +40,7 @@ mod assignment {
             /// Found a character that is uppercase (rule 2)
             Uppercase,
             /// Found an underscore where it is not allowed (rule 3 or 4)
-            IncorrectUnderscore
+            IncorrectUnderscore,
         }
 
         pub fn is_snake_case(input: &str) -> Option<SnakeCaseError> {
@@ -50,15 +50,9 @@ mod assignment {
                     '_' if allow_underscore => {
                         allow_underscore = false;
                     }
-                    '_' if !allow_underscore => {
-                        return Some(SnakeCaseError::IncorrectUnderscore)
-                    }
-                    c if !c.is_alphanumeric() => {
-                        return Some(SnakeCaseError::NotAlphanumeric)
-                    }
-                    c if c.is_uppercase() => {
-                        return Some(SnakeCaseError::Uppercase)
-                    }
+                    '_' if !allow_underscore => return Some(SnakeCaseError::IncorrectUnderscore),
+                    c if !c.is_alphanumeric() => return Some(SnakeCaseError::NotAlphanumeric),
+                    c if c.is_uppercase() => return Some(SnakeCaseError::Uppercase),
                     _ => {
                         allow_underscore = true;
                     }
@@ -87,9 +81,7 @@ mod assignment {
                         next_uppercase = false;
                         c.to_uppercase().for_each(|c| buffer.push(c));
                     }
-                    c => {
-                        buffer.push(c)
-                    }
+                    c => buffer.push(c),
                 }
             }
 
@@ -108,7 +100,7 @@ mod assignment {
             /// Found a character that is uppercase (rule 2)
             Uppercase,
             /// Found an underscore where it is not allowed (rule 3 or 4)
-            IncorrectUnderscore
+            IncorrectUnderscore,
         }
 
         pub fn is_snake_case(input: &str) -> bool {
@@ -122,8 +114,8 @@ mod assignment {
 
     #[weblab(test)]
     mod test {
-        use weblab::solution_only;
         use super::solution::*;
+        use weblab::solution_only;
 
         #[test]
         pub fn examples_is_snakecase() {
@@ -132,16 +124,30 @@ mod assignment {
             assert_eq!(is_snake_case("is_3"), None);
 
             assert_eq!(is_snake_case("is_%"), Some(SnakeCaseError::NotAlphanumeric));
-            assert_eq!(is_snake_case("is_Snake_case"), Some(SnakeCaseError::Uppercase));
-            assert_eq!(is_snake_case("is__snake_case"), Some(SnakeCaseError::IncorrectUnderscore));
-            assert_eq!(is_snake_case("_is_snake_case"), Some(SnakeCaseError::IncorrectUnderscore));
-
+            assert_eq!(
+                is_snake_case("is_Snake_case"),
+                Some(SnakeCaseError::Uppercase)
+            );
+            assert_eq!(
+                is_snake_case("is__snake_case"),
+                Some(SnakeCaseError::IncorrectUnderscore)
+            );
+            assert_eq!(
+                is_snake_case("_is_snake_case"),
+                Some(SnakeCaseError::IncorrectUnderscore)
+            );
         }
 
         #[test]
         pub fn examples_to_camel_case() {
-            assert_eq!(to_camel_case("is_snake_case"), Ok("isSnakeCase".to_string()));
-            assert_eq!(to_camel_case("another_example"), Ok("anotherExample".to_string()));
+            assert_eq!(
+                to_camel_case("is_snake_case"),
+                Ok("isSnakeCase".to_string())
+            );
+            assert_eq!(
+                to_camel_case("another_example"),
+                Ok("anotherExample".to_string())
+            );
             assert_eq!(to_camel_case("not_Legal"), Err(SnakeCaseError::Uppercase));
         }
 

@@ -26,7 +26,11 @@ mod assignment {
         ///
         /// Example 2: `[0,1,42,3,42,5,6,7,8,9]` -> None
         pub fn find_third_42(vec: Vec<i64>) -> Option<usize> {
-            vec.iter().enumerate().filter(|v| *v.1 == 42).map(|v| v.0).nth(2)
+            vec.iter()
+                .enumerate()
+                .filter(|v| *v.1 == 42)
+                .map(|v| v.0)
+                .nth(2)
         }
     }
 
@@ -56,8 +60,8 @@ mod assignment {
 
     #[weblab(test)]
     mod test {
-        use weblab::solution_only;
         use super::solution::*;
+        use weblab::solution_only;
 
         solution_only! {
             #[test]

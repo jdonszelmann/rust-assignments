@@ -42,9 +42,7 @@ mod assignment {
     #[weblab(solution_template)]
     mod solution_template {
         /// TODO
-        pub trait Increment {
-
-        }
+        pub trait Increment {}
     }
 
     #[weblab(test)]

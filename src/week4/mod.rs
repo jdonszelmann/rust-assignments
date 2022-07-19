@@ -1,5 +1,5 @@
-mod cpu;
 mod bcd;
+mod cpu;
 
 use weblab::weblab_folder;
 

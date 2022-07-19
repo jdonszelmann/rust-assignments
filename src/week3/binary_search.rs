@@ -29,9 +29,7 @@ mod assignment {
                     Ordering::Less => {
                         min = middle + 1;
                     }
-                    Ordering::Equal => {
-                        return Some(middle)
-                    }
+                    Ordering::Equal => return Some(middle),
                     Ordering::Greater => {
                         max = middle - 1;
                     }

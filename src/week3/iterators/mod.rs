@@ -1,5 +1,5 @@
-mod exercises;
 mod case_converter;
+mod exercises;
 
 use weblab::weblab_folder;
 

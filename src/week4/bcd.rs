@@ -62,7 +62,6 @@ mod assignment {
                 bcd |= nibble << i;
                 //Update correct place
                 i += 4;
-
             }
             bcd
         }

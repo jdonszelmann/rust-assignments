@@ -7,8 +7,8 @@ use weblab::weblab;
 mod assignment {
     #[weblab(solution)]
     mod solution {
-        use weblab::solution_only;
         use std::f64::consts::PI;
+        use weblab::solution_only;
 
         pub trait Shape {
             fn area(&self) -> f64;

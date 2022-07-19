@@ -130,7 +130,7 @@ mod assignment {
                 0x0001_00_00_00000005, // If register 0 is 0, end the program
                 0x0001_01_00_00000001, // If register 1 is 0, repeat the loop
             ];
-            let expected_output = vec![5,4,3,2,1];
+            let expected_output = vec![5, 4, 3, 2, 1];
             assert_eq!(emulate(&instructions), expected_output);
         }
 
