@@ -12,11 +12,6 @@ use weblab::weblab;
 mod assignment {
     #[weblab(solution)]
     mod solution {
-        /// Return a `&str` containing the content "Hello World"
-        pub fn make_a_str() -> &'static str {
-            "Hello World"
-        }
-
         /// Return a `String` containing the content "Hello World"
         pub fn make_a_string() -> String {
             String::from("Hello World")
@@ -33,10 +28,27 @@ mod assignment {
         /// For example: concat("abc", "def") == "adbecf"
         pub fn interleave(a: &str, b: &str) -> String {
             let mut buffer = String::with_capacity(a.len() + b.len());
-            for (ca, cb) in a.chars().zip(b.chars()) {
+
+            // The solution without iterators
+            let mut rest_a = a;
+            let mut rest_b = b;
+            while rest_a.len() > 0 && rest_b.len() > 0 {
+                let ca = rest_a.chars().next().unwrap();
+                let cb = rest_b.chars().next().unwrap();
+
                 buffer.push(ca);
                 buffer.push(cb);
+
+                rest_a = &rest_a[ca.len_utf8()..];
+                rest_b = &rest_b[cb.len_utf8()..];
             }
+
+            // The solution with iterators
+            // for (ca, cb) in a.chars().zip(b.chars()) {
+            //     buffer.push(ca);
+            //     buffer.push(cb);
+            // }
+
             buffer
         }
     }
@@ -80,6 +92,11 @@ mod assignment {
         }
 
         solution_only! {
+            #[test]
+            fn test_helloworld() {
+                assert_eq!(make_a_string(), "Hello World")
+            }
+
             #[test]
             fn concat_empty() {
                 assert_eq!(concat("", ""), "");
