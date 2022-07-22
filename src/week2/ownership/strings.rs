@@ -29,18 +29,14 @@ mod assignment {
         pub fn interleave(a: &str, b: &str) -> String {
             let mut buffer = String::with_capacity(a.len() + b.len());
 
-            // The solution without iterators
-            let mut rest_a = a;
-            let mut rest_b = b;
-            while !rest_a.is_empty() && !rest_b.is_empty() {
-                let ca = rest_a.chars().next().unwrap();
-                let cb = rest_b.chars().next().unwrap();
+            // The solution without iterator combinators
+            let mut a = a.chars();
+            let mut b = b.chars();
 
+            while let Some(ca) = a.next() {
+                let cb = b.next().unwrap();
                 buffer.push(ca);
                 buffer.push(cb);
-
-                rest_a = &rest_a[ca.len_utf8()..];
-                rest_b = &rest_b[cb.len_utf8()..];
             }
 
             // The solution with iterators
@@ -116,6 +112,12 @@ mod assignment {
             }
 
             #[test]
+            fn concat_unicode() {
+                assert_eq!(interleave("κόσμε", "apple"), "κόσμεapple")
+                assert_eq!(interleave("κόasσμε", "apple"), "κόasσμεapple")
+            }
+
+            #[test]
             fn interleave_empty() {
                 assert_eq!(interleave("", ""), "");
             }
@@ -131,6 +133,11 @@ mod assignment {
             fn interleave_more() {
                 assert_eq!(interleave("[]()", "<>{}"), "[<]>({)}");
                 assert_eq!(interleave("1029", "53u1"), "15032u91");
+            }
+
+            #[test]
+            fn interleave_unicode() {
+                assert_eq!(interleave("κόσμε", "apple"), "κaόpσpμlεe")
             }
         }
     }
