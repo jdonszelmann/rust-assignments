@@ -30,10 +30,10 @@ mod assignment {
             let mut buffer = String::with_capacity(a.len() + b.len());
 
             // The solution without iterator combinators
-            let mut a = a.chars();
+            let a = a.chars();
             let mut b = b.chars();
 
-            while let Some(ca) = a.next() {
+            for ca in a {
                 let cb = b.next().unwrap();
                 buffer.push(ca);
                 buffer.push(cb);
@@ -113,8 +113,8 @@ mod assignment {
 
             #[test]
             fn concat_unicode() {
-                assert_eq!(interleave("κόσμε", "apple"), "κόσμεapple")
-                assert_eq!(interleave("κόasσμε", "apple"), "κόasσμεapple")
+                assert_eq!(concat("κόσμε", "apple"), "κόσμεapple");
+                assert_eq!(concat("κόasσμε", "apple"), "κόasσμεapple");
             }
 
             #[test]
