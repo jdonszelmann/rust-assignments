@@ -8,6 +8,9 @@ use weblab::weblab;
 /// 2. After doing this for one iteration, the largest element in the list will have moved to the end.
 /// 3. Repeat the process for the sublist that remains unsorted (so, without the last element)
 ///
+/// The wikipedia page contains a more in-depth explanation together with an animated example.
+/// https://en.wikipedia.org/wiki/Bubble_sort
+///
 /// Do not just call the stdlib `.sort()` function.
 #[weblab(title = "Bubble Sort")]
 mod assignment {
