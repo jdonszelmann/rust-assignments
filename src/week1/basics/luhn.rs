@@ -41,7 +41,7 @@ use weblab::weblab;
 ///
 /// # NOTE
 /// in `luhn_final`, do note that the modulus operator (`%`) works differently on negative numbers than you might expect.
-/// Unfortunatly, the modulus operator is very hard to define properly.
+/// Unfortunately, the modulus operator is very hard to define properly.
 /// Search for `rem_euclid`, which has more useful mathematical properties, especially on negative numbers.
 #[weblab(title = "Luhn Algorithm")]
 mod assignment {
