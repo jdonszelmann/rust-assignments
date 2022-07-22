@@ -3,21 +3,26 @@ use weblab::weblab;
 #[weblab(programming_assignment)]
 /// Different programming languages have different standards for the formatting and capitalization of function names, where function names consist of multiple words.
 ///
-/// Rust uses "snake case", where all words in the function name are seperated by underscores, and no capital letters are used.
+/// Rust's style usually prefers "snake case" names, where all words in the function name are seperated by underscores, and no capital letters are used.
 /// For example, `is_snake_case` and `to_camel_case` are valid function names.
 /// The rules for snake case are:
 ///
-/// 1. All characters in the words are `alphanumeric` (part of an alphabet or number system). Use the char::is_alphanumeric function. For example, `to_%` is not allowed as a function name.
-/// 2. All characters in the words are not uppercase. Some characters such as `3` are neither uppercase nor lowercase, these characters are allowed. Use the char::is_uppercase function. For example, `is_Snake_case` is not allowed as a function name.
-/// 3. Words cannot be empty, that is, a function name cannot contain two consecutive underscores. For example, `is__snake_case` is not allowed as a function name.
-/// 4. A function name cannot start or end with an underscore. For example, `_is_snake_case` is not allowed as a function name.
+/// 1. All characters in the words are `alphanumeric` (part of an alphabet or number system).
+///     In this convention, the name `to_%` is not valid since it contains a `%` which is not alphanumeric.
+///     To check this you can use `is_alphanumeric` function on characters.
+/// 2. None of the characters are uppercase.
+///     Some characters such as `3` are neither uppercase nor lowercase, these characters are allowed.
+///     In this convention, the name `is_Snake_case` is not valid since it contains a `S` which is uppercase.
+///     To check this you can use `is_uppercase` function on characters.
+/// 3. Words cannot be empty, that is, a function name cannot contain two consecutive underscores. For example, `is__snake_case` is not valid under the convention.
+/// 4. A function name cannot start or end with an underscore. For example, `_is_snake_case` is not valid under the convention.
 ///
 /// Implement a function `is_snake_case` that checks if a string satisfies the rules for snake case. If the input satiesfies all rules, return None. Otherwise, return what rule is the **first** one that is broken.
 ///
 /// ---
 ///
 /// Java uses a different convention called "lower camel case", where all words are concatenated without underscores, and all words except the first start with a capital letter.
-/// For example, `isSnakeCase` and `toCamelCase` are valid function names.
+/// For example, `isSnakeCase` and `toCamelCase` are function names that follow the convention.
 ///
 /// Given a name that is in snake case, convert it to camel case.
 /// If the input is not valid snake case, return an error. Use the `is_snake_case` function you wrote to achieve this.
@@ -31,8 +36,6 @@ use weblab::weblab;
 mod assignment {
     #[weblab(solution)]
     mod solution {
-        use itertools::Itertools;
-
         #[derive(Eq, PartialEq, Debug)]
         pub enum SnakeCaseError {
             /// Found a character that is not alphanumeric (rule 1)
@@ -43,32 +46,30 @@ mod assignment {
             IncorrectUnderscore,
         }
 
-        pub fn is_snake_case(input: &str) -> Option<SnakeCaseError> {
+        pub fn is_snake_case(input: &str) -> Result<(), SnakeCaseError> {
             let mut allow_underscore = false;
             for char in input.chars() {
                 match char {
                     '_' if allow_underscore => {
                         allow_underscore = false;
                     }
-                    '_' if !allow_underscore => return Some(SnakeCaseError::IncorrectUnderscore),
-                    c if !c.is_alphanumeric() => return Some(SnakeCaseError::NotAlphanumeric),
-                    c if c.is_uppercase() => return Some(SnakeCaseError::Uppercase),
+                    '_' if !allow_underscore => return Err(SnakeCaseError::IncorrectUnderscore),
+                    c if !c.is_alphanumeric() => return Err(SnakeCaseError::NotAlphanumeric),
+                    c if c.is_uppercase() => return Err(SnakeCaseError::Uppercase),
                     _ => {
                         allow_underscore = true;
                     }
                 }
             }
             if allow_underscore {
-                None
+                Ok(())
             } else {
-                Some(SnakeCaseError::IncorrectUnderscore)
+                Err(SnakeCaseError::IncorrectUnderscore)
             }
         }
 
         pub fn to_camel_case(input: &str) -> Result<String, SnakeCaseError> {
-            if let Some(err) = is_snake_case(input) {
-                return Err(err);
-            }
+            is_snake_case(input)?;
 
             let mut buffer = String::with_capacity(input.len());
             let mut next_uppercase = false;
@@ -103,7 +104,7 @@ mod assignment {
             IncorrectUnderscore,
         }
 
-        pub fn is_snake_case(input: &str) -> bool {
+        pub fn is_snake_case(input: &str) -> Result<(), SnakeCaseError> {
             todo!()
         }
 
@@ -119,22 +120,22 @@ mod assignment {
 
         #[test]
         pub fn examples_is_snakecase() {
-            assert_eq!(is_snake_case("is_snake_case"), None);
-            assert_eq!(is_snake_case("to_camel_case"), None);
-            assert_eq!(is_snake_case("is_3"), None);
+            assert_eq!(is_snake_case("is_snake_case"), Ok(()));
+            assert_eq!(is_snake_case("to_camel_case"), Ok(()));
+            assert_eq!(is_snake_case("is_3"), Ok(()));
 
-            assert_eq!(is_snake_case("is_%"), Some(SnakeCaseError::NotAlphanumeric));
+            assert_eq!(is_snake_case("is_%"), Err(SnakeCaseError::NotAlphanumeric));
             assert_eq!(
                 is_snake_case("is_Snake_case"),
-                Some(SnakeCaseError::Uppercase)
+                Err(SnakeCaseError::Uppercase)
             );
             assert_eq!(
                 is_snake_case("is__snake_case"),
-                Some(SnakeCaseError::IncorrectUnderscore)
+                Err(SnakeCaseError::IncorrectUnderscore)
             );
             assert_eq!(
                 is_snake_case("_is_snake_case"),
-                Some(SnakeCaseError::IncorrectUnderscore)
+                Err(SnakeCaseError::IncorrectUnderscore)
             );
         }
 
@@ -154,20 +155,20 @@ mod assignment {
         solution_only! {
             #[test]
             pub fn test_is_snakecase() {
-                assert_eq!(is_snake_case("is_snake_case"), None);
-                assert_eq!(is_snake_case("is_snake"), None);
-                assert_eq!(is_snake_case("is"), None);
-                assert_eq!(is_snake_case("i"), None);
-                assert_eq!(is_snake_case("i2s_snak3e_c1ase"), None);
+                assert_eq!(is_snake_case("is_snake_case"), Ok(()));
+                assert_eq!(is_snake_case("is_snake"), Ok(()));
+                assert_eq!(is_snake_case("is"), Ok(()));
+                assert_eq!(is_snake_case("i"), Ok(()));
+                assert_eq!(is_snake_case("i2s_snak3e_c1ase"), Ok(()));
 
-                assert_eq!(is_snake_case("I"), Some(SnakeCaseError::Uppercase));
-                assert_eq!(is_snake_case("Is"), Some(SnakeCaseError::Uppercase));
-                assert_eq!(is_snake_case("Si"), Some(SnakeCaseError::Uppercase));
-                assert_eq!(is_snake_case("is_snake_case_"), Some(SnakeCaseError::IncorrectUnderscore));
-                assert_eq!(is_snake_case("is_snake_case__"), Some(SnakeCaseError::IncorrectUnderscore));
-                assert_eq!(is_snake_case("is_sna__ke_case"), Some(SnakeCaseError::IncorrectUnderscore));
-                assert_eq!(is_snake_case("&"), Some(SnakeCaseError::NotAlphanumeric));
-                assert_eq!(is_snake_case("hey*hey"), Some(SnakeCaseError::NotAlphanumeric));
+                assert_eq!(is_snake_case("I"), Err(SnakeCaseError::Uppercase));
+                assert_eq!(is_snake_case("Is"), Err(SnakeCaseError::Uppercase));
+                assert_eq!(is_snake_case("Si"), Err(SnakeCaseError::Uppercase));
+                assert_eq!(is_snake_case("is_snake_case_"), Err(SnakeCaseError::IncorrectUnderscore));
+                assert_eq!(is_snake_case("is_snake_case__"), Err(SnakeCaseError::IncorrectUnderscore));
+                assert_eq!(is_snake_case("is_sna__ke_case"), Err(SnakeCaseError::IncorrectUnderscore));
+                assert_eq!(is_snake_case("&"), Err(SnakeCaseError::NotAlphanumeric));
+                assert_eq!(is_snake_case("hey*hey"), Err(SnakeCaseError::NotAlphanumeric));
             }
 
             #[test]
