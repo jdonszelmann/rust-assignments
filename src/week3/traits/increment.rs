@@ -66,6 +66,15 @@ mod assignment {
 
         solution_only! {
             #[test]
+            fn test_no_cheating() {
+                fn is_increment(_: impl Increment) {
+
+                }
+                is_increment(4u64);
+                is_increment(5i64);
+            }
+
+            #[test]
             fn test_u64_decr() {
                 let mut x = 17i64;
                 x.decrement();
@@ -77,15 +86,6 @@ mod assignment {
                 let mut x = 17i64;
                 x.decrement();
                 assert_eq!(x, 16);
-            }
-
-            #[test]
-            fn test_no_cheating() {
-                fn is_increment(_: impl Increment) {
-
-                }
-                is_increment(4u64);
-                is_increment(5i64);
             }
         }
     }
