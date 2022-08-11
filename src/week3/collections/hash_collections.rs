@@ -15,8 +15,8 @@ use weblab::weblab;
 mod assignment {
     #[weblab(solution)]
     mod solution {
-        use std::collections::{HashMap, HashSet};
         use itertools::Itertools;
+        use std::collections::{HashMap, HashSet};
         use weblab::{solution_only, template_only};
 
         /// Return whether there are any duplicate elements in this vec.

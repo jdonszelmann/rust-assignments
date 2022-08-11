@@ -24,7 +24,6 @@ use weblab::weblab;
 ///   Using the Display implementation of u32 may be useful.
 /// - Debug, this may do anything you like. Use it to provide a useful debug representation for yourself.
 /// - Default, which provides a default value. The default value should be +0.
-/// - Hash, which provides a way to Hash a sign-magnitude number. This is necessary to use them as the key in HashMaps and HashSets.
 ///
 /// Note that some of these traits can be implemented by deriving the implementation.
 /// This can save a lot of work in cases where the implementation is trivial.
@@ -35,12 +34,12 @@ mod assignment {
     mod solution {
         use std::cmp::Ordering;
         use std::fmt::{Display, Formatter};
-        use std::ops::Add;
         use std::hash::Hash;
+        use std::ops::Add;
         use weblab::solution_only;
 
         solution_only! {
-            #[derive(Clone, Copy, Default, Hash, Debug)]
+            #[derive(Clone, Copy, Default, Debug)]
         }
         pub struct SignMagnitude(pub u32);
 
@@ -120,15 +119,13 @@ mod assignment {
                 }
             }
         }
-
-
     }
 
     #[weblab(test)]
     mod test {
+        use super::solution::*;
         use std::cmp::Ordering;
         use std::collections::HashSet;
-        use super::solution::*;
         use std::hash::Hash;
         use weblab::{solution_only, template_only};
 
@@ -178,11 +175,6 @@ mod assignment {
             #[test]
             fn test_clone() {
                 assert_eq!(SignMagnitude(1980).clone(), SignMagnitude(1980));
-            }
-
-            #[test]
-            fn test_hash() {
-                let _ : HashSet<SignMagnitude> = HashSet::new();
             }
         }
     }
