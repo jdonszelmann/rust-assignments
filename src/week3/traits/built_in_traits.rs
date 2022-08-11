@@ -10,7 +10,7 @@ use weblab::weblab;
 ///
 /// - PartialEq and Eq, which provide the `eq` method to check if two fixed point numbers are equal.
 ///   The Eq trait signifies that the [equality laws](https://doc.rust-lang.org/std/cmp/trait.Eq.html) are satisfied.
-/// - PartialCmp and Cmp, which provide the `cmp` method to check if two fixed point numbers are equal
+/// - PartialOrd and Ord, which provide the `cmp` method to compare two fixed point numbers.
 /// - Clone, which provides a way to clone a fixed point number
 /// - Copy, which means this type has Copy behaviour
 /// - Add, which provides the 'add' method to add two fixed point numbers (you do NOT have to implement Sub, Mul, Div, Neg, and Rem).
@@ -26,17 +26,26 @@ use weblab::weblab;
 mod assignment {
     #[weblab(solution)]
     mod solution {
+        use std::cmp::Ordering;
+        use std::ops::Add;
         use weblab::solution_only;
 
-        #[derive(PartialEq, Eq)]
+        #[derive(PartialEq, Eq, Clone, Copy, Default, Hash)]
         pub struct FixedPoint {
-            whole: i32,
             fractional: u32,
+            whole: i32,
         }
 
+        impl Add for FixedPoint {
+            type Output = Self;
 
-        solution_only! {
-
+            fn add(self, rhs: Self) -> Self::Output {
+                let (fractional, top_bit) = self.fractional.overflowing_add(rhs.fractional);
+                FixedPoint {
+                    fractional,
+                    whole: self.whole + rhs.whole + top_bit as i32,
+                }
+            }
         }
     }
 
@@ -46,6 +55,11 @@ mod assignment {
         use weblab::{solution_only, template_only};
 
         template_only! {
+
+        }
+
+        #[test]
+        fn x(){
 
         }
 

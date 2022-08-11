@@ -10,7 +10,7 @@ use weblab::weblab;
 /// HashMaps have a `get` method to obtain the value associated with a specific key, `insert` to add a new (Key, Value) pair and `remove` to remove a key and its associated value.
 /// The methods have the same speed as a HashSet, O(1).
 ///
-/// Given are a list of functions to implement. You have to implement these functions efficiently, using a `HashSet` or `HashMap`.
+/// Given are 3 functions to implement. You have to implement these functions efficiently, using a `HashSet` or `HashMap`.
 #[weblab(title = "Hash Collections")]
 mod assignment {
     #[weblab(solution)]
