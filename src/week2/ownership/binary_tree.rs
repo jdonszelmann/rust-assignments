@@ -41,10 +41,10 @@ mod assignment {
             /// note that the height of a node is 1 more than the largest of the two child heights
             pub fn height(&self) -> usize {
                 match self {
-                    BinaryTree::Node { larger, smaller, .. } => {
-                        1 + larger.height().max(smaller.height())
-                    }
-                    BinaryTree::Leaf => 0
+                    BinaryTree::Node {
+                        larger, smaller, ..
+                    } => 1 + larger.height().max(smaller.height()),
+                    BinaryTree::Leaf => 0,
                 }
             }
 
@@ -129,8 +129,8 @@ mod assignment {
 
     #[weblab(test)]
     mod test {
-        use itertools::Itertools;
         use super::solution::*;
+        use itertools::Itertools;
         use weblab::{solution_only, template_only};
 
         solution_only! {

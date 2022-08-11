@@ -39,33 +39,34 @@ mod assignment {
             type IntoIter = TreeIter<T>;
 
             fn into_iter(self) -> Self::IntoIter {
-                TreeIter {
-                    todo: vec![self],
-                }
+                TreeIter { todo: vec![self] }
             }
         }
 
         // solution_only! {
-            impl<T> Iterator for TreeIter<T> {
-                type Item = T;
+        impl<T> Iterator for TreeIter<T> {
+            type Item = T;
 
-                fn next(&mut self) -> Option<Self::Item> {
-                    if let BinaryTree::Node {larger, smaller, value} =
-                        self.todo.pop()? {
-
-                        if let BinaryTree::Node {..} = *larger {
-                            self.todo.push(*larger);
-                        }
-                        if let BinaryTree::Node {..} = *smaller {
-                            self.todo.push(*smaller);
-                        }
-
-                        Some(value)
-                    } else {
-                        None
+            fn next(&mut self) -> Option<Self::Item> {
+                if let BinaryTree::Node {
+                    larger,
+                    smaller,
+                    value,
+                } = self.todo.pop()?
+                {
+                    if let BinaryTree::Node { .. } = *larger {
+                        self.todo.push(*larger);
                     }
+                    if let BinaryTree::Node { .. } = *smaller {
+                        self.todo.push(*smaller);
+                    }
+
+                    Some(value)
+                } else {
+                    None
                 }
             }
+        }
         // }
     }
 
@@ -81,17 +82,19 @@ mod assignment {
 
             pub fn height(&self) -> usize {
                 match self {
-                    BinaryTree::Node { larger, smaller, .. } => {
-                        1 + larger.height().max(smaller.height())
-                    },
-                    BinaryTree::Leaf => 0
+                    BinaryTree::Node {
+                        larger, smaller, ..
+                    } => 1 + larger.height().max(smaller.height()),
+                    BinaryTree::Leaf => 0,
                 }
             }
 
             pub fn size(&self) -> usize {
                 match self {
-                    BinaryTree::Node { smaller, larger, .. } => smaller.size() + larger.size() + 1,
-                    BinaryTree::Leaf => 0
+                    BinaryTree::Node {
+                        smaller, larger, ..
+                    } => smaller.size() + larger.size() + 1,
+                    BinaryTree::Leaf => 0,
                 }
             }
         }
@@ -99,34 +102,44 @@ mod assignment {
         impl<T: PartialOrd> BinaryTree<T> {
             pub fn insert(self, to_insert: T) -> Self {
                 match self {
-                    BinaryTree::Node { larger, smaller, value, ..} if to_insert < value => {
-                        BinaryTree::Node {
-                            smaller: Box::new(smaller.insert(to_insert)),
-                            larger,
-                            value
-                        }
-                    }
-                    BinaryTree::Node { larger, smaller, value, ..} if to_insert > value => {
-                        BinaryTree::Node {
-                            smaller,
-                            larger: Box::new(larger.insert(to_insert)),
-                            value
-                        }
-                    }
-                    a@BinaryTree::Node {..} => a,
+                    BinaryTree::Node {
+                        larger,
+                        smaller,
+                        value,
+                        ..
+                    } if to_insert < value => BinaryTree::Node {
+                        smaller: Box::new(smaller.insert(to_insert)),
+                        larger,
+                        value,
+                    },
+                    BinaryTree::Node {
+                        larger,
+                        smaller,
+                        value,
+                        ..
+                    } if to_insert > value => BinaryTree::Node {
+                        smaller,
+                        larger: Box::new(larger.insert(to_insert)),
+                        value,
+                    },
+                    a @ BinaryTree::Node { .. } => a,
                     BinaryTree::Leaf => BinaryTree::Node {
                         value: to_insert,
                         larger: Box::new(BinaryTree::Leaf),
-                        smaller: Box::new(BinaryTree::Leaf)
-                    }
+                        smaller: Box::new(BinaryTree::Leaf),
+                    },
                 }
             }
 
             pub fn contains(&self, v: &T) -> bool {
                 match self {
                     BinaryTree::Leaf => false,
-                    BinaryTree::Node { value, ..} if value == v => true,
-                    BinaryTree::Node { smaller, larger, value } => {
+                    BinaryTree::Node { value, .. } if value == v => true,
+                    BinaryTree::Node {
+                        smaller,
+                        larger,
+                        value,
+                    } => {
                         if v < value {
                             smaller.contains(v)
                         } else {
@@ -140,9 +153,9 @@ mod assignment {
 
     #[weblab(test)]
     mod test {
-        use std::collections::HashSet;
-        use itertools::Itertools;
         use super::solution::*;
+        use itertools::Itertools;
+        use std::collections::HashSet;
         use weblab::{solution_only, template_only};
 
         solution_only! {

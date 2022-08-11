@@ -19,9 +19,6 @@ mod assignment {
     #[weblab(solution)]
     mod solution {
         use weblab::{solution_only, template_only};
-
-
-
     }
 
     #[weblab(test_template)]
@@ -30,6 +27,5 @@ mod assignment {
     #[weblab(test)]
     mod test {
         use super::solution::*;
-
     }
 }

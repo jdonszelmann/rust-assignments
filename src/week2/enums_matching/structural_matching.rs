@@ -171,12 +171,21 @@ mod assignment {
 
         #[test]
         fn test_pat_4() {
-            assert!(matches!(pat_4(), ExerciseEnum::C("software" | "fundamentals")))
+            assert!(matches!(
+                pat_4(),
+                ExerciseEnum::C("software" | "fundamentals")
+            ))
         }
 
         #[test]
         fn test_pat_5() {
-            assert!(matches!(pat_5(), ExerciseEnum::D{a: 'a'..='f', b: None}))
+            assert!(matches!(
+                pat_5(),
+                ExerciseEnum::D {
+                    a: 'a'..='f',
+                    b: None
+                }
+            ))
         }
 
         #[test]

@@ -12,6 +12,7 @@ use weblab::weblab;
 #[weblab(title = "Structural Matching")]
 mod assignment {
     #[weblab(solution)]
+    #[allow(clippy::match_like_matches_macro)]
     mod solution {
         use weblab::{solution_only, template_only};
 
@@ -71,7 +72,7 @@ mod assignment {
                 match v {
                     (ExerciseEnum::C(a), ExerciseEnum::C(b)) if a == b => true,
                     (ExerciseEnum::C(s), ExerciseEnum::D {a, ..}) |
-                    (ExerciseEnum::D {a, ..}, ExerciseEnum::C(s)) if s.chars().next() == Some(a) => true,
+                    (ExerciseEnum::D {a, ..}, ExerciseEnum::C(s)) if s.starts_with(a) => true,
                     _ => false,
                 }
             }
@@ -105,8 +106,8 @@ mod assignment {
 
     #[weblab(test)]
     mod test {
-        use std::mem;
         use super::solution::*;
+        use std::mem;
 
         fn test_all_except(f: fn(ExerciseEnum) -> bool, except: &[ExerciseEnum]) {
             'outer: for i in [
@@ -118,7 +119,7 @@ mod assignment {
             ] {
                 for j in except {
                     if mem::discriminant(&i) == mem::discriminant(j) {
-                        continue 'outer
+                        continue 'outer;
                     }
                 }
                 assert!(!f(i));
@@ -138,7 +139,10 @@ mod assignment {
 
         #[test]
         fn test_pat_2() {
-            test_all_except(pat_2, &[ExerciseEnum::A(0, 0), ExerciseEnum::B([0, 0, 0, 0])]);
+            test_all_except(
+                pat_2,
+                &[ExerciseEnum::A(0, 0), ExerciseEnum::B([0, 0, 0, 0])],
+            );
             assert!(pat_2(ExerciseEnum::A(0, 0)));
             assert!(!pat_2(ExerciseEnum::A(1, 0)));
             assert!(pat_2(ExerciseEnum::A(2, 0)));
@@ -155,44 +159,50 @@ mod assignment {
             assert!(!pat_3((ExerciseEnum::A(0, 0), ExerciseEnum::A(0, 0))));
             assert!(!pat_3((ExerciseEnum::C("a"), ExerciseEnum::C("b"))));
             assert!(pat_3((ExerciseEnum::C("a"), ExerciseEnum::C("a"))));
-            assert!(pat_3((ExerciseEnum::C("hottentottententententoonstelling"), ExerciseEnum::C("hottentottententententoonstelling"))));
+            assert!(pat_3((
+                ExerciseEnum::C("hottentottententententoonstelling"),
+                ExerciseEnum::C("hottentottententententoonstelling")
+            )));
         }
 
         #[test]
         fn test_pat_3_c_and_d() {
-            assert!(pat_3((ExerciseEnum::C("test"), ExerciseEnum::D {
-                a: 't',
-                b: None,
-            })));
-            assert!(pat_3((ExerciseEnum::D {
-                a: 't',
-                b: None,
-            }, ExerciseEnum::C("test"))));
-            assert!(!pat_3((ExerciseEnum::C("test"), ExerciseEnum::D {
-                a: 'x',
-                b: None,
-            })));
-            assert!(!pat_3((ExerciseEnum::D {
-                a: 'x',
-                b: None,
-            }, ExerciseEnum::C("test"))));
+            assert!(pat_3((
+                ExerciseEnum::C("test"),
+                ExerciseEnum::D { a: 't', b: None }
+            )));
+            assert!(pat_3((
+                ExerciseEnum::D { a: 't', b: None },
+                ExerciseEnum::C("test")
+            )));
             assert!(!pat_3((
-                ExerciseEnum::D {
-                    a: 'x',
-                    b: None,
-                },
-                ExerciseEnum::D {
-                    a: 'x',
-                    b: None,
-                }
+                ExerciseEnum::C("test"),
+                ExerciseEnum::D { a: 'x', b: None }
+            )));
+            assert!(!pat_3((
+                ExerciseEnum::D { a: 'x', b: None },
+                ExerciseEnum::C("test")
+            )));
+            assert!(!pat_3((
+                ExerciseEnum::D { a: 'x', b: None },
+                ExerciseEnum::D { a: 'x', b: None }
             )));
         }
 
         #[test]
         fn test_pat_4() {
-            assert!(matches!(pat_4(ExerciseEnum::E(Ok(5))), Some(ExerciseEnum::E(Ok(10)))));
-            assert!(matches!(pat_4(ExerciseEnum::E(Ok(-5))), Some(ExerciseEnum::E(Ok(-10)))));
-            assert!(matches!(pat_4(ExerciseEnum::E(Err(5))), Some(ExerciseEnum::E(Err(5)))));
+            assert!(matches!(
+                pat_4(ExerciseEnum::E(Ok(5))),
+                Some(ExerciseEnum::E(Ok(10)))
+            ));
+            assert!(matches!(
+                pat_4(ExerciseEnum::E(Ok(-5))),
+                Some(ExerciseEnum::E(Ok(-10)))
+            ));
+            assert!(matches!(
+                pat_4(ExerciseEnum::E(Err(5))),
+                Some(ExerciseEnum::E(Err(5)))
+            ));
             assert!(matches!(pat_4(ExerciseEnum::A(0, 0)), None));
         }
     }

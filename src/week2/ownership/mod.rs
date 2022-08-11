@@ -1,5 +1,6 @@
 use weblab::weblab_folder;
 
+mod binary_tree;
 mod fizzbuzz;
 mod fizzbuzzwoofyum;
 mod is_it_sized;
@@ -7,7 +8,6 @@ mod stack;
 mod string_theory;
 mod strings;
 mod vector3_again;
-mod binary_tree;
 
 weblab_folder!(
     "structs and ownership",

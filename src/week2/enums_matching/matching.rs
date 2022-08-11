@@ -9,6 +9,7 @@ use weblab::weblab;
 #[weblab(title = "Matching")]
 mod assignment {
     #[weblab(solution)]
+    #[allow(clippy::match_like_matches_macro)]
     mod solution {
         use weblab::{solution_only, template_only};
 
