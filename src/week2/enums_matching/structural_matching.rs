@@ -60,12 +60,12 @@ mod assignment {
         use weblab::{solution_only, template_only};
 
         pub enum ExerciseEnum {
-            A(i64, i64),
+            A(u8, i64),
             B([u8; 4]),
             /// you can ignore the 'static for now.
             /// There's a good reason for it but we will talk about it
             /// in future lectures. This just means there's a string
-            /// stored in a D.
+            /// stored in a C.
             C(&'static str),
 
             D {

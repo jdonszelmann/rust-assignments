@@ -36,11 +36,13 @@ mod assignment {
     mod solution {
         pub fn fizzbuzz(n: u64) -> Vec<String> {
             let mut buffer = vec![];
+
             for i in 1..=n {
                 let mut subbuf = String::new();
                 if i % 3 == 0 {
                     subbuf += "Fizz";
                 }
+
                 if i % 5 == 0 {
                     subbuf += "Buzz";
                 }
