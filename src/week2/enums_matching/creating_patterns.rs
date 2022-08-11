@@ -9,7 +9,7 @@ use weblab::weblab;
 /// to fulfill the assignment
 ///
 /// Use pattern matching for each assignment.
-#[weblab(title = "Structural Matching")]
+#[weblab(title = "Creating Patterns")]
 mod assignment {
     #[weblab(solution)]
     #[allow(clippy::match_like_matches_macro)]
