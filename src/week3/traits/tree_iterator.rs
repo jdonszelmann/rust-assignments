@@ -1,13 +1,23 @@
 use weblab::weblab;
 
 #[weblab(programming_assignment)]
-/// You are given an implementation of a binary search tree. Some operations on it are already defined.
+/// You are given an implementation of a binary search tree. You may remember
+/// this tree from last week's exercise about it. The methods you had to implement then, are
+/// also implemented you here, even though you can't see them. That means, you can use
+/// * `fn insert(self, v: T) -> Self`
+/// * `fn contains(&self, v: &T) -> bool`
+/// * `fn size(&self) -> usize`
+/// * `fn height(&self) -> usize`
+///
 /// The tree already implements IntoIterator.
-/// Implement the `Iterator` trait for the tree.
+/// Implement the `Iterator` trait for the TreeIter struct.
+/// You may have elements come out in any order. In real situations, such an iterator is most useful if
+/// the items come out in sorted order. You may attempt this, but it could be more of a challenge.
 #[weblab(title = "Tree iterator")]
 mod assignment {
     #[weblab(solution)]
     mod solution {
+        use std::collections::VecDeque;
         use weblab::solution_only;
 
         #[derive(PartialEq, Eq, Clone, Debug)]
@@ -19,6 +29,50 @@ mod assignment {
             },
             Leaf,
         }
+
+        pub struct TreeIter<T> {
+            todo: Vec<BinaryTree<T>>,
+        }
+
+        impl<T> IntoIterator for BinaryTree<T> {
+            type Item = T;
+            type IntoIter = TreeIter<T>;
+
+            fn into_iter(self) -> Self::IntoIter {
+                TreeIter {
+                    todo: vec![self],
+                }
+            }
+        }
+
+        // solution_only! {
+            impl<T> Iterator for TreeIter<T> {
+                type Item = T;
+
+                fn next(&mut self) -> Option<Self::Item> {
+                    if let BinaryTree::Node {larger, smaller, value} =
+                        self.todo.pop()? {
+
+                        if let BinaryTree::Node {..} = *larger {
+                            self.todo.push(*larger);
+                        }
+                        if let BinaryTree::Node {..} = *smaller {
+                            self.todo.push(*smaller);
+                        }
+
+                        Some(value)
+                    } else {
+                        None
+                    }
+                }
+            }
+        // }
+    }
+
+    #[weblab(library)]
+    #[weblab(library_hidden)]
+    mod library {
+        use super::solution::BinaryTree;
 
         impl<T> BinaryTree<T> {
             pub fn new() -> Self {
@@ -86,6 +140,7 @@ mod assignment {
 
     #[weblab(test)]
     mod test {
+        use std::collections::HashSet;
         use itertools::Itertools;
         use super::solution::*;
         use weblab::{solution_only, template_only};
@@ -130,6 +185,25 @@ mod assignment {
                 assert!(leaf().insert(3).insert(1).insert(9).insert(5).contains(&3));
                 assert!(!leaf().insert(3).insert(1).insert(9).insert(5).contains(&7));
             }
+        }
+
+        #[test]
+        fn for_loop() {
+            let mut all = HashSet::new();
+            for i in leaf().insert(3).insert(1).insert(9).insert(5) {
+                all.insert(i);
+            }
+            assert_eq!(all, vec![3, 1, 9, 5].into_iter().collect());
+        }
+
+        #[test]
+        fn empty_iter() {
+            assert_eq!(leaf().into_iter().next(), None::<i32>);
+        }
+
+        #[test]
+        fn single_iter() {
+            assert_eq!(node(1, leaf(), leaf()).into_iter().next(), Some(1));
         }
     }
 }

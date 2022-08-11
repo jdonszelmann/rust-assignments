@@ -59,12 +59,43 @@ mod assignment {
             }
         }
 
-        pub fn pat_3(v: ExerciseEnum) -> bool {
+        /// v is a tuple of two enum values.
+        /// return true, if both are a C with the same string in them,
+        /// *or* if one of the two is a D, and the other a C and the first character in the string in C is
+        /// equal to the character in B.
+        ///
+        /// So  pat_3((ExerciseEnum::C("test"), ExerciseEnum::D {a: 't', b: None})) should be true
+        /// And pat_3((ExerciseEnum::C("test"), ExerciseEnum::D {a: 'x', b: None})) should be false
+        pub fn pat_3(v: (ExerciseEnum, ExerciseEnum)) -> bool {
             solution_only! {
                 match v {
-
+                    (ExerciseEnum::C(a), ExerciseEnum::C(b)) if a == b => true,
+                    (ExerciseEnum::C(s), ExerciseEnum::D {a, ..}) |
+                    (ExerciseEnum::D {a, ..}, ExerciseEnum::C(s)) if s.chars().next() == Some(a) => true,
                     _ => false,
                 }
+            }
+            template_only! {
+                todo!()
+            }
+        }
+
+        /// if `v` is an ExerciseEnum::E, it can either be Ok or Err.
+        ///
+        /// if it's an Err, return the Err as it is.
+        /// if it's an Ok, return the Ok, but multiply the value by 2.
+        ///
+        /// otherwise, return None.
+        pub fn pat_4(v: ExerciseEnum) -> Option<ExerciseEnum> {
+            solution_only! {
+                match v {
+                    ExerciseEnum::E(Ok(i)) => Some(ExerciseEnum::E(Ok(i * 2))),
+                    ExerciseEnum::E(Err(e)) => Some(ExerciseEnum::E(Err(e))),
+                    _ => None
+                }
+            }
+            template_only! {
+                todo!()
             }
         }
     }
@@ -117,6 +148,52 @@ mod assignment {
             assert!(!pat_2(ExerciseEnum::B([1, 0, 0, 0])));
             assert!(pat_2(ExerciseEnum::B([2, 0, 0, 0])));
             assert!(!pat_2(ExerciseEnum::B([3, 2, 0, 0])));
+        }
+
+        #[test]
+        fn test_pat_3() {
+            assert!(!pat_3((ExerciseEnum::A(0, 0), ExerciseEnum::A(0, 0))));
+            assert!(!pat_3((ExerciseEnum::C("a"), ExerciseEnum::C("b"))));
+            assert!(pat_3((ExerciseEnum::C("a"), ExerciseEnum::C("a"))));
+            assert!(pat_3((ExerciseEnum::C("hottentottententententoonstelling"), ExerciseEnum::C("hottentottententententoonstelling"))));
+        }
+
+        #[test]
+        fn test_pat_3_c_and_d() {
+            assert!(pat_3((ExerciseEnum::C("test"), ExerciseEnum::D {
+                a: 't',
+                b: None,
+            })));
+            assert!(pat_3((ExerciseEnum::D {
+                a: 't',
+                b: None,
+            }, ExerciseEnum::C("test"))));
+            assert!(!pat_3((ExerciseEnum::C("test"), ExerciseEnum::D {
+                a: 'x',
+                b: None,
+            })));
+            assert!(!pat_3((ExerciseEnum::D {
+                a: 'x',
+                b: None,
+            }, ExerciseEnum::C("test"))));
+            assert!(!pat_3((
+                ExerciseEnum::D {
+                    a: 'x',
+                    b: None,
+                },
+                ExerciseEnum::D {
+                    a: 'x',
+                    b: None,
+                }
+            )));
+        }
+
+        #[test]
+        fn test_pat_4() {
+            assert!(matches!(pat_4(ExerciseEnum::E(Ok(5))), Some(ExerciseEnum::E(Ok(10)))));
+            assert!(matches!(pat_4(ExerciseEnum::E(Ok(-5))), Some(ExerciseEnum::E(Ok(-10)))));
+            assert!(matches!(pat_4(ExerciseEnum::E(Err(5))), Some(ExerciseEnum::E(Err(5)))));
+            assert!(matches!(pat_4(ExerciseEnum::A(0, 0)), None));
         }
     }
 }
