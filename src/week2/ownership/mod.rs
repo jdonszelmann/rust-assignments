@@ -7,11 +7,13 @@ mod stack;
 mod string_theory;
 mod strings;
 mod vector3_again;
+mod binary_tree;
 
 weblab_folder!(
-    "ownership",
+    "structs and ownership",
     vector3_again,
     stack,
+    binary_tree,
     is_it_sized,
     strings,
     string_theory,
