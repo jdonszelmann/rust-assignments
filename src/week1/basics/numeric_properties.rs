@@ -4,15 +4,17 @@ use weblab::weblab;
 /// Even or Odd
 ///
 /// Create a function is_even, with parameters
+///
 /// - n, of type i64
-/// Return type: bool
+/// - return type: bool
 ///
 /// The function should return true when n is even and false when n is odd.
 /// Absolute value
 ///
 /// Create a function absolute, with parameters
+///
 /// - n, of type i64
-/// Return type: i64
+/// - return type: i64
 ///
 /// The function should return the absolute value of n.
 #[weblab(title = "numeric properties")]

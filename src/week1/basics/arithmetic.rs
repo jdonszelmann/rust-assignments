@@ -11,44 +11,49 @@ use weblab::weblab;
 /// # Adding
 ///
 /// Create a function add, with parameters
+///
 /// - a of type i64
 /// - b of type i64
-/// Return type: i64
+/// - return type: i64
 ///
 /// The function should return the sum of a and b.
 ///
 /// # Subtraction
 ///
 /// Create a function subtract, with parameters
+///
 /// - a of type i64
 /// - b of type i64
-/// Return type: i64
+/// - return type: i64
 ///
 /// The function should return the result of subtracting b from a.
 ///
 /// # Multiplication
 ///
 /// Create a function multiply, with parameters
+///
 /// - a of type i64
 /// - b of type i64
-/// Return type: i64
+/// - return type: i64
 ///
 /// The function should return the multiplication of a and b.
 ///
 /// # Division
 ///
 /// Create a function divide, with parameters
+///
 /// - a of type i64
 /// - b of type i64
-/// Return type: i64
+/// - return type: i64
 ///
 /// The function should return the result of dividing a by b.
 /// Modulo
 ///
 /// Create a function modulo, with parameters
+///
 /// - a of type i64
 /// - b of type i64
-/// Return type: i64
+/// - return type: i64
 ///
 /// The function should return the remainder after division of a by b
 #[weblab(title = "basic arithmetic")]

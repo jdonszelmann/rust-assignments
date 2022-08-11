@@ -28,6 +28,7 @@ use weblab::weblab;
 /// If the input is not valid snake case, return an error. Use the `is_snake_case` function you wrote to achieve this.
 ///
 /// Examples:
+///
 /// - to_camel_case("is_snake_case") == Ok("isSnakeCase")
 /// - to_camel_case("another_example") = Ok("anotherExample")
 /// - to_camel_case("not_Legal") = Err(SnakeCaseError::Uppercase)
