@@ -1,7 +1,7 @@
 use weblab::weblab;
 
 #[weblab(programming_assignment)]
-/// A rust enum allows you to store data that is one of many declared variants. Each variant can store its own data. //TODO improve this explanation
+/// A rust enum allows you to store data that is one of many declared variants. Each variant can store its own data which can have a different data type.
 /// For this assignment, define two enums, `LoginState` and `IpAddress`.
 ///
 /// Login state is one of the following:
@@ -15,7 +15,7 @@ use weblab::weblab;
 /// - `Ipv6`, which stores an address of type `[u8; 16]`
 ///
 /// Make sure the names of your definition match the names above exactly.
-#[weblab(title = "Enum Definition")]
+#[weblab(title = "Complex Enum Definitions")]
 mod assignment {
     #[weblab(solution)]
     mod solution {

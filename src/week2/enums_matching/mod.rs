@@ -1,16 +1,18 @@
 use weblab::weblab_folder;
 
 mod creating_patterns;
-mod enum_definition;
+mod enum_definition1;
 mod errors;
 mod matching;
 mod safe_division;
 mod structural_matching;
 mod tic_tac_toe;
+mod enum_definition2;
 
 weblab_folder!(
     "enums and matching",
-    enum_definition,
+    enum_definition1,
+    enum_definition2,
     safe_division,
     matching,
     structural_matching,
