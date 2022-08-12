@@ -21,6 +21,7 @@ use weblab::weblab;
 /// To achieve this wrapping behavior, often, the remainder operation is used.
 ///
 /// For this assignment:
+///
 /// * Make a `struct Ringbuffer<T>`, *which is generic* over a type T, so it can store arbitrary data.
 ///     * In tests, we use different integer types for T. You may thus bound T to be `Clone` and `Eq` if that's required for your implementation
 /// * implement an associated function `fn new(size: usize) -> Ringbuffer<T>` that creates a new ringbuffer of a specific size.
