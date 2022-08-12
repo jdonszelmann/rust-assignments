@@ -1,10 +1,10 @@
 mod all_about_vecs;
+mod brackets;
 mod integer_sizes;
 mod ownership;
 mod references;
 mod tic_tac_toe;
 mod vector3;
-mod brackets;
 
 use weblab::weblab_folder;
 
