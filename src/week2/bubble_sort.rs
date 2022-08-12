@@ -42,11 +42,24 @@ mod assignment {
         use weblab::{solution_only, template_only};
 
         solution_only! {
-            #[test]
-            fn test_simple() {
-                let mut vec = vec![1,2,3];
-                bubble_sort(&mut vec);
-                assert_eq!(vec, vec![1,2,3]);
+            macro_rules! sort_test {
+                ($($name:ident : $a: expr => $b: expr);* $(;)?) => {
+                    $(
+                        #[test]
+                        fn $name() {
+                            let mut v = $a;
+                            bubble_sort(&mut v);
+                            assert_eq!(v, $b);
+                        }
+                    )*
+                };
+            }
+
+            sort_test!{
+                s1: vec![1, 2, 3]=> vec![1, 2, 3];
+                s2: vec![3, 2, 1]=> vec![1, 2, 3];
+                s3: (0..1000).collect::<Vec<_>>() => (0..1000).collect::<Vec<_>>();
+                s4: (0..1000).rev().collect::<Vec<_>>() => (0..1000).collect::<Vec<_>>();
             }
         }
     }

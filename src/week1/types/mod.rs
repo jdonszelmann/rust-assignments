@@ -4,6 +4,7 @@ mod ownership;
 mod references;
 mod tic_tac_toe;
 mod vector3;
+mod brackets;
 
 use weblab::weblab_folder;
 
@@ -15,6 +16,5 @@ weblab_folder!(
     references,
     all_about_vecs,
     tic_tac_toe,
-    // tic_tac_toe_1,
-    // tic_tac_toe_2
+    brackets,
 );

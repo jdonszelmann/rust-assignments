@@ -154,32 +154,38 @@ mod assignment {
         }
 
         solution_only! {
-            #[test]
-            pub fn test_is_snakecase() {
-                assert_eq!(is_snake_case("is_snake_case"), Ok(()));
-                assert_eq!(is_snake_case("is_snake"), Ok(()));
-                assert_eq!(is_snake_case("is"), Ok(()));
-                assert_eq!(is_snake_case("i"), Ok(()));
-                assert_eq!(is_snake_case("i2s_snak3e_c1ase"), Ok(()));
-
-                assert_eq!(is_snake_case("I"), Err(SnakeCaseError::Uppercase));
-                assert_eq!(is_snake_case("Is"), Err(SnakeCaseError::Uppercase));
-                assert_eq!(is_snake_case("Si"), Err(SnakeCaseError::Uppercase));
-                assert_eq!(is_snake_case("is_snake_case_"), Err(SnakeCaseError::IncorrectUnderscore));
-                assert_eq!(is_snake_case("is_snake_case__"), Err(SnakeCaseError::IncorrectUnderscore));
-                assert_eq!(is_snake_case("is_sna__ke_case"), Err(SnakeCaseError::IncorrectUnderscore));
-                assert_eq!(is_snake_case("&"), Err(SnakeCaseError::NotAlphanumeric));
-                assert_eq!(is_snake_case("hey*hey"), Err(SnakeCaseError::NotAlphanumeric));
+            macro_rules! test_each {
+                ($($name:ident : $stmt: stmt);* $(;)?) => {
+                    $(
+                        #[test]
+                        fn $name() {
+                            $stmt
+                        }
+                    )*
+                };
             }
 
-            #[test]
-            pub fn test_to_camel_case() {
-                assert_eq!(to_camel_case("pizza"), Ok("pizza".to_string()));
-                assert_eq!(to_camel_case("with_5_numbers"), Ok("with5Numbers".to_string()));
-                assert_eq!(to_camel_case("with_a5_numbers"), Ok("withA5Numbers".to_string()));
-                assert_eq!(to_camel_case("with_5a_numbers"), Ok("with5aNumbers".to_string()));
-                assert_eq!(to_camel_case("with_5A_numbers"), Err(SnakeCaseError::Uppercase));
-                assert_eq!(to_camel_case("a_b_c"), Ok("aBC".to_string()));
+            test_each! {
+                issnake1: assert_eq!(is_snake_case("is_snake_case"), Ok(()));
+                issnake2: assert_eq!(is_snake_case("is_snake"), Ok(()));
+                issnake3: assert_eq!(is_snake_case("is"), Ok(()));
+                issnake4: assert_eq!(is_snake_case("i"), Ok(()));
+                issnake5: assert_eq!(is_snake_case("i2s_snak3e_c1ase"), Ok(()));
+                issnake6: assert_eq!(is_snake_case("I"), Err(SnakeCaseError::Uppercase));
+                issnake7: assert_eq!(is_snake_case("Is"), Err(SnakeCaseError::Uppercase));
+                issnake8: assert_eq!(is_snake_case("Si"), Err(SnakeCaseError::Uppercase));
+                issnake9: assert_eq!(is_snake_case("is_snake_case_"), Err(SnakeCaseError::IncorrectUnderscore));
+                issnake10: assert_eq!(is_snake_case("is_snake_case__"), Err(SnakeCaseError::IncorrectUnderscore));
+                issnake11: assert_eq!(is_snake_case("is_sna__ke_case"), Err(SnakeCaseError::IncorrectUnderscore));
+                issnake12: assert_eq!(is_snake_case("&"), Err(SnakeCaseError::NotAlphanumeric));
+                issnake13: assert_eq!(is_snake_case("hey*hey"), Err(SnakeCaseError::NotAlphanumeric));
+
+                tocamel1: assert_eq!(to_camel_case("pizza"), Ok("pizza".to_string()));
+                tocamel2: assert_eq!(to_camel_case("with_5_numbers"), Ok("with5Numbers".to_string()));
+                tocamel3: assert_eq!(to_camel_case("with_a5_numbers"), Ok("withA5Numbers".to_string()));
+                tocamel4: assert_eq!(to_camel_case("with_5a_numbers"), Ok("with5aNumbers".to_string()));
+                tocamel5: assert_eq!(to_camel_case("with_5A_numbers"), Err(SnakeCaseError::Uppercase));
+                tocamel6: assert_eq!(to_camel_case("a_b_c"), Ok("aBC".to_string()));
             }
         }
     }
