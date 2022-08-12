@@ -64,32 +64,35 @@ mod assignment {
         use weblab::solution_only;
 
         solution_only! {
-            #[test]
-            fn test_sum() {
-                assert_eq!(sum(vec![]), 0);
-                assert_eq!(sum(vec![69]), 69);
-                assert_eq!(sum(vec![69,42,-1]), 69+42-1);
+            macro_rules! test_each {
+                ($($name:ident : $stmt: stmt);* $(;)?) => {
+                    $(
+                        #[test]
+                        fn $name() {
+                            $stmt
+                        }
+                    )*
+                };
             }
 
-            #[test]
-            fn test_counter_42() {
-                assert_eq!(counter_42(vec![]), 0);
-                assert_eq!(counter_42(vec![69]), 0);
-                assert_eq!(counter_42(vec![69,42,-1]), 1);
-                assert_eq!(counter_42(vec![69,42,-1, 42]), 2);
-                assert_eq!(counter_42(vec![42, 69,42,-1]), 2);
-                assert_eq!(counter_42(vec![69,42,-1,42,42,42,42,42]), 6);
-            }
+            test_each! {
+                sum1: assert_eq!(sum(vec![]), 0);
+                sum2: assert_eq!(sum(vec![69]), 69);
+                sum3: assert_eq!(sum(vec![69,42,-1]), 69+42-1);
 
-            #[test]
-            fn test_third_42() {
-                assert_eq!(find_third_42(vec![]), None);
-                assert_eq!(find_third_42(vec![69]), None);
-                assert_eq!(find_third_42(vec![69,42,-1]), None);
-                assert_eq!(find_third_42(vec![69,42,-1, 42]), None);
-                assert_eq!(find_third_42(vec![42, 69,42,-1]), None);
-                assert_eq!(find_third_42(vec![69,42,-1,42,42,42,42,42]), Some(4));
-                assert_eq!(find_third_42(vec![69,42,-1,42,0,0,42,8]), Some(6));
+                count1: assert_eq!(counter_42(vec![69]), 0);
+                count2: assert_eq!(counter_42(vec![69,42,-1]), 1);
+                count3: assert_eq!(counter_42(vec![69,42,-1, 42]), 2);
+                count4: assert_eq!(counter_42(vec![42, 69,42,-1]), 2);
+                count5: assert_eq!(counter_42(vec![69,42,-1,42,42,42,42,42]), 6);
+
+                third1: assert_eq!(find_third_42(vec![]), None);
+                third2: assert_eq!(find_third_42(vec![69]), None);
+                third3: assert_eq!(find_third_42(vec![69,42,-1]), None);
+                third4: assert_eq!(find_third_42(vec![69,42,-1, 42]), None);
+                third5: assert_eq!(find_third_42(vec![42, 69,42,-1]), None);
+                third6: assert_eq!(find_third_42(vec![69,42,-1,42,42,42,42,42]), Some(4));
+                third7: assert_eq!(find_third_42(vec![69,42,-1,42,0,0,42,8]), Some(6));
             }
         }
     }
