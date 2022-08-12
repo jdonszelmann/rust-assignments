@@ -13,9 +13,9 @@ use weblab::weblab;
 /// One marks the end of data, while the other marks the start. The data in the ringbuffer is everything
 /// from `start` to `end`. However, this range may *wrap around* the end of the array. For example:
 /// ```
-///                     V unused (the queue is not full)
-/// [1, 2, 3, 1, 3, _, _, _, _, 1, 2, 3, 3, 2] -> wrap around
-///              ^ end          ^ start
+//// _              V unused
+/// [1, 2, 3, 1, 3, _, _, _, _, 1, 2, 3, 3, 2]
+/// _            ^ end          ^ start
 /// ```
 ///
 /// To achieve this wrapping behavior, often, the remainder operation is used.
