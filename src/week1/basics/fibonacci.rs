@@ -49,7 +49,6 @@ mod assignment {
 
             curr
         }
-
     }
 
     #[weblab(solution_template)]
@@ -74,10 +73,10 @@ mod assignment {
 
     #[weblab(test)]
     mod test {
+        use super::solution::fibonacci;
         use std::sync::mpsc;
         use std::thread;
         use std::time::Duration;
-        use super::solution::fibonacci;
 
         fn fibonacci_ref(n: u64) -> u64 {
             if n == 0 {
@@ -98,10 +97,10 @@ mod assignment {
         }
 
         fn panic_after<T, F>(d: Duration, f: F) -> T
-            where
-                T: Send + 'static,
-                F: FnOnce() -> T,
-                F: Send + 'static,
+        where
+            T: Send + 'static,
+            F: FnOnce() -> T,
+            F: Send + 'static,
         {
             let (done_tx, done_rx) = mpsc::channel();
             let handle = thread::spawn(move || {
