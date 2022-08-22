@@ -25,22 +25,30 @@ mod assignment {
     #[weblab(solution)]
     mod solution {
         pub fn fibonacci(n: u64) -> u64 {
-            if n == 0 {
-                return 0;
-            };
-
-            let mut temp1;
-            let mut temp2 = 0;
-            let mut curr = 1;
-            for _ in 2..=n {
-                temp1 = temp2;
-                temp2 = curr;
-
-                curr = temp1 + temp2;
+            match n {
+                0 => 0,
+                1 => 1,
+                n => fibonacci(n - 1) + fibonacci(n - 2)
             }
-
-            curr
         }
+
+        // pub fn fibonacci(n: u64) -> u64 {
+        //     if n == 0 {
+        //         return 0;
+        //     };
+        //
+        //     let mut temp1;
+        //     let mut temp2 = 0;
+        //     let mut curr = 1;
+        //     for _ in 2..=n {
+        //         temp1 = temp2;
+        //         temp2 = curr;
+        //
+        //         curr = temp1 + temp2;
+        //     }
+        //
+        //     curr
+        // }
     }
 
     #[weblab(solution_template)]
@@ -65,20 +73,10 @@ mod assignment {
 
     #[weblab(test)]
     mod test {
+        use std::sync::mpsc;
+        use std::thread;
+        use std::time::Duration;
         use super::solution::fibonacci;
-        use quickcheck::{Arbitrary, Gen};
-        use quickcheck_macros::quickcheck;
-        use rand::prelude::*;
-
-        #[derive(Debug, Clone)]
-        struct SmallNumber(u64);
-
-        impl Arbitrary for SmallNumber {
-            fn arbitrary(_: &mut Gen) -> SmallNumber {
-                let mut rng = rand::thread_rng();
-                SmallNumber(rng.gen_range(0..90))
-            }
-        }
 
         fn fibonacci_ref(n: u64) -> u64 {
             if n == 0 {
@@ -98,13 +96,28 @@ mod assignment {
             curr
         }
 
+        fn panic_after<T, F>(d: Duration, f: F) -> T
+            where
+                T: Send + 'static,
+                F: FnOnce() -> T,
+                F: Send + 'static,
+        {
+            let (done_tx, done_rx) = mpsc::channel();
+            let handle = thread::spawn(move || {
+                let val = f();
+                done_tx.send(()).expect("Unable to send completion signal");
+                val
+            });
+
+            match done_rx.recv_timeout(d) {
+                Ok(_) => handle.join().expect("Thread panicked"),
+                Err(_) => panic!("Thread took too long"),
+            }
+        }
+
         #[test]
         fn test_0() {
             assert_eq!(fibonacci(0), 0);
-            assert_eq!(fibonacci(1), 1);
-            assert_eq!(fibonacci(2), 1);
-            assert_eq!(fibonacci(3), 2);
-            assert_eq!(fibonacci(4), 3);
         }
 
         #[test]
@@ -129,18 +142,23 @@ mod assignment {
 
         #[test]
         fn test_8() {
-            assert_eq!(fibonacci(8), 21);
+            panic_after(Duration::from_secs_f64(5.0), || {
+                assert_eq!(fibonacci(8), 21);
+            });
         }
 
         #[test]
         fn test_12() {
-            assert_eq!(fibonacci(12), 144);
+            panic_after(Duration::from_secs_f64(5.0), || {
+                assert_eq!(fibonacci(12), 144);
+            });
         }
 
-        #[quickcheck]
-        fn prop_fibonacci(n: SmallNumber) -> bool {
-            let SmallNumber(n) = n;
-            fibonacci(n) == fibonacci_ref(n)
+        #[test]
+        fn test_13() {
+            panic_after(Duration::from_secs_f64(5.0), || {
+                assert_eq!(fibonacci(90), fibonacci_ref(90));
+            });
         }
     }
 }

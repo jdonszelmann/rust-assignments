@@ -17,7 +17,6 @@ use weblab::weblab;
 mod assignment {
     #[weblab(solution)]
     mod solution {
-        use std::collections::VecDeque;
         use weblab::solution_only;
 
         #[derive(PartialEq, Eq, Clone, Debug)]
@@ -43,7 +42,7 @@ mod assignment {
             }
         }
 
-        // solution_only! {
+        solution_only! {
         impl<T> Iterator for TreeIter<T> {
             type Item = T;
 
@@ -67,7 +66,7 @@ mod assignment {
                 }
             }
         }
-        // }
+        }
     }
 
     #[weblab(library)]
@@ -154,7 +153,6 @@ mod assignment {
     #[weblab(test)]
     mod test {
         use super::solution::*;
-        use itertools::Itertools;
         use std::collections::HashSet;
         use weblab::{solution_only, template_only};
 

@@ -29,7 +29,7 @@ use weblab::weblab;
 /// False
 /// ```
 ///
-/// Now define a function `luhn_final(i64, i64, i64) -> bool;` that returns the fourth digit of a four-digit bank card number. For example:
+/// Now define a function `luhn_final(i64, i64, i64) -> i64;` that returns the fourth digit of a four-digit bank card number. For example:
 ///
 /// ```
 /// > luhn_final(1, 7, 8)

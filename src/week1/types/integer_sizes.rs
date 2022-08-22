@@ -53,7 +53,7 @@ inline_question_list! {
         /// of something can't be larger than memory is, and a pointer can also not be larger than memory is.
         /// That's where the name comes from. `isize` is like `usize`, but also stores negative numbers.
         option "`u64`",
-        option "`u64`",
+        option "`u32`",
         option "`usize`" correct,
         option "`isize`",
         randomize

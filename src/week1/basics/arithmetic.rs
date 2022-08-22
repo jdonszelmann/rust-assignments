@@ -47,7 +47,7 @@ use weblab::weblab;
 /// - return type: i64
 ///
 /// The function should return the result of dividing a by b.
-/// Modulo
+/// # Modulo
 ///
 /// Create a function modulo, with parameters
 ///

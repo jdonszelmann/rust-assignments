@@ -10,7 +10,7 @@ use weblab::weblab;
 ///
 /// Of the real solutions, return the largest. If no real solutions exist, return the special float value `NaN` (Not A Number).
 ///
-/// The function currently has a `todo!()` macro in it. This will make the function panic (show an error) when it is executed. Replace the `todo!()` macro with your implementation.
+/// You will have to remove the `todo!()`. It's a placeholder that crashes the program when it's kept in.
 #[weblab(title = "quadratics")]
 mod assignment {
     #[weblab(solution)]

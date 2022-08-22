@@ -701,9 +701,9 @@ checksum = "6598dd0bd3c7d51095ff6531a5b23e02acdc81804e30d8f07afb77b7215a140a"
 
 [[package]]
 name = "weblab"
-version = "0.2.31"
+version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "54f95a52620b77ebec42ef65308b90b6bbf66b3294d1e6584ffa5d52b5535030"
+checksum = "bddc8574a4809aafeda7f47aa05551cf24188d6e63dcd1a2bedc09b2db74390e"
 dependencies = [
  "chrono",
  "clap",
@@ -727,9 +727,9 @@ checksum = "807507f05b8eeed29f83b7ee0af03c8582f12ae3507233488e8fb46e8578be99"
 
 [[package]]
 name = "weblab-macros"
-version = "0.2.31"
+version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "edc9a1bbb4af559b998cf0d4e288369c0032c2133d3dfe6fcffe400e3ab0aad0"
+checksum = "88cbc4ea0f6ff7969de5b75411b73a4921a2d605453ec27d563512f74967d13b"
 dependencies = [
  "proc-macro2",
  "quote",

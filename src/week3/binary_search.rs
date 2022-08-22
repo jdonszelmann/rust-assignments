@@ -43,7 +43,8 @@ mod assignment {
     #[weblab(solution_template)]
     #[allow(clippy::ptr_arg)]
     mod solution_template {
-        pub fn binary_search(list: &Vec<i64>) -> Option<usize> {
+        /// list is guaranteed to be sorted
+        pub fn binary_search(list: &Vec<i64>, value: i64) -> Option<i64> {
             todo!()
         }
     }

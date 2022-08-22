@@ -9,12 +9,14 @@ inline_question_list! {
         /// Explain why the following code does not work.
         ///
         /// ```rust
-        /// fn do_something(a: Vec<u64>) {
+        /// struct Test {}
+        ///
+        /// fn do_something(a: Test) {
         ///     // ...
         /// }
         ///
         /// fn main() {
-        ///     let v = vec![1, 2, 3];
+        ///     let v = Test {};
         ///     do_something(v);
         ///
         ///     println!("{:?}", v);
@@ -37,12 +39,14 @@ inline_question_list! {
         /// borrow the vector in `v`, and thus it will still be available after the call.
         ///
         /// ```rust
-        /// fn do_something(v: &Vec<u64>) {
+        /// struct Test {}
+        ///
+        /// fn do_something(v: &Test) {
         ///     // ...
         /// }
         ///
         /// fn main() {
-        ///     let v = vec![1, 2, 3];
+        ///     let v = Test {};
         ///     do_something(&v);
         ///
         ///     println!("{:?}", v);
@@ -57,12 +61,15 @@ inline_question_list! {
         /// in main is not affected.
         ///
         /// ```rust
-        /// fn do_something(a: Vec<u64>) {
+        /// #[derive(Clone)]
+        /// struct Test {}
+        ///
+        /// fn do_something(a: Test) {
         ///     // ...
         /// }
         ///
         /// fn main() {
-        ///     let v = vec![1, 2, 3];
+        ///     let v = Test {};
         ///     do_something(v.clone());
         ///
         ///     println!("{:?}", v);

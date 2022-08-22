@@ -48,7 +48,7 @@ mod assignment {
                 }
             }
 
-            // Return the number of non-leaf nodes in the tree. You can use recursion to solve this problem.
+            /// Return the number of non-leaf nodes in the tree. You can use recursion to solve this problem.
             pub fn size(&self) -> usize {
                 solution_only! {
                     match self {
