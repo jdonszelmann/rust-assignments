@@ -12,7 +12,7 @@ weblab_folder!(
     "structs and ownership",
     vector3_again,
     stack,
-    is_it_sized,
+    // is_it_sized,
     strings,
     string_theory,
     fizzbuzz,

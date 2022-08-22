@@ -24,31 +24,32 @@ use weblab::weblab;
 mod assignment {
     #[weblab(solution)]
     mod solution {
+        // pub fn fibonacci(n: u64) -> u64 {
+        //     match n {
+        //         0 => 0,
+        //         1 => 1,
+        //         n => fibonacci(n - 1) + fibonacci(n - 2)
+        //     }
+        // }
+
         pub fn fibonacci(n: u64) -> u64 {
-            match n {
-                0 => 0,
-                1 => 1,
-                n => fibonacci(n - 1) + fibonacci(n - 2)
+            if n == 0 {
+                return 0;
+            };
+
+            let mut temp1;
+            let mut temp2 = 0;
+            let mut curr = 1;
+            for _ in 2..=n {
+                temp1 = temp2;
+                temp2 = curr;
+
+                curr = temp1 + temp2;
             }
+
+            curr
         }
 
-        // pub fn fibonacci(n: u64) -> u64 {
-        //     if n == 0 {
-        //         return 0;
-        //     };
-        //
-        //     let mut temp1;
-        //     let mut temp2 = 0;
-        //     let mut curr = 1;
-        //     for _ in 2..=n {
-        //         temp1 = temp2;
-        //         temp2 = curr;
-        //
-        //         curr = temp1 + temp2;
-        //     }
-        //
-        //     curr
-        // }
     }
 
     #[weblab(solution_template)]
