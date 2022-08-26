@@ -1,17 +1,17 @@
 use weblab::weblab;
 
 #[weblab(programming_assignment)]
-/// In the last assignment, you've implemented a 3D Vector and written some functions to make the struct useful.
-/// This is the way a 3D Vector would be implemented in C. In rust, there is a better way.
-/// The functions are global, which is not ideal. The better way of doing this is to use *method syntax*.
-/// Then, we could use our functions like this:
+/// Last week, you implemented a 3D Vector and some useful functions for it.
+/// This is the way a 3D Vector would be implemented in C. The functions were global, which is not ideal.
+/// In rust, there is a better way: using the *method syntax*.
+/// It allows us to use our functions like this:
 /// ```
 /// let v1 = Vector3::new(1.0, 2.0, 3.0);
 /// let v1 = Vector3::new(4.3, 3.4, 1.3);
 /// let v3 = v1.add(v2);
 /// ```
 ///
-/// Define the `new` and `add` functions from the previous assignment using method syntax.
+/// Define the `new` and `add` functions from the previous week using method syntax.
 #[weblab(title = "3D Vectors, again")]
 mod assignment {
     #[weblab(solution)]
