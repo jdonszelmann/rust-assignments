@@ -30,7 +30,7 @@ mod assignment {
             }
         }
 
-        /// Return the length of the Vec
+        /// Return the length of the given Vec.
         pub fn length(vec: &Vec<i64>) -> usize {
             template_only! { todo!() }
             solution_only! {
@@ -38,7 +38,7 @@ mod assignment {
             }
         }
 
-        /// Return the length of the Vec
+        /// Return the length of the given Vec.
         /// Note that the return type is now `i64`, don't change it.
         pub fn length_i64(vec: &Vec<i64>) -> i64 {
             template_only! { todo!() }
@@ -47,7 +47,7 @@ mod assignment {
             }
         }
 
-        /// Return the sum of the Vec.
+        /// Return the sum of all values in vec.
         pub fn sum_elements(vec: &Vec<i64>) -> i64 {
             template_only! { todo!() }
             solution_only! {
@@ -60,8 +60,8 @@ mod assignment {
             }
         }
 
-        /// Return the sum of all values that are even in the Vec.
-        /// For example, the sum of all the even elements in `[3,4,8,2,5,0]` = 4 + 8 + 2 + 0 = 14
+        /// Return the sum of all values that are even in the given Vec.
+        /// For example, the sum of all the even elements in `[3,4,8,2,5,0]` = 4 + 8 + 2 + 0 = 14.
         pub fn sum_even_values(vec: &Vec<i64>) -> i64 {
             template_only! { todo!() }
             solution_only! {
@@ -76,9 +76,9 @@ mod assignment {
             }
         }
 
-        /// Return the sum of all values that are at an even position in the vec.
+        /// Return the sum of all values that are at an even position in vec.
         /// This means the element at position 0 (the first element), position 2 (the third element), etc...
-        /// For example, the sum of all the even elements in `[3,4,8,2,5,0]` = 3 + 8 + 5 = 16
+        /// For example, the sum of all the even elements in `[3,4,8,2,5,0]` = 3 + 8 + 5 = 16.
         pub fn sum_even_indices(vec: &Vec<i64>) -> i64 {
             template_only! { todo!() }
             solution_only! {
@@ -94,8 +94,8 @@ mod assignment {
             }
         }
 
-        /// Add 1 to each value in the vec. Note that the vec is passed in by mutable reference.
-        /// For example, the vec `[3,4,8,2,5,0]` should be changed to `[4,5,9,3,6,1]`
+        /// Add 1 to each value in the vec. Note that vec is passed by mutable reference.
+        /// For example, the Vec `[3,4,8,2,5,0]` should be changed to `[4,5,9,3,6,1]`.
         pub fn add_1_to_all_mut_ref(vec: &mut Vec<i64>) {
             template_only! { todo!() }
             solution_only! {
@@ -105,7 +105,7 @@ mod assignment {
             }
         }
 
-        /// Add 1 to each value in the vec. Note that the vec is given as an argument by value, and needs to be returned.
+        /// Add 1 to each value in the `Vec`. Note that `Vec` is given as an argument by value, and needs to be returned.
         /// This function should be implemented by calling the `add_1_to_all_v1` function above.
         pub fn add_1_to_all(vec: Vec<i64>) -> Vec<i64> {
             template_only! { todo!() }
