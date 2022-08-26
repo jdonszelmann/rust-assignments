@@ -3,59 +3,26 @@ use weblab::weblab;
 #[weblab(programming_assignment)]
 /// For each of the following assignments, you are asked to make a function. Make sure that
 /// each function is defined publicly. In other words, your function signature will need to look
-/// similar to, notice the `pub`:
+/// similar to what you can see below, notice the `pub`:
 /// ```
 /// pub fn some_name() { ... }
 /// ```
 ///
-/// # Adding
-///
-/// Create a function add, with parameters
+/// Each function has the following signature:
 ///
 /// - a of type i64
 /// - b of type i64
 /// - return type: i64
 ///
-/// The function should return the sum of a and b.
+/// # Assignment
 ///
-/// # Subtraction
+/// Create these functions according to the signature above:
 ///
-/// Create a function subtract, with parameters
-///
-/// - a of type i64
-/// - b of type i64
-/// - return type: i64
-///
-/// The function should return the result of subtracting b from a.
-///
-/// # Multiplication
-///
-/// Create a function multiply, with parameters
-///
-/// - a of type i64
-/// - b of type i64
-/// - return type: i64
-///
-/// The function should return the multiplication of a and b.
-///
-/// # Division
-///
-/// Create a function divide, with parameters
-///
-/// - a of type i64
-/// - b of type i64
-/// - return type: i64
-///
-/// The function should return the result of dividing a by b.
-/// # Modulo
-///
-/// Create a function modulo, with parameters
-///
-/// - a of type i64
-/// - b of type i64
-/// - return type: i64
-///
-/// The function should return the remainder after division of a by b
+/// * `add`, which adds a to b
+/// * `subtract`, which subtracts a from b
+/// * `multiply`, which multiplies a with b
+/// * `divide`, which divides a by b
+/// * `modulo`, which returns the remainder after division of a by b
 #[weblab(title = "basic arithmetic")]
 mod assignment {
     #[weblab(solution)]

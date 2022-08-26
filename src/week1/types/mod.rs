@@ -1,5 +1,4 @@
 mod all_about_vecs;
-mod brackets;
 mod integer_sizes;
 mod ownership;
 mod references;
@@ -16,5 +15,4 @@ weblab_folder!(
     references,
     all_about_vecs,
     tic_tac_toe,
-    brackets,
 );

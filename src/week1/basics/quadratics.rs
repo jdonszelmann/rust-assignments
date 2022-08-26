@@ -11,6 +11,9 @@ use weblab::weblab;
 /// Of the real solutions, return the largest. If no real solutions exist, return the special float value `NaN` (Not A Number).
 ///
 /// You will have to remove the `todo!()`. It's a placeholder that crashes the program when it's kept in.
+///
+/// *Note*
+/// sqrt is a method of f64 not a function. So you can use it as a.sqrt() instead of sqrt(a).
 #[weblab(title = "quadratics")]
 mod assignment {
     #[weblab(solution)]

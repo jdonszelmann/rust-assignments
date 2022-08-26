@@ -1,7 +1,7 @@
 use weblab::weblab;
 
 #[weblab(programming_assignment)]
-/// Even or Odd
+/// # Even or Odd
 ///
 /// Create a function is_even, with parameters
 ///
@@ -9,7 +9,8 @@ use weblab::weblab;
 /// - return type: bool
 ///
 /// The function should return true when n is even and false when n is odd.
-/// Absolute value
+///
+/// # Absolute value
 ///
 /// Create a function absolute, with parameters
 ///

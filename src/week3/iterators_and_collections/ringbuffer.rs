@@ -5,7 +5,7 @@ use weblab::weblab;
 /// They are often used as a queue for data. For example, holding keystrokes
 /// from a keyboard until time is available to handle them.
 ///
-/// However, compared to arbitrary-size queue datastructures, a ringbuffer used a fixed
+/// However, compared to arbitrary-size queue datastructures, a ringbuffer uses a fixed
 /// amount of memory. When the buffer is full, the oldest value in the queue is simply
 /// overwritten, and thus lost (though some implementations may alternatively error in such a case).
 ///

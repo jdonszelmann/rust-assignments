@@ -1,5 +1,6 @@
 use weblab::weblab_folder;
 
+mod brackets;
 mod fizzbuzz;
 mod fizzbuzzwoofyum;
 mod is_it_sized;
@@ -13,6 +14,7 @@ weblab_folder!(
     vector3_again,
     stack,
     // is_it_sized,
+    brackets,
     strings,
     string_theory,
     fizzbuzz,

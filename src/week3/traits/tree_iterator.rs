@@ -2,8 +2,10 @@ use weblab::weblab;
 
 #[weblab(programming_assignment)]
 /// You are given an implementation of a binary search tree. You may remember
-/// this tree from last week's exercise about it. The methods you had to implement then, are
-/// also implemented you here, even though you can't see them. That means, you can use
+/// this tree from last week's exercise about it. The methods from that assignment
+/// can be used here but their implementation is hidden.
+/// That means, you can use the following functions in your program:
+///
 /// * `fn insert(self, v: T) -> Self`
 /// * `fn contains(&self, v: &T) -> bool`
 /// * `fn size(&self) -> usize`
@@ -12,7 +14,7 @@ use weblab::weblab;
 /// The tree already implements IntoIterator.
 /// Implement the `Iterator` trait for the TreeIter struct.
 /// You may have elements come out in any order. In real situations, such an iterator is most useful if
-/// the items come out in sorted order. You may attempt this, but it could be more of a challenge.
+/// the items come out in sorted order. You may attempt this, but it is more challenging.
 #[weblab(title = "Tree iterator")]
 mod assignment {
     #[weblab(solution)]

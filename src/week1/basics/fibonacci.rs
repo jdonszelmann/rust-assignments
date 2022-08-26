@@ -6,7 +6,11 @@ use weblab::weblab;
 /// The Fibonacci sequence is defined mathematically as follows for any non-negative integer $n$:
 /// $$
 /// F_0 = 0
+/// $$
+/// $$
 /// F_1 = 1
+/// $$
+/// $$
 /// F_n = F_{n-1} + F_{n-2}
 /// $$
 ///
@@ -14,7 +18,11 @@ use weblab::weblab;
 /// E.g. we find that
 /// $$
 /// F_4 = 3
+/// $$
+/// $$
 /// F_8 = 21
+/// $$
+/// $$
 /// F_{12} = 144
 /// $$
 ///
