@@ -29,7 +29,7 @@ use weblab::weblab;
 /// 20. "Buzz"
 ///
 /// Given a number n, output the first n numbers of the FizzBuzz sequence.
-/// The output should be a `Vec` of `String`s, each `String` being a seperate number of the sequence.
+/// The output should be a `Vec` of `String`s, each `String` being a separate number of the sequence.
 #[weblab(title = "Fizz Buzz")]
 mod assignment {
     #[weblab(solution)]

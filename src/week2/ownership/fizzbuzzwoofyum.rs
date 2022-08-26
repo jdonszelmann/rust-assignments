@@ -42,7 +42,7 @@ use weblab::weblab;
 /// 30. "FizzBuzz"
 ///
 /// Given a number n, output the first n numbers of the FizzBuzzWoofYum sequence.
-/// The output should be a `Vec` of `String`s, each `String` being a seperate number of the sequence.
+/// The output should be a `Vec` of `String`s, each `String` being a separate number of the sequence.
 ///
 /// Hint: There is a better way of doing this then writing 16 separate if statements.
 #[weblab(title = "Fizz Buzz Woof Yum")]
