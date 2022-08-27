@@ -63,17 +63,15 @@ mod assignment {
         use weblab::{solution_only, template_only};
 
         fn almost_eq(a: f64, b: f64) -> bool {
-            (a-b).abs() < 0.0000001
+            (a - b).abs() < 0.0000001
         }
 
-
         #[test]
-        pub fn test(){
+        pub fn test() {
             let c1 = Circle::new(3.3f64);
 
-            assert!(almost_eq(c1.area(), 3.3f64*3.3f64*PI));
-            assert!(almost_eq(c1.perimeter(), 2f64*3.3f64*PI));
-
+            assert!(almost_eq(c1.area(), 3.3f64 * 3.3f64 * PI));
+            assert!(almost_eq(c1.perimeter(), 2f64 * 3.3f64 * PI));
         }
 
         solution_only! {
