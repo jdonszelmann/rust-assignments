@@ -2,23 +2,15 @@ use weblab::weblab;
 
 #[weblab(programming_assignment)]
 /// In rust there are a grand total of *three* ways to compare
-/// values.
+/// values. However, it's mostly worth  discussing two of them.
 ///
-/// The first is "partial equality". Two values can be partially equal.
-/// This means that `a == b` would produce true. But it does not mean the two
-/// objects are the exact same. There are ways to modify the behavior of the
-/// operator so two objects of different types may compare equal.
+/// Normal equality is what the `==` operator is used for. When `a == b` returns
+/// `true`, then `a` and `b` are equal.
 ///
-/// Strict equality is marker that this behavior is not modified. When two objects
-/// a and b are strictly equal, they're both of exactly the same type with exactly
-/// the same value.
-///
-/// However, the third way to compare objects is most important for this assignment:
-/// structural equality.
-///
-/// Two objects are structurally equal if they follow the same structure. To use
-/// this type of equality, you can give rust a pattern, and ask if a certain object
-/// follows the same structure as that pattern. Let's look at an example:
+/// However, there's also *structural equality*. Two values are structurally equal
+/// if they follow the same structure. To use this type of equality, you can give
+/// rust a pattern, and ask if a certain object follows the same structure as that
+/// pattern. Let's look at an example:
 ///
 /// ```rust
 /// enum A {
@@ -45,10 +37,6 @@ use weblab::weblab;
 ///
 /// The match statement tries every pattern from top to bottom. The first pattern
 /// that matches the value is chosen and executed.
-///
-/// A match statement always needs to be "exhaustive". That means that there *must*
-/// always be at least one "match arm" that is executed. You can use an underscore
-/// (`_`) to give a default case to execute if none of the previous cases worked.
 ///
 /// In the exercise, you are given an enum and a number of patterns.
 /// For each of the patterns, create an expression that would be matched with

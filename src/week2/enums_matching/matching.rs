@@ -6,6 +6,11 @@ use weblab::weblab;
 /// In rust, a "match" block works like a more powerful "switch" block.
 ///
 /// In each of the exercises, you are asked to return a value based on the input. Use "match" to solve these assignments
+///
+/// Note that a match statement always needs to be "exhaustive". That means that
+/// there *must* always be at least one "match arm" that is executed. You can use
+/// an underscore (`_`) to give a default case to execute if none of the previous
+/// cases worked.
 #[weblab(title = "Matching")]
 mod assignment {
     #[weblab(solution)]

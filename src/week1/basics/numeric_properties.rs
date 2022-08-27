@@ -3,7 +3,7 @@ use weblab::weblab;
 #[weblab(programming_assignment)]
 /// # Even or Odd
 ///
-/// Create a function is_even, with parameters
+/// Create a function is_even, with parameters:
 ///
 /// - n, of type i64
 /// - return type: bool
@@ -12,7 +12,7 @@ use weblab::weblab;
 ///
 /// # Absolute value
 ///
-/// Create a function absolute, with parameters
+/// Create a function absolute, with parameters:
 ///
 /// - n, of type i64
 /// - return type: i64

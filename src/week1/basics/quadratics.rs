@@ -4,11 +4,12 @@ use weblab::weblab;
 /// Write a function called quadratic_solutions that takes in three arguments of type
 /// f64 (a, b, and c) and calculates all the (real-valued) solutions of the quadratic equation
 ///
-/// ```
-/// ax2+bx+c=0.
-/// ```
+/// $$
+/// ax^2 + bx + c = 0.
+/// $$
 ///
-/// Of the real solutions, return the largest. If no real solutions exist, return the special float value `NaN` (Not A Number).
+/// Return the largest of the real solutions to this equation.
+/// If no real solutions exist, return the special float value `NaN` (Not A Number).
 ///
 /// You will have to remove the `todo!()`. It's a placeholder that crashes the program when it's kept in.
 ///
