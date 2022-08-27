@@ -71,9 +71,9 @@ mod assignment {
 
     #[weblab(test)]
     mod test {
+        use super::solution::*;
         use std::borrow::Cow;
         use weblab::solution_only;
-        use super::solution::*;
 
         solution_only! {
             fn test_with_lifetime<'a>(num: &usize, s: &'a str) -> Cow<'a, str> {
