@@ -1,20 +1,20 @@
 use weblab::weblab;
 
 #[weblab(programming_assignment)]
-/// A rust enum allows you to store data that is one of many declared variants. Each variant can store its own data which can have a different data type.
+/// A rust enum also allows to store data in one of many declared variants. Each variant can have a different data type.
 /// For this assignment, define two enums, `LoginState` and `IpAddress`.
 ///
 /// Login state is one of the following:
 /// - `LoggedOut`, which stores no additional data
 /// - `LoggedIn`, which stores the userid of the logged in person as `u64`
 ///
-/// Ip addresses are used in the internet to identify computers. There are two different types of IP addresses,
-/// Ipv4 which is a 32-bit number, and the improved and larger version, Ipv6 which is a 128-bit number.
-/// In this assigment, an IpAddress is represented as one of the following:
+/// IP addresses are used in the internet to identify computers. There are two different types of IP addresses,
+/// IPv4 which is a 32-bit number, and the improved and larger version, IPv6 which is a 128-bit number.
+/// In this assigment, an `IpAddress` is represented as one of the following:
 /// - `Ipv4`, which stores an address of type `[u8; 4]`
 /// - `Ipv6`, which stores an address of type `[u8; 16]`
 ///
-/// Make sure the names of your definition match the names above exactly.
+/// Make sure the names of your definition exactly match the names above.
 #[weblab(title = "Complex Enum Definitions")]
 mod assignment {
     #[weblab(solution)]

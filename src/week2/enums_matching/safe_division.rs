@@ -4,12 +4,12 @@ use weblab::weblab;
 /// In rust, dividing by zero results in a panic.
 /// In this assignment, create a function `safe_division(i64, i64) -> Option<i64>` that returns an Option instead.
 ///
-/// - In case the division is possible, return Some(result)
-/// - In case the division is not possible, return None
+/// - In case the division is possible, return `Some(result)`.
+/// - In case the division is not possible, return `None`
 ///
 /// Next, create a function `safe_division_vec3(Vector3, Vector3) -> Option<Vector3>` that divides the components of the vectors element-wise.
-/// This uses the Vector3 type from week 1. To implement safe_division_vec3, use the safe_division function and the `? operator`.
-/// If any of the 3 element-wise divisions fails, return None.
+/// This uses the Vector3 type from week 1. To implement `safe_division_vec3`, use the `safe_division` function and the `?` operator.
+/// If any of the 3 element-wise divisions fails, return `None`.
 #[weblab(title = "Safe Division")]
 mod assignment {
     #[weblab(solution)]
