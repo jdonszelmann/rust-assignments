@@ -112,14 +112,20 @@ mod assignment {
             }
 
             #[test]
-            fn find_edgecases() {
+            fn edgecase_1() {
                 let vec = vec![];
                 assert_eq!(None, binary_search(&vec, 0));
+            }
 
+            #[test]
+            fn edgecase_2() {
                 let vec = vec![0];
                 assert_eq!(None, binary_search(&vec, 1));
                 assert_eq!(Some(0), binary_search(&vec, 0));
+            }
 
+            #[test]
+            fn edgecase_3() {
                 let vec = vec![0,2];
                 assert_eq!(None, binary_search(&vec, 1));
                 assert_eq!(Some(0), binary_search(&vec, 0));

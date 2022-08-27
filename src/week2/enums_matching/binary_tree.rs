@@ -130,10 +130,11 @@ mod assignment {
     #[weblab(test)]
     mod test {
         use super::solution::*;
-        use itertools::Itertools;
         use weblab::{solution_only, template_only};
 
         solution_only! {
+            use itertools::Itertools;
+
             fn leaf<T>() -> BinaryTree<T> {
                 BinaryTree::Leaf
             }
