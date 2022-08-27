@@ -3,6 +3,9 @@ use weblab::weblab;
 #[weblab(programming_assignment)]
 /// Given is the definition of two shapes (Rectangle, Circle) and the definition of the `Shape` trait.
 /// Implement the `Shape` trait for the shapes.
+///
+/// You may be in need for a "pi" constant. There's one in the standard library you can use.
+/// Search for "PI" on [https://docs.rs/std](https://docs.rs/std)
 #[weblab(title = "Shapes")]
 mod assignment {
     #[weblab(solution)]
@@ -59,53 +62,61 @@ mod assignment {
         use std::f64::consts::PI;
         use weblab::{solution_only, template_only};
 
-        solution_only! {
-            fn assert_almost_eq(a: f64, b: f64) {
-                if (a-b).abs() > 0.0000001 {
-                    panic!("Expected {} to equal {}", a, b)
-                }
-            }
+        fn almost_eq(a: f64, b: f64) -> bool {
+            (a-b).abs() < 0.0000001
+        }
 
+
+        #[test]
+        pub fn test(){
+            let c1 = Circle::new(3.3f64);
+
+            assert!(almost_eq(c1.area(), 3.3f64*3.3f64*PI));
+            assert!(almost_eq(c1.perimeter(), 2f64*3.3f64*PI));
+
+        }
+
+        solution_only! {
             #[test]
             fn test_rectangle1() {
                 let rectangle = Rectangle::new(5.0, 3.0);
-                assert_almost_eq(rectangle.area(), 15.0);
-                assert_almost_eq(rectangle.perimeter(), 16.0);
+                assert!(almost_eq(rectangle.area(), 15.0));
+                assert!(almost_eq(rectangle.perimeter(), 16.0));
             }
 
             #[test]
             fn test_rectangle2() {
                 let rectangle = Rectangle::new(0.3, 1982.3);
-                assert_almost_eq(rectangle.area(), 594.69);
-                assert_almost_eq(rectangle.perimeter(), 3965.2);
+                assert!(almost_eq(rectangle.area(), 594.69));
+                assert!(almost_eq(rectangle.perimeter(), 3965.2));
             }
 
             #[test]
             fn test_rectangle3() {
                 let rectangle = Rectangle::new(0.0, 1.0);
-                assert_almost_eq(rectangle.area(), 0.0);
-                assert_almost_eq(rectangle.perimeter(), 2.0);
+                assert!(almost_eq(rectangle.area(), 0.0));
+                assert!(almost_eq(rectangle.perimeter(), 2.0));
             }
 
             #[test]
             fn test_circle1() {
                 let rectangle = Circle::new(5.0);
-                assert_almost_eq(rectangle.area(), 25.0 * PI);
-                assert_almost_eq(rectangle.perimeter(), 10.0 * PI);
+                assert!(almost_eq(rectangle.area(), 25.0 * PI));
+                assert!(almost_eq(rectangle.perimeter(), 10.0 * PI));
             }
 
             #[test]
             fn test_circle2() {
                 let rectangle = Circle::new(122038.12);
-                assert_almost_eq(rectangle.area(), 46788690454.10381);
-                assert_almost_eq(rectangle.perimeter(), 766788.1224998191);
+                assert!(almost_eq(rectangle.area(), 46788690454.10381));
+                assert!(almost_eq(rectangle.perimeter(), 766788.1224998191));
             }
 
             #[test]
             fn test_circle3() {
                 let rectangle = Circle::new(0.0);
-                assert_almost_eq(rectangle.area(), 0.0);
-                assert_almost_eq(rectangle.perimeter(), 0.0);
+                assert!(almost_eq(rectangle.area(), 0.0));
+                assert!(almost_eq(rectangle.perimeter(), 0.0));
             }
         }
     }
