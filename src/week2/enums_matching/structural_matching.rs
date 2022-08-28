@@ -1,15 +1,15 @@
 use weblab::weblab;
 
 #[weblab(programming_assignment)]
-/// In rust there are a grand total of *three* ways to compare
+/// In rust, there is a grand total of *three* ways to compare
 /// values.
 ///
-/// The first is "partial equality". Two values can be partially equal.
+/// The first is *partial equality*. Two values can be partially equal.
 /// This means that `a == b` would produce true. But it does not mean the two
-/// objects are the exact same. There are ways to modify the behavior of the
+/// objects are exactly the same. There are ways to modify the behavior of the
 /// operator so two objects of different types may compare equal.
 ///
-/// Strict equality is marker that this behavior is not modified. When two objects
+/// Strict equality is a marker that this behavior is not modified. When two objects
 /// a and b are strictly equal, they're both of exactly the same type with exactly
 /// the same value.
 ///
@@ -46,7 +46,7 @@ use weblab::weblab;
 /// The match statement tries every pattern from top to bottom. The first pattern
 /// that matches the value is chosen and executed.
 ///
-/// A match statement always needs to be "exhaustive". That means that there *must*
+/// A match statement always needs to be *exhaustive*. That means that there *must*
 /// always be at least one "match arm" that is executed. You can use an underscore
 /// (`_`) to give a default case to execute if none of the previous cases worked.
 ///

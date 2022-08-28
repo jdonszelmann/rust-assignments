@@ -1,13 +1,13 @@
 use weblab::weblab;
 
 #[weblab(programming_assignment)]
-/// A binary search tree is a datastructure to search through sorted data.
+/// A binary search tree is a data structure to search through sorted data.
 /// An implementation of a binary search tree enum is given.
 ///
-/// In a binary search tree, each node has either two, or no children. If a node has two children,
-/// one of the children only contains items *smaller* than the element in that node, and one of the children
+/// In a binary search tree, each node has either two or no children. If a node has two children,
+/// one of the children only contains items *smaller* than the element in that node, and the other
 /// only contains items *larger* than the element in that node. This property ensures that searching
-/// whether or not an element is in the tree takes an amount of time corrolated with the logarithm of the number
+/// whether or not an element is in the tree takes an amount of time correlated with the logarithm of the number
 /// of elements in the tree (if the tree is balanced).
 ///
 /// You can read more about them [here, on Wikipedia](https://en.wikipedia.org/wiki/Binary_search_tree)
@@ -16,15 +16,15 @@ use weblab::weblab;
 /// The problems here are most easily solved by using recursion. Look at the implementation of `height`.
 /// We know that the height of a `Leaf` node is always 0 because it has no children.
 /// We also know that the height of any other node depends on the height of its children. Specifically, it's one more than
-/// the heighest of the two children. Those two properties are enough to implement the `height` function.
+/// the highest of the two children. Those two properties are enough to implement the `height` function.
 #[weblab(title = "Binary Search Tree")]
 mod assignment {
     #[weblab(solution)]
     mod solution {
         use weblab::{solution_only, template_only};
 
-        /// A binary tree, generic over T. That means,
-        /// it does not matter what T is, you can always store it in a binary tree.
+        /// A binary tree, generic over T. It means that
+        /// regardless of what T is, you can always store it in a binary tree.
         #[derive(PartialEq, Eq, Clone, Debug)]
         pub enum BinaryTree<T> {
             Node {
@@ -37,8 +37,8 @@ mod assignment {
 
         /// These methods always exist, regardless of what T is.
         impl<T> BinaryTree<T> {
-            /// get the height of the binary tree. That is, the largest distance between one of the leafs and the root.
-            /// note that the height of a node is 1 more than the largest of the two child heights
+            /// Get the height of the binary tree. That is, the largest distance between one of the leafs and the root.
+            /// Note that the height of a node is 1 more than the largest of the two child heights.
             pub fn height(&self) -> usize {
                 match self {
                     BinaryTree::Node {

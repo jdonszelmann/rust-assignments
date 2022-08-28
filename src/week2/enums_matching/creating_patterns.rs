@@ -6,7 +6,7 @@ use weblab::weblab;
 /// by a pattern.
 ///
 /// Here we will swap positions. You will need to make your own patterns
-/// to fulfill the assignment
+/// based on the given conditions.
 ///
 /// Use pattern matching for each assignment.
 #[weblab(title = "Creating Patterns")]
@@ -19,7 +19,7 @@ mod assignment {
         pub enum ExerciseEnum {
             A(u8, i64),
             B([u8; 4]),
-            /// you can ignore the 'static for now.
+            /// You can ignore the 'static for now.
             /// There's a good reason for it but we will talk about it
             /// in future lectures. This just means there's a string
             /// stored in a C.
@@ -47,7 +47,7 @@ mod assignment {
         }
 
         /// Match both ExerciseEnum::A and ExerciseEnum::B given that
-        /// the first number in them is even
+        /// the first number in them is even.
         pub fn pat_2(v: ExerciseEnum) -> bool {
             solution_only! {
                 match v {
@@ -63,10 +63,10 @@ mod assignment {
         /// v is a tuple of two enum values.
         /// return true, if both are a C with the same string in them,
         /// *or* if one of the two is a D, and the other a C and the first character in the string in C is
-        /// equal to the character in B.
+        /// equal to the character in D.
         ///
-        /// So  pat_3((ExerciseEnum::C("test"), ExerciseEnum::D {a: 't', b: None})) should be true
-        /// And pat_3((ExerciseEnum::C("test"), ExerciseEnum::D {a: 'x', b: None})) should be false
+        /// So  pat_3((ExerciseEnum::C("test"), ExerciseEnum::D {a: 't', b: None})) should be true,
+        /// and pat_3((ExerciseEnum::C("test"), ExerciseEnum::D {a: 'x', b: None})) should be false.
         pub fn pat_3(v: (ExerciseEnum, ExerciseEnum)) -> bool {
             solution_only! {
                 match v {
@@ -81,12 +81,12 @@ mod assignment {
             }
         }
 
-        /// if `v` is an ExerciseEnum::E, it can either be Ok or Err.
+        /// If `v` is an ExerciseEnum::E, it can either be Ok or Err.
         ///
-        /// if it's an Err, return the Err as it is.
-        /// if it's an Ok, return the Ok, but multiply the value by 2.
+        /// If it's an Err, return the Err as it is.
+        /// If it's an Ok, return the Ok, but multiply the value by 2.
         ///
-        /// otherwise, return None.
+        /// Otherwise, return None.
         pub fn pat_4(v: ExerciseEnum) -> Option<ExerciseEnum> {
             solution_only! {
                 match v {
