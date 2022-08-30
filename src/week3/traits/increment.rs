@@ -10,6 +10,12 @@ use weblab::weblab;
 /// Neither of the methods returns a new value. Instead, they should take a mutable reference.
 ///
 /// Finish the definition of the increment trait, and then implement it for `i64` and `f64`.
+///
+/// Note that the testing code will assume all traits are implemented. Since the tests and your code are
+/// compiled together, the tests won't compile if you didn't implement the required traits. In this case,
+/// your score will be 0/0. Read the assignment carefully. To let tests *compile but fail* you can use the
+/// `todo!()` macro, in function bodies, so you don't need to finish all implementations before you can test
+/// the ones you do have.
 #[weblab(title = "Addable")]
 #[weblab(weight = 2)]
 mod assignment {
