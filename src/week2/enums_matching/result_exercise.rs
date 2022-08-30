@@ -19,6 +19,7 @@ use weblab::weblab;
 ///
 /// For the `InvalidFullName`, `InvalidUserName`, and `InvalidAge` errors, include the part of the string (so the full name, username and age respectively) as the enum variant.
 /// If the string contains multiple error, return the first property that was violated.
+#[warn(clippy::enum_variant_names)]
 #[weblab(title = "Account Decoding")]
 mod assignment {
     #[weblab(solution)]
@@ -30,7 +31,7 @@ mod assignment {
             InvalidFormat,
             InvalidFullName(String),
             InvalidUserName(String),
-            InvalidAge(String)
+            InvalidAge(String),
         }
 
         #[derive(PartialEq, Eq, Debug)]
@@ -45,7 +46,7 @@ mod assignment {
                 todo!()
             }
             solution_only! {
-                let parts: Vec<&str> = input.split(";").collect();
+                let parts: Vec<&str> = input.split(';').collect();
                 if parts.len() != 3 { return Err(AccountDecodeError::InvalidFormat) }
 
                 let full_name: String = parts[0].into();

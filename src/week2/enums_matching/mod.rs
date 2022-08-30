@@ -6,10 +6,10 @@ mod enum_definition1;
 mod enum_definition2;
 mod errors;
 mod matching;
+mod result_exercise;
 mod safe_division;
 mod structural_matching;
 mod tic_tac_toe;
-mod result_exercise;
 
 weblab_folder!(
     "enums and matching",
