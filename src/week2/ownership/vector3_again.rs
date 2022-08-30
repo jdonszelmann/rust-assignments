@@ -12,7 +12,9 @@ use weblab::weblab;
 /// ```
 ///
 /// Define the `new` and `add` functions from the previous week using method syntax.
+/// Take all parameters by value, and make functions and fields public.
 #[weblab(title = "3D Vectors, again")]
+#[weblab(weight = 1)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

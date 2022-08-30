@@ -4,14 +4,19 @@ use weblab::weblab;
 /// Write a function called quadratic_solutions that takes in three arguments of type
 /// f64 (a, b, and c) and calculates all the (real-valued) solutions of the quadratic equation
 ///
-/// ```
-/// ax2+bx+c=0.
-/// ```
+/// $$
+/// ax^2 + bx + c = 0.
+/// $$
 ///
-/// Of the real solutions, return the largest. If no real solutions exist, return the special float value `NaN` (Not A Number).
+/// Return the largest of the real solutions to this equation.
+/// If no real solutions exist, return the special float value `NaN` (Not A Number).
 ///
-/// The function currently has a `todo!()` macro in it. This will make the function panic (show an error) when it is executed. Replace the `todo!()` macro with your implementation.
+/// You will have to remove the `todo!()`. It's a placeholder that crashes the program when it's kept in.
+///
+/// *Note*
+/// sqrt is a method of f64 not a function. So you can use it as a.sqrt() instead of sqrt(a).
 #[weblab(title = "quadratics")]
+#[weblab(weight = 2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

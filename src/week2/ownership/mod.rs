@@ -1,6 +1,6 @@
 use weblab::weblab_folder;
 
-mod binary_tree;
+mod brackets;
 mod fizzbuzz;
 mod fizzbuzzwoofyum;
 mod is_it_sized;
@@ -11,12 +11,13 @@ mod vector3_again;
 
 weblab_folder!(
     "structs and ownership",
+    sum,
     vector3_again,
     stack,
-    binary_tree,
-    is_it_sized,
+    // is_it_sized,
+    brackets,
     strings,
     string_theory,
-    fizzbuzz,
+    // fizzbuzz,
     fizzbuzzwoofyum
 );

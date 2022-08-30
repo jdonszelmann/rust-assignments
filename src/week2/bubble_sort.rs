@@ -11,8 +11,10 @@ use weblab::weblab;
 /// The wikipedia page contains a more in-depth explanation together with an animated example.
 /// https://en.wikipedia.org/wiki/Bubble_sort
 ///
-/// Do not just call the stdlib `.sort()` function.
+/// You *are* allowed to use the swap method on Vec
+/// You *are not* allowed to just call the stdlib `.sort()` function.
 #[weblab(title = "Bubble Sort")]
+#[weblab(check = "manually implements bubble sort")]
 mod assignment {
     #[weblab(solution)]
     mod solution {

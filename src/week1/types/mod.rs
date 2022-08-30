@@ -1,5 +1,4 @@
 mod all_about_vecs;
-mod brackets;
 mod integer_sizes;
 mod ownership;
 mod references;
@@ -10,11 +9,11 @@ use weblab::weblab_folder;
 
 weblab_folder!(
     "types",
+    sum,
     integer_sizes,
     vector3,
     ownership,
     references,
     all_about_vecs,
     tic_tac_toe,
-    brackets,
 );

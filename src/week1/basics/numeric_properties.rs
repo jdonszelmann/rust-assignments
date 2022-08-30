@@ -1,23 +1,25 @@
 use weblab::weblab;
 
 #[weblab(programming_assignment)]
-/// Even or Odd
+/// # Even or Odd
 ///
-/// Create a function is_even, with parameters
+/// Create a function is_even, with parameters:
 ///
 /// - n, of type i64
 /// - return type: bool
 ///
 /// The function should return true when n is even and false when n is odd.
-/// Absolute value
 ///
-/// Create a function absolute, with parameters
+/// # Absolute value
+///
+/// Create a function absolute, with parameters:
 ///
 /// - n, of type i64
 /// - return type: i64
 ///
 /// The function should return the absolute value of n.
 #[weblab(title = "numeric properties")]
+#[weblab(weight = 1)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

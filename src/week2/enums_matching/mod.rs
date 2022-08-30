@@ -1,5 +1,6 @@
 use weblab::weblab_folder;
 
+mod binary_tree;
 mod creating_patterns;
 mod enum_definition1;
 mod enum_definition2;
@@ -11,11 +12,13 @@ mod tic_tac_toe;
 
 weblab_folder!(
     "enums and matching",
-    enum_definition1,
-    enum_definition2,
+    sum,
     safe_division,
     matching,
+    enum_definition1,
+    enum_definition2,
+    tic_tac_toe,
     structural_matching,
     creating_patterns,
-    tic_tac_toe
+    binary_tree,
 );

@@ -1,20 +1,26 @@
 use weblab::inline_question_list;
 
 inline_question_list! {
-   title: "ownership rules"
-
+    title: "ownership rules"
+    weight: 3.0,
     open_question!(
         title: "explain the example",
+        weight: 1.0,
+        checklist: [
+            "correct explanation"
+        ],
         question:
         /// Explain why the following code does not work.
         ///
         /// ```rust
-        /// fn do_something(a: Vec<u64>) {
+        /// struct Test {}
+        ///
+        /// fn do_something(a: Test) {
         ///     // ...
         /// }
         ///
         /// fn main() {
-        ///     let v = vec![1, 2, 3];
+        ///     let v = Test {};
         ///     do_something(v);
         ///
         ///     println!("{:?}", v);
@@ -29,6 +35,11 @@ inline_question_list! {
 
     open_question!(
         title: "solving the problem",
+        weight: 2.0,
+        checklist: [
+            "correct solution 1"
+            "correct solution 2"
+        ],
         question:
         /// Explain two strategies to fix the code from the previous question.
         answer:
@@ -37,12 +48,14 @@ inline_question_list! {
         /// borrow the vector in `v`, and thus it will still be available after the call.
         ///
         /// ```rust
-        /// fn do_something(v: &Vec<u64>) {
+        /// struct Test {}
+        ///
+        /// fn do_something(v: &Test) {
         ///     // ...
         /// }
         ///
         /// fn main() {
-        ///     let v = vec![1, 2, 3];
+        ///     let v = Test {};
         ///     do_something(&v);
         ///
         ///     println!("{:?}", v);
@@ -57,12 +70,15 @@ inline_question_list! {
         /// in main is not affected.
         ///
         /// ```rust
-        /// fn do_something(a: Vec<u64>) {
+        /// #[derive(Clone)]
+        /// struct Test {}
+        ///
+        /// fn do_something(a: Test) {
         ///     // ...
         /// }
         ///
         /// fn main() {
-        ///     let v = vec![1, 2, 3];
+        ///     let v = Test {};
         ///     do_something(v.clone());
         ///
         ///     println!("{:?}", v);

@@ -6,6 +6,7 @@ use weblab::weblab;
 ///
 /// You are not allowed to change any function signatures.
 #[weblab(title = "References")]
+#[weblab(weight = 2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
@@ -32,15 +33,15 @@ mod assignment {
         }
 
         /// Increment (add 1 to) x.
-        pub fn increment_mut_ref(x: &mut i64) {
+        pub fn increment_v1(x: &mut i64) {
             *x += 1;
         }
 
         /// Return x + 1.
         /// This should be implemented by calling the `increment_v1` function above.
-        pub fn increment(x: i64) -> i64 {
+        pub fn increment_v2(x: i64) -> i64 {
             let mut x = x;
-            increment_mut_ref(&mut x);
+            increment_v1(&mut x);
             x
         }
     }
@@ -137,27 +138,27 @@ mod assignment {
         fn test_increment_v1() {
             let mut x = -3;
 
-            increment_mut_ref(&mut x);
+            increment_v1(&mut x);
             assert_eq!(x, -2);
 
-            increment_mut_ref(&mut x);
+            increment_v1(&mut x);
             assert_eq!(x, -1);
 
             x = 19;
-            increment_mut_ref(&mut x);
+            increment_v1(&mut x);
             assert_eq!(x, 20);
 
-            increment_mut_ref(&mut x);
+            increment_v1(&mut x);
             assert_eq!(x, 21);
         }
 
         #[test]
         fn test_increment_v2() {
-            assert_eq!(increment(100), 101);
-            assert_eq!(increment(-18), -17);
-            assert_eq!(increment(7319287), 7319288);
-            assert_eq!(increment(0), 1);
-            assert_eq!(increment(-1), 0);
+            assert_eq!(increment_v2(100), 101);
+            assert_eq!(increment_v2(-18), -17);
+            assert_eq!(increment_v2(7319287), 7319288);
+            assert_eq!(increment_v2(0), 1);
+            assert_eq!(increment_v2(-1), 0);
         }
     }
 }
