@@ -19,6 +19,8 @@ use weblab::weblab;
 ///
 /// For the `InvalidFullName`, `InvalidUserName`, and `InvalidAge` errors, include the part of the string (so the full name, username and age respectively) as the enum variant.
 /// If the string contains multiple error, return the first property that was violated.
+///
+/// Hint: The `.split()` function on strings may be useful.
 #[weblab(title = "Account Decoding")]
 mod assignment {
     #[weblab(solution)]
@@ -69,30 +71,27 @@ mod assignment {
         use super::solution::*;
         use weblab::{solution_only, template_only};
 
-        template_only! {
-            #[test]
-            fn test_examples() {
-                assert_eq!(decode_account("Elton Hercules John;eltonjohn;75"), Ok(Account {
-                    full_name: "Elton Hercules John".to_string(),
-                    user_name: "eltonjohn".to_string(),
-                    age: 75
-                }));
-            }
+        #[test]
+        fn test_example1() {
+            assert_eq!(decode_account("Elton Hercules John;eltonjohn;75"), Ok(Account {
+                full_name: "Elton Hercules John".to_string(),
+                user_name: "eltonjohn".to_string(),
+                age: 75
+            }));
         }
 
         solution_only! {
             #[test]
-            fn test_good_cases() {
-                assert_eq!(decode_account("Elton Hercules John;eltonjohn;75"), Ok(Account {
-                    full_name: "Elton Hercules John".to_string(),
-                    user_name: "eltonjohn".to_string(),
-                    age: 75
-                }));
+            fn test_example2() {
                 assert_eq!(decode_account("David Bowie;drjones;69"), Ok(Account {
                     full_name: "David Bowie".to_string(),
                     user_name: "drjones".to_string(),
                     age: 69
                 }));
+            }
+
+            #[test]
+            fn test_example3() {
                 assert_eq!(decode_account("Bob Dylan;robertd;81"), Ok(Account {
                     full_name: "Bob Dylan".to_string(),
                     user_name: "robertd".to_string(),
@@ -101,12 +100,15 @@ mod assignment {
             }
 
             #[test]
-            fn test_edge_cases() {
+            fn test_edge_cases1() {
                 assert_eq!(decode_account("Abc;abc;0"), Ok(Account {
                     full_name: "Abc".to_string(),
                     user_name: "abc".to_string(),
                     age: 0
                 }));
+            }
+            #[test]
+            fn test_edge_cases2() {
                 assert_eq!(decode_account("Abcdefghijklmnopqrstuvwxyz;abcdefghijklmnopqrstuvwxyz;150"), Ok(Account {
                     full_name: "Abcdefghijklmnopqrstuvwxyz".to_string(),
                     user_name: "abcdefghijklmnopqrstuvwxyz".to_string(),
@@ -115,37 +117,74 @@ mod assignment {
             }
 
             #[test]
-            fn test_incorrect_format() {
+            fn test_incorrect_format1() {
                 assert_eq!(decode_account("Elton Hercules John;eltonjohn;75;"), Err(AccountDecodeError::InvalidFormat));
+            }
+            #[test]
+            fn test_incorrect_format2() {
                 assert_eq!(decode_account(";Elton Hercules John;eltonjohn;75"), Err(AccountDecodeError::InvalidFormat));
+            }
+            #[test]
+            fn test_incorrect_format3() {
                 assert_eq!(decode_account("Elton Hercules John;eltonjohn;;75"), Err(AccountDecodeError::InvalidFormat));
+            }
+            #[test]
+            fn test_incorrect_format4() {
                 assert_eq!(decode_account("Elton Hercules John;elton;john;75;"), Err(AccountDecodeError::InvalidFormat));
+            }
+            #[test]
+            fn test_incorrect_format5() {
                 assert_eq!(decode_account("w;x;y;z"), Err(AccountDecodeError::InvalidFormat));
             }
 
             #[test]
-            fn test_incorrect_fullname() {
+            fn test_incorrect_fullname1() {
                 assert_eq!(decode_account(";eltonjohn;75"), Err(AccountDecodeError::InvalidFullName("".into())));
+            }
+            #[test]
+            fn test_incorrect_fullname2() {
                 assert_eq!(decode_account("a;eltonjohn;75"), Err(AccountDecodeError::InvalidFullName("a".into())));
+            }
+            #[test]
+            fn test_incorrect_fullname3() {
                 assert_eq!(decode_account("ab;eltonjohn;75"), Err(AccountDecodeError::InvalidFullName("ab".into())));
+            }
+            #[test]
+            fn test_incorrect_fullname4() {
                 assert_eq!(decode_account("87;eltonjohn;75"), Err(AccountDecodeError::InvalidFullName("87".into())));
             }
 
             #[test]
-            fn test_incorrect_username() {
+            fn test_incorrect_username1() {
                 assert_eq!(decode_account("Elton Hercules John;;75"), Err(AccountDecodeError::InvalidUserName("".into())));
+            }#[test]
+            fn test_incorrect_username2() {
                 assert_eq!(decode_account("Elton Hercules John;Elly;75"), Err(AccountDecodeError::InvalidUserName("Elly".into())));
+                }#[test]
+            fn test_incorrect_username3() {
                 assert_eq!(decode_account("Elton Hercules John;el;75"), Err(AccountDecodeError::InvalidUserName("el".into())));
+                }#[test]
+            fn test_incorrect_username4() {
                 assert_eq!(decode_account("Elton Hercules John;87;75"), Err(AccountDecodeError::InvalidUserName("87".into())));
+                }#[test]
+            fn test_incorrect_username5() {
                 assert_eq!(decode_account("Elton Hercules John;ELLY;75"), Err(AccountDecodeError::InvalidUserName("ELLY".into())));
             }
 
             #[test]
-            fn test_incorrect_age() {
+            fn test_incorrect_age1() {
                 assert_eq!(decode_account("Elton Hercules John;eltonjosh;-1"), Err(AccountDecodeError::InvalidAge("-1".into())));
+                }#[test]
+            fn test_incorrect_age2() {
                 assert_eq!(decode_account("Elton Hercules John;eltonjosh;151"), Err(AccountDecodeError::InvalidAge("151".into())));
+                }#[test]
+            fn test_incorrect_age3() {
                 assert_eq!(decode_account("Elton Hercules John;eltonjosh;age"), Err(AccountDecodeError::InvalidAge("age".into())));
+                }#[test]
+            fn test_incorrect_age4() {
                 assert_eq!(decode_account("Elton Hercules John;eltonjosh;seventeen"), Err(AccountDecodeError::InvalidAge("seventeen".into())));
+                }#[test]
+            fn test_incorrect_age5() {
                 assert_eq!(decode_account("Elton Hercules John;eltonjosh;"), Err(AccountDecodeError::InvalidAge("".into())));
             }
 

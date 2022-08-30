@@ -17,9 +17,9 @@ weblab_folder!(
     enum_definition1,
     enum_definition2,
     safe_division,
-    result_exercise,
     structural_matching,
     creating_patterns,
+    result_exercise,
     binary_tree,
     tic_tac_toe
 );

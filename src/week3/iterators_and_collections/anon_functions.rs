@@ -1,13 +1,15 @@
 use weblab::weblab;
 
 #[weblab(programming_assignment)]
-/// Rust has support for anonymous functions, that is, functions without a name.
-/// These can be passed into other functions as an argument, or can even be returned from functions.
+/// Rust has something called a "closure". A Closure is a function you can create, just to give to another function. The function does not need a name,
+/// and can be created inside other functions using the local variables of the enclosing function. Let's look at an example:
 ///
-/// Anonymous functions can be constructed using the following notation: `|x| body`.
-/// `x` is the name of the variable that the function takes, and `body` is the code that is executed using this variable.
+/// ```rs
+/// let v = [1,2,3];
+/// let w = v.map(|x| x + 5);
+/// ```
 ///
-/// The type of these functions is `fn(...) -> ...`. They can be called using the normal function call notation.
+/// The type of these functions is `impl Fn(...) -> ...`. They can be called using the normal function call notation.
 /// If `f` is an anonymous function, `f(15)` calls `f`.
 ///
 /// For this exercise, complete the body of the given functions.
@@ -21,7 +23,7 @@ mod assignment {
 
         /// This function takes no arguments and returns a function `u32 -> u32`.
         /// The function should add one to its argument.
-        pub fn add_one() -> (fn(u32) -> u32) {
+        pub fn add_one() -> (impl Fn(u32) -> u32) {
             template_only! {
                 todo!()
             }
@@ -34,7 +36,7 @@ mod assignment {
         /// Apply the function to both elements of the tuple.
         ///
         /// This pattern is generally called a `map` function.
-        pub fn map_tuple(pair: (u32, u32), f: fn(u32) -> u32) -> (u32, u32) {
+        pub fn map_tuple(pair: (u32, u32), f: impl Fn(u32) -> u32) -> (u32, u32) {
             template_only! {
                 todo!()
             }
