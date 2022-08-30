@@ -6,8 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-#weblab="0.3.2"
-weblab={version="0.3.3", path="/home/jonathan/src/weblab_rs/weblab"}
+weblab="0.3.4"
 quickcheck = "1.0.3"
 quickcheck_macros = "1.0.0"
 rand = { version = "0.8", features = ["std", "std_rng"] }
