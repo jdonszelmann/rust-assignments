@@ -7,7 +7,6 @@ edition = "2021"
 
 [dependencies]
 weblab="0.3.4"
-#weblab={version="0.3.3", path="/home/jonathan/src/weblab_rs/weblab"}
 quickcheck = "1.0.3"
 quickcheck_macros = "1.0.0"
 rand = { version = "0.8", features = ["std", "std_rng"] }
