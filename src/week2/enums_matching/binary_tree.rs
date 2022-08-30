@@ -18,6 +18,7 @@ use weblab::weblab;
 /// We also know that the height of any other node depends on the height of its children. Specifically, it's one more than
 /// the heighest of the two children. Those two properties are enough to implement the `height` function.
 #[weblab(title = "Binary Search Tree")]
+#[weblab(weight=5)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

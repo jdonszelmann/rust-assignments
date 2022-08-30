@@ -24,7 +24,7 @@ use weblab::weblab;
 ///
 /// * Make a `struct Ringbuffer<T>`, *which is generic* over a type T, so it can store arbitrary data.
 ///     * In tests, we use different integer types for T. You may thus bound T to be `Clone` and `Eq` if that's required for your implementation
-/// * implement an associated function `fn new(size: usize) -> Ringbuffer<T>` that creates a new ringbuffer of a specific size.
+/// * implement an associated function `fn new(size: usize) -> RingBuffer<T>` that creates a new ringbuffer of a specific size.
 /// * implement a method `fn enqueue(&mut self, v: T) -> Option<T>` which optionally returns the value overwritten by this enqueue if the buffer is full
 /// * implement a method `fn dequeue(&mut self) -> Option<T>` which returns the next value in the queue
 /// * implement a method `fn peek(&self) -> Option<&T>` which returns a reference to the value that would be dequeued next (but doesn't actually remove it)
@@ -34,6 +34,7 @@ use weblab::weblab;
 ///
 /// The actual implementation of the ringbuffer, and its internals are up to you. There is more than one correct answer.
 #[weblab(title = "Ringbuffer")]
+#[weblab(weight=5)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

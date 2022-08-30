@@ -9,6 +9,7 @@ use weblab::weblab;
 ///
 /// Implement all of the functions.
 #[weblab(title = "Hello Words")]
+#[weblab(weight=3)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
@@ -52,11 +53,6 @@ mod assignment {
     #[allow(unused_variables)]
     #[weblab(solution_template)]
     mod solution_template {
-        /// Return a `&str` containing the content "Hello World"
-        pub fn make_a_str() -> &'static str {
-            todo!()
-        }
-
         /// Return a `String` containing the content "Hello World"
         pub fn make_a_string() -> String {
             todo!()

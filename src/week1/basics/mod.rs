@@ -8,6 +8,7 @@ mod quadratics;
 
 weblab_folder!(
     "basics",
+    sum,
     arithmetic,
     numeric_properties,
     quadratics,

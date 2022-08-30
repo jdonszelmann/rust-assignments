@@ -10,6 +10,7 @@ use weblab::weblab;
 ///
 /// Hint: It may help to define a helper function `has_won(Square, Square, Square) -> bool` that checks if any player has won in a certain row.
 #[weblab(title = "Tic Tac Toe - 2 Player")]
+#[weblab(weight=2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

@@ -20,6 +20,7 @@ use weblab::weblab;
 ///
 /// Given are 3 functions to implement. You have to implement these functions efficiently, using a `HashSet` or `HashMap`.
 #[weblab(title = "Hashed collections")]
+#[weblab(weight=2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

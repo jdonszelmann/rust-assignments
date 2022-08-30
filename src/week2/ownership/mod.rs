@@ -11,12 +11,13 @@ mod vector3_again;
 
 weblab_folder!(
     "structs and ownership",
+    sum,
     vector3_again,
     stack,
     // is_it_sized,
     brackets,
     strings,
     string_theory,
-    fizzbuzz,
+    // fizzbuzz,
     fizzbuzzwoofyum
 );

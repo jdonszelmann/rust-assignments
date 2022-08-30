@@ -8,6 +8,7 @@ use weblab::weblab;
 ///
 /// Return whether a given storing is parenthesis-balanced.
 #[weblab(title = "Brackets")]
+#[weblab(weight=5)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
