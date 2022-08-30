@@ -691,7 +691,7 @@ checksum = "6598dd0bd3c7d51095ff6531a5b23e02acdc81804e30d8f07afb77b7215a140a"
 
 [[package]]
 name = "weblab"
-version = "0.3.3"
+version = "0.3.4"
 dependencies = [
  "chrono",
  "clap",
@@ -709,11 +709,11 @@ dependencies = [
 
 [[package]]
 name = "weblab-assignment-structure"
-version = "0.2.31"
+version = "0.3.4"
 
 [[package]]
 name = "weblab-macros"
-version = "0.3.3"
+version = "0.3.4"
 dependencies = [
  "proc-macro2",
  "quote",
