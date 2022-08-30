@@ -20,7 +20,7 @@ use weblab::weblab;
 ///
 /// Given are 3 functions to implement. You have to implement these functions efficiently, using a `HashSet` or `HashMap`.
 #[weblab(title = "Hashed collections")]
-#[weblab(weight=2)]
+#[weblab(weight = 2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
@@ -88,17 +88,20 @@ mod assignment {
 
         #[test]
         fn test_has_duplicates() {
-            assert!(has_duplicates(vec![0,1,0]));
+            assert!(has_duplicates(vec![0, 1, 0]));
         }
 
         #[test]
         fn test_most_common_element() {
-            assert_eq!(most_common_element(vec![0,1,0]), Some(0));
+            assert_eq!(most_common_element(vec![0, 1, 0]), Some(0));
         }
 
         #[test]
         fn test_missing_number() {
-            assert_eq!(which_number_is_missing(vec![8,3,9,13,12,7,4,5,10,11], 3, 13), 6);
+            assert_eq!(
+                which_number_is_missing(vec![8, 3, 9, 13, 12, 7, 4, 5, 10, 11], 3, 13),
+                6
+            );
         }
 
         solution_only! {

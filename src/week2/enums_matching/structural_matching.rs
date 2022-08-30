@@ -42,7 +42,7 @@ use weblab::weblab;
 /// For each of the patterns, create an expression that would be matched with
 /// the pattern. Note that there are often multiple correct answers.
 #[weblab(title = "Structural Matching")]
-#[weblab(weight=2)]
+#[weblab(weight = 2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

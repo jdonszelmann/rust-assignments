@@ -9,7 +9,7 @@ use weblab::weblab;
 ///
 /// Implement all of the functions.
 #[weblab(title = "Hello Words")]
-#[weblab(weight=3)]
+#[weblab(weight = 3)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

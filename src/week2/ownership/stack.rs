@@ -24,7 +24,7 @@ use weblab::weblab;
 ///
 /// Hint: Use a `Vec` to store the elements in the stack.
 #[weblab(title = "Wacky Stacky")]
-#[weblab(weight=1)]
+#[weblab(weight = 1)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

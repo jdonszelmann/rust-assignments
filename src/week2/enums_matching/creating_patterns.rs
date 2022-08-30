@@ -10,7 +10,7 @@ use weblab::weblab;
 ///
 /// Use pattern matching for each assignment.
 #[weblab(title = "Creating Patterns")]
-#[weblab(weight=3)]
+#[weblab(weight = 3)]
 mod assignment {
     #[weblab(solution)]
     #[allow(clippy::match_like_matches_macro)]
