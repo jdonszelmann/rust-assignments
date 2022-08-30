@@ -14,7 +14,7 @@ use weblab::weblab;
 ///     - If the value at the index is higher than the value we are searching for, we know the value is in the range `(middle, max]`
 /// - We update the bounds to conform to the new range, and rerun. If the range is ever empty, we know the value we are searching for is not in the list. In this case, return None.
 #[weblab(title = "Binary Search")]
-#[weblab(weight=3)]
+#[weblab(weight = 3)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

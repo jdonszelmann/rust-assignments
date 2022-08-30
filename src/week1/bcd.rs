@@ -50,7 +50,7 @@ use weblab::weblab;
 /// 2. `to_bcd(u64) -> u64`, which converts a "normal" binary u64 number to 16 bcd digits.
 ///     For numbers that are out of range (such as 2^63, which can not be represented as 16-digit BCD) the function should panic.
 #[weblab(title = "Binary Coded Decimal")]
-#[weblab(weight=3)]
+#[weblab(weight = 3)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
