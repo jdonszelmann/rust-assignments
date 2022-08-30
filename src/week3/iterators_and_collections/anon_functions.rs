@@ -65,7 +65,7 @@ mod assignment {
 
         template_only! {
             #[test]
-            fn test_map_tuple() {
+            fn test_map_tuple1() {
                 assert_eq!(map_tuple((3, 5), |x| x - 1), (2, 4))
             }
         }
@@ -75,25 +75,62 @@ mod assignment {
             fn test_add_one1() {
                 let a1 = add_one();
                 assert_eq!(a1(0), 1);
-                assert_eq!(a1(17), 18);
+            }
+
+            #[test]
+            fn test_add_one2() {
+                let a1 = add_one();
                 assert_eq!(a1(4242), 4243);
             }
 
             #[test]
-            fn test_map_tuple() {
-                assert_eq!(map_tuple((3, 5), |x| x - 1), (2, 4));
+            fn test_add_one3() {
+                let a1 = add_one();
+                assert_eq!(a1(17), 18);
+            }
+
+            #[test]
+            fn test_map_tuple2() {
                 assert_eq!(map_tuple((8, 9), |x| x + 5), (13, 14));
+            }
+
+            #[test]
+            fn test_map_tuple3() {
                 assert_eq!(map_tuple((3, 5), |_| 42), (42, 42));
+            }
+
+            #[test]
+            fn test_map_tuple4() {
                 assert_eq!(map_tuple((0, 0), |x| x), (0, 0));
+            }
+
+            #[test]
+            fn test_map_tuple5() {
                 assert_eq!(map_tuple((22, 44), |x| x / 2), (11, 22));
             }
 
             #[test]
-            fn test_double_tuple() {
+            fn test_double_tuple1() {
                 assert_eq!(double_tuple((1, 2)), (2, 4));
+            }
+
+            #[test]
+            fn test_double_tuple2() {
                 assert_eq!(double_tuple((8, 8)), (16, 16));
+            }
+
+            #[test]
+            fn test_double_tuple3() {
                 assert_eq!(double_tuple((3, 7)), (6, 14));
+            }
+
+            #[test]
+            fn test_double_tuple4() {
                 assert_eq!(double_tuple((0, 0)), (0, 0));
+            }
+
+            #[test]
+            fn test_double_tuple5() {
                 assert_eq!(double_tuple((44, 22)), (88, 44));
             }
         }

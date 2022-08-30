@@ -160,16 +160,20 @@ mod assignment {
             #[test]
             fn test_incorrect_username1() {
                 assert_eq!(decode_account("Elton Hercules John;;75"), Err(AccountDecodeError::InvalidUserName("".into())));
-            }#[test]
+            }
+            #[test]
             fn test_incorrect_username2() {
                 assert_eq!(decode_account("Elton Hercules John;Elly;75"), Err(AccountDecodeError::InvalidUserName("Elly".into())));
-                }#[test]
+            }
+            #[test]
             fn test_incorrect_username3() {
                 assert_eq!(decode_account("Elton Hercules John;el;75"), Err(AccountDecodeError::InvalidUserName("el".into())));
-                }#[test]
+            }
+            #[test]
             fn test_incorrect_username4() {
                 assert_eq!(decode_account("Elton Hercules John;87;75"), Err(AccountDecodeError::InvalidUserName("87".into())));
-                }#[test]
+            }
+            #[test]
             fn test_incorrect_username5() {
                 assert_eq!(decode_account("Elton Hercules John;ELLY;75"), Err(AccountDecodeError::InvalidUserName("ELLY".into())));
             }
@@ -177,16 +181,20 @@ mod assignment {
             #[test]
             fn test_incorrect_age1() {
                 assert_eq!(decode_account("Elton Hercules John;eltonjosh;-1"), Err(AccountDecodeError::InvalidAge("-1".into())));
-                }#[test]
+            }
+            #[test]
             fn test_incorrect_age2() {
                 assert_eq!(decode_account("Elton Hercules John;eltonjosh;151"), Err(AccountDecodeError::InvalidAge("151".into())));
-                }#[test]
+            }
+            #[test]
             fn test_incorrect_age3() {
                 assert_eq!(decode_account("Elton Hercules John;eltonjosh;age"), Err(AccountDecodeError::InvalidAge("age".into())));
-                }#[test]
+            }
+            #[test]
             fn test_incorrect_age4() {
                 assert_eq!(decode_account("Elton Hercules John;eltonjosh;seventeen"), Err(AccountDecodeError::InvalidAge("seventeen".into())));
-                }#[test]
+            }
+            #[test]
             fn test_incorrect_age5() {
                 assert_eq!(decode_account("Elton Hercules John;eltonjosh;"), Err(AccountDecodeError::InvalidAge("".into())));
             }
