@@ -6,7 +6,7 @@ use weblab::weblab;
 ///
 /// You are not allowed to change any function signatures.
 #[weblab(title = "References")]
-#[weblab(weight=2)]
+#[weblab(weight = 2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

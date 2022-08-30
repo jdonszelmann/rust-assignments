@@ -33,7 +33,7 @@ use weblab::weblab;
 /// Note that some of these traits can be implemented by deriving the implementation.
 /// This can save a lot of work in cases where the implementation is trivial.
 #[weblab(title = "Sign Magnitude Representation")]
-#[weblab(weight=5)]
+#[weblab(weight = 5)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

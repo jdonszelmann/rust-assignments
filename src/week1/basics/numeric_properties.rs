@@ -19,7 +19,7 @@ use weblab::weblab;
 ///
 /// The function should return the absolute value of n.
 #[weblab(title = "numeric properties")]
-#[weblab(weight=1)]
+#[weblab(weight = 1)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

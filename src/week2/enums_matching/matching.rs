@@ -12,7 +12,7 @@ use weblab::weblab;
 /// an underscore (`_`) to give a default case to execute if none of the previous
 /// cases worked.
 #[weblab(title = "Matching")]
-#[weblab(weight=2)]
+#[weblab(weight = 2)]
 mod assignment {
     #[weblab(solution)]
     #[allow(clippy::match_like_matches_macro)]

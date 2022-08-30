@@ -6,8 +6,8 @@ use weblab::weblab;
 ///
 /// You should use only iterators to solve this assignment. No explicit loops (`for`, `while`, `loop`) and let statements are allowed or needed.
 #[weblab(title = "Exercises")]
-#[weblab(weight=3)]
-#[weblab(check="no explicit loops were used (only iterators). Using if statements is allowed.")]
+#[weblab(weight = 3)]
+#[weblab(check = "no explicit loops were used (only iterators). Using if statements is allowed.")]
 mod assignment {
     #[weblab(solution)]
     mod solution {

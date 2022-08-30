@@ -13,7 +13,7 @@ use weblab::weblab;
 /// * Define the global function `add`, which adds two `Vector3`s
 ///
 #[weblab(title = "3D Vectors")]
-#[weblab(weight=1)]
+#[weblab(weight = 1)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

@@ -7,7 +7,7 @@ use weblab::weblab;
 /// You may be in need for a "pi" constant. There's one in the standard library you can use.
 /// Search for "PI" on [https://docs.rs/std](https://docs.rs/std)
 #[weblab(title = "Shapes")]
-#[weblab(weight=2)]
+#[weblab(weight = 2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

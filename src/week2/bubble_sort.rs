@@ -14,7 +14,7 @@ use weblab::weblab;
 /// You *are* allowed to use the swap method on Vec
 /// You *are not* allowed to just call the stdlib `.sort()` function.
 #[weblab(title = "Bubble Sort")]
-#[weblab(check="manually implements bubble sort")]
+#[weblab(check = "manually implements bubble sort")]
 mod assignment {
     #[weblab(solution)]
     mod solution {

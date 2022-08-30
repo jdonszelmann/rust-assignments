@@ -24,7 +24,7 @@ use weblab::weblab;
 /// * `divide`, which divides a by b
 /// * `modulo`, which returns the remainder after division of a by b
 #[weblab(title = "basic arithmetic")]
-#[weblab(weight=1)]
+#[weblab(weight = 1)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

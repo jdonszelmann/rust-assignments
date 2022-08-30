@@ -11,7 +11,7 @@ use weblab::weblab;
 ///
 /// Finish the definition of the increment trait, and then implement it for `i64` and `f64`.
 #[weblab(title = "Addable")]
-#[weblab(weight=2)]
+#[weblab(weight = 2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
