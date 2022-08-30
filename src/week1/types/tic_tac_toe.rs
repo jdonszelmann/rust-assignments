@@ -3,13 +3,13 @@ use weblab::weblab;
 #[weblab(programming_assignment)]
 /// Tic-tac-toe is a paper-and-pencil game for two players who take turns marking the spaces in a three-by-three grid with X or O.
 /// The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
-/// For more information see: https://en.wikipedia.org/wiki/Tic-tac-toe
+/// For more information see: https://en.wikipedia.org/wiki/Tic-tac-toe.
 ///
 /// For this assignment, consider a board from a one-player variant of the game, using only crosses.
-/// So, the player wins by placing three crosses in a horizontal, vertical, or diagonal row.
+/// The player wins by placing three crosses in a horizontal, vertical, or diagonal row.
 /// This board is represented using `[[bool; 3]; 3]`, which is a 3x3 array of booleans.
 /// A square has a cross if the corresponding boolean is true, and is empty otherwise.
-/// Squares of 2d arrays can be accessed using `board[x][y]`
+/// Squares of 2d arrays can be accessed using `board[x][y]`.
 ///
 /// Implement a function that is given a board, and checks if the player has won.
 #[weblab(title = "Tic Tac Toe - 1 Player")]

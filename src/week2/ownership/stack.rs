@@ -2,15 +2,17 @@ use weblab::weblab;
 
 #[weblab(programming_assignment)]
 /// In this assignment, you're asked to implement the stack data structure.
-/// A stack is a collection of elements, with the following operations:
+/// A stack is a collection of elements with the FILO property: First In, Last Out.
+/// So the retrieved element is always the element that was most recently stored. The stack should support
+/// the following operations:
 ///
 /// - Push, which adds an element to the top of the stack.
-/// - Pop, which removes an element from the top of the stack. (So it removes the most recently pushed element)
+/// - Pop, which removes an element from the top of the stack.
 ///   In case no elements remain, return 0.
-/// - Len, which returns the amount of elements currently on the stack.
+/// - Len, which returns the amount of elements that are currently placed on the stack.
 ///
-/// In case the datastructure is not clear, you can find more information on the internet.
-/// https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
+/// In case the data structure is not clear, you can find more information here:
+/// [https://en.wikipedia.org/wiki/Stack_(abstract_data_type)](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
 ///
 /// The stack methods need to have the following signatures:
 /// ```
@@ -22,7 +24,7 @@ use weblab::weblab;
 ///
 /// For each of the methods, you have to decide whether the method should take `self`, `&self` or `&mut self`.
 ///
-/// Hint: Use a `Vec` to store the elements in the stack.
+/// Hint: Use a `Vec` to store the elements of the stack.
 #[weblab(title = "Wacky Stacky")]
 #[weblab(weight = 1)]
 mod assignment {
@@ -33,7 +35,7 @@ mod assignment {
         }
 
         impl Stack {
-            /// Create a new Stack
+            /// Creates a new Stack.
             pub fn new() -> Stack {
                 Stack { vec: Vec::new() }
             }
@@ -43,7 +45,7 @@ mod assignment {
                 self.vec.push(value)
             }
 
-            /// Removes an element from the top of the stack
+            /// Removes an element from the top of the stack.
             /// In case the stack is empty, return 0.
             pub fn pop(&mut self) -> i64 {
                 if self.vec.is_empty() {

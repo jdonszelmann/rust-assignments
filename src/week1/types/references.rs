@@ -2,7 +2,7 @@ use weblab::weblab;
 
 #[weblab(programming_assignment)]
 /// For each of the following assignments, you are asked to implement a function related to references.
-/// The comment above the function will explain what each function should do.
+/// The comment above each function explains what the function should do.
 ///
 /// You are not allowed to change any function signatures.
 #[weblab(title = "References")]
@@ -12,17 +12,17 @@ mod assignment {
     mod solution {
         use weblab::{solution_only, template_only};
 
-        /// Return whether these number are equal.
+        /// Return whether these numbers are equal.
         pub fn is_equal_v1(a: i64, b: i64) -> bool {
             a == b
         }
 
-        /// Return whether these number are equal.
+        /// Return whether these numbers are equal.
         pub fn is_equal_v2(a: &i64, b: i64) -> bool {
             *a == b
         }
 
-        /// Return whether these number are equal.
+        /// Return whether these numbers are equal.
         pub fn is_equal_v3(a: &i64, b: &i64) -> bool {
             *a == *b // or just a == b
         }
@@ -38,7 +38,7 @@ mod assignment {
         }
 
         /// Return x + 1.
-        /// This should be implemented by calling the `increment_v1` function above
+        /// This should be implemented by calling the `increment_v1` function above.
         pub fn increment_v2(x: i64) -> i64 {
             let mut x = x;
             increment_v1(&mut x);
@@ -52,7 +52,7 @@ mod assignment {
         use weblab::{solution_only, template_only};
 
         /// Return whether these number are equal.
-        /// Note that both numbers are passed by value
+        /// Note that both numbers are passed by value.
         pub fn is_equal_v1(a: i64, b: i64) -> bool {
             todo!()
         }
@@ -82,7 +82,7 @@ mod assignment {
         }
 
         /// Return x + 1.
-        /// This should be implemented by calling the `increment` function above
+        /// This should be implemented by calling the `increment` function above.
         pub fn increment_v2(x: i64) -> i64 {
             todo!()
         }

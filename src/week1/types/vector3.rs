@@ -2,15 +2,15 @@ use weblab::weblab;
 
 #[weblab(programming_assignment)]
 /// In math, vectors are a commonly used tool (not to be confused with Rust `Vec`!).
-/// For this assignment, implement a struct that represents a 3D vector.
-/// A 3D vector can be imagined as an arrow in 3D space, starting at the origin, going to a certain point.
-/// This point can be represented using 3 numbers. For this assignment, give these numbers the type `f64`, a 64-bit floating point number.
+/// For this assignment, implement struct `Vector3` to represent a 3D vector.
+/// A 3D vector can be imagined as an arrow in 3D space, starting at the origin and going to a certain point.
+/// This point can be represented using 3 numbers of type `f64` (a 64-bit floating point number).
 ///
-/// For this assignment:
+/// Your task is to:
 ///
 /// * Define the fields of the `Vector3` struct. Make sure the names of the fields are `x`, `y` and `z`, that the fields' **types** are `f64`, and **that all fields are marked as public using the `pub` keyword**.
-/// * Define the global function `new`, which constructs a new `Vector3`
-/// * Define the global function `add`, which adds two `Vector3`s
+/// * Define the global function `new`, which constructs a new `Vector3`.
+/// * Define the global function `add`, which adds two `Vector3`s.
 ///
 #[weblab(title = "3D Vectors")]
 #[weblab(weight = 1)]
