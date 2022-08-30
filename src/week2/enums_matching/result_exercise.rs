@@ -73,11 +73,14 @@ mod assignment {
 
         #[test]
         fn test_example1() {
-            assert_eq!(decode_account("Elton Hercules John;eltonjohn;75"), Ok(Account {
-                full_name: "Elton Hercules John".to_string(),
-                user_name: "eltonjohn".to_string(),
-                age: 75
-            }));
+            assert_eq!(
+                decode_account("Elton Hercules John;eltonjohn;75"),
+                Ok(Account {
+                    full_name: "Elton Hercules John".to_string(),
+                    user_name: "eltonjohn".to_string(),
+                    age: 75
+                })
+            );
         }
 
         solution_only! {

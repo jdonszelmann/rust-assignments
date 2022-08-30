@@ -72,7 +72,7 @@ mod assignment {
 
         solution_only! {
             #[test]
-            fn test_add_one() {
+            fn test_add_one1() {
                 let a1 = add_one();
                 assert_eq!(a1(0), 1);
                 assert_eq!(a1(17), 18);
