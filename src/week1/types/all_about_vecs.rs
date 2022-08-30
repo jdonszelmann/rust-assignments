@@ -39,6 +39,15 @@ mod assignment {
             }
         }
 
+        /// Return the fifth value from the start of the vector.
+        /// If the vector is not long enough, return 0.
+        pub fn get_fifth(vec: Vec<i64>) -> i64 {
+            template_only! { todo!() }
+            solution_only! {
+                vec.get(4).copied().unwrap_or(0)
+            }
+        }
+
         /// Return the length of the Vec
         /// Note that the return type is now `i64`, don't change it.
         pub fn length_i64(vec: &Vec<i64>) -> i64 {
@@ -171,6 +180,15 @@ mod assignment {
             assert_eq!(length_i64(&vec![1, 2]), 2);
             assert_eq!(length_i64(&vec![1, 2, 3]), 3);
             assert_eq!(length_i64(&vec![1, 2, 3, 4, 5]), 5);
+        }
+
+        #[test]
+        pub fn test_get_fifth() {
+            assert_eq!(get_fifth(vec![1, 2, 3, 4, 5, 6]), 5);
+            assert_eq!(get_fifth(vec![1, 2, 3, 4, 5]), 5);
+            assert_eq!(get_fifth(vec![1, 2, 3, 4]), 0);
+            assert_eq!(get_fifth(vec![]), 0);
+            assert_eq!(get_fifth(vec![1, 2, 3, 4, 2]), 2);
         }
 
         #[test]
