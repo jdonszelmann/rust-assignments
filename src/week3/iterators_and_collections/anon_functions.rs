@@ -15,6 +15,7 @@ use weblab::weblab;
 /// For this exercise, complete the body of the given functions.
 ///
 #[weblab(title = "Anonymous Functions")]
+#[weblab(weight = 1)]
 mod assignment {
     #[weblab(solution)]
     #[allow(unused_parens)]

@@ -22,6 +22,7 @@ use weblab::weblab;
 ///
 /// Hint: The `.split()` function on strings may be useful.
 #[weblab(title = "Account Decoding")]
+#[weblab(weight = 2)]
 mod assignment {
     #[weblab(solution)]
     #[allow(clippy::enum_variant_names)]
