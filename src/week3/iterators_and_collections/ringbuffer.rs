@@ -34,7 +34,7 @@ use weblab::weblab;
 ///
 /// The actual implementation of the ringbuffer, and its internals are up to you. There is more than one correct answer.
 #[weblab(title = "Ringbuffer")]
-#[weblab(weight=5)]
+#[weblab(weight = 5)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

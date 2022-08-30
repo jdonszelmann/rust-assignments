@@ -13,8 +13,8 @@ use weblab::weblab;
 /// A lifetime annotation is a marker after a reference type, making the lifetime of that reference
 /// explicit, like `&'a u8` names the lifetime of this reference `'u8`.
 #[weblab(title = "Lifetime")]
-#[weblab(weight=2)]
-#[weblab(check="only lifetimes were changed")]
+#[weblab(weight = 2)]
+#[weblab(check = "only lifetimes were changed")]
 mod assignment {
     #[weblab(solution)]
     mod solution {
