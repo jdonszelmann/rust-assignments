@@ -6,7 +6,11 @@ use weblab::weblab;
 /// The Fibonacci sequence is defined mathematically as follows for any non-negative integer $n$:
 /// $$
 /// F_0 = 0
+/// $$
+/// $$
 /// F_1 = 1
+/// $$
+/// $$
 /// F_n = F_{n-1} + F_{n-2}
 /// $$
 ///
@@ -14,16 +18,29 @@ use weblab::weblab;
 /// E.g. we find that
 /// $$
 /// F_4 = 3
+/// $$
+/// $$
 /// F_8 = 21
+/// $$
+/// $$
 /// F_{12} = 144
 /// $$
 ///
 /// ## Assignment
-/// Create a function `fibonacci(n: u64) -> u64;` that computes and returns the `n`th fibonacci number for any `n`.
+/// Create a function `fibonacci(n: u64) -> u64;` that computes and returns (in a reasonable time) the `n`th fibonacci number for any `n`.
 #[weblab(title = "fibonacci")]
+#[weblab(weight = 2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
+        // pub fn fibonacci(n: u64) -> u64 {
+        //     match n {
+        //         0 => 0,
+        //         1 => 1,
+        //         n => fibonacci(n - 1) + fibonacci(n - 2)
+        //     }
+        // }
+
         pub fn fibonacci(n: u64) -> u64 {
             if n == 0 {
                 return 0;
@@ -66,19 +83,9 @@ mod assignment {
     #[weblab(test)]
     mod test {
         use super::solution::fibonacci;
-        use quickcheck::{Arbitrary, Gen};
-        use quickcheck_macros::quickcheck;
-        use rand::prelude::*;
-
-        #[derive(Debug, Clone)]
-        struct SmallNumber(u64);
-
-        impl Arbitrary for SmallNumber {
-            fn arbitrary(_: &mut Gen) -> SmallNumber {
-                let mut rng = rand::thread_rng();
-                SmallNumber(rng.gen_range(0..90))
-            }
-        }
+        use std::sync::mpsc;
+        use std::thread;
+        use std::time::Duration;
 
         fn fibonacci_ref(n: u64) -> u64 {
             if n == 0 {
@@ -98,13 +105,28 @@ mod assignment {
             curr
         }
 
+        fn panic_after<T, F>(d: Duration, f: F) -> T
+        where
+            T: Send + 'static,
+            F: FnOnce() -> T,
+            F: Send + 'static,
+        {
+            let (done_tx, done_rx) = mpsc::channel();
+            let handle = thread::spawn(move || {
+                let val = f();
+                done_tx.send(()).expect("Unable to send completion signal");
+                val
+            });
+
+            match done_rx.recv_timeout(d) {
+                Ok(_) => handle.join().expect("Thread panicked"),
+                Err(_) => panic!("Thread took too long"),
+            }
+        }
+
         #[test]
         fn test_0() {
             assert_eq!(fibonacci(0), 0);
-            assert_eq!(fibonacci(1), 1);
-            assert_eq!(fibonacci(2), 1);
-            assert_eq!(fibonacci(3), 2);
-            assert_eq!(fibonacci(4), 3);
         }
 
         #[test]
@@ -129,18 +151,23 @@ mod assignment {
 
         #[test]
         fn test_8() {
-            assert_eq!(fibonacci(8), 21);
+            panic_after(Duration::from_secs_f64(5.0), || {
+                assert_eq!(fibonacci(8), 21);
+            });
         }
 
         #[test]
         fn test_12() {
-            assert_eq!(fibonacci(12), 144);
+            panic_after(Duration::from_secs_f64(5.0), || {
+                assert_eq!(fibonacci(12), 144);
+            });
         }
 
-        #[quickcheck]
-        fn prop_fibonacci(n: SmallNumber) -> bool {
-            let SmallNumber(n) = n;
-            fibonacci(n) == fibonacci_ref(n)
+        #[test]
+        fn test_13() {
+            panic_after(Duration::from_secs_f64(5.0), || {
+                assert_eq!(fibonacci(90), fibonacci_ref(90));
+            });
         }
     }
 }

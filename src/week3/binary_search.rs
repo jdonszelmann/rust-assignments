@@ -14,6 +14,7 @@ use weblab::weblab;
 ///     - If the value at the index is higher than the value we are searching for, we know the value is in the range `(middle, max]`
 /// - We update the bounds to conform to the new range, and rerun. If the range is ever empty, we know the value we are searching for is not in the list. In this case, return None.
 #[weblab(title = "Binary Search")]
+#[weblab(weight = 3)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
@@ -43,7 +44,8 @@ mod assignment {
     #[weblab(solution_template)]
     #[allow(clippy::ptr_arg)]
     mod solution_template {
-        pub fn binary_search(list: &Vec<i64>) -> Option<usize> {
+        /// list is guaranteed to be sorted
+        pub fn binary_search(list: &Vec<i64>, value: i64) -> Option<i64> {
             todo!()
         }
     }
@@ -111,14 +113,20 @@ mod assignment {
             }
 
             #[test]
-            fn find_edgecases() {
+            fn edgecase_1() {
                 let vec = vec![];
                 assert_eq!(None, binary_search(&vec, 0));
+            }
 
+            #[test]
+            fn edgecase_2() {
                 let vec = vec![0];
                 assert_eq!(None, binary_search(&vec, 1));
                 assert_eq!(Some(0), binary_search(&vec, 0));
+            }
 
+            #[test]
+            fn edgecase_3() {
                 let vec = vec![0,2];
                 assert_eq!(None, binary_search(&vec, 1));
                 assert_eq!(Some(0), binary_search(&vec, 0));

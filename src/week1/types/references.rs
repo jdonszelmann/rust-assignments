@@ -2,26 +2,27 @@ use weblab::weblab;
 
 #[weblab(programming_assignment)]
 /// For each of the following assignments, you are asked to implement a function related to references.
-/// The comment above the function will explain what each function should do.
+/// The comment above each function explains what the function should do.
 ///
 /// You are not allowed to change any function signatures.
 #[weblab(title = "References")]
+#[weblab(weight = 2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
         use weblab::{solution_only, template_only};
 
-        /// Return whether these number are equal.
+        /// Return whether these numbers are equal.
         pub fn is_equal_v1(a: i64, b: i64) -> bool {
             a == b
         }
 
-        /// Return whether these number are equal.
+        /// Return whether these numbers are equal.
         pub fn is_equal_v2(a: &i64, b: i64) -> bool {
             *a == b
         }
 
-        /// Return whether these number are equal.
+        /// Return whether these numbers are equal.
         pub fn is_equal_v3(a: &i64, b: &i64) -> bool {
             *a == *b // or just a == b
         }
@@ -32,15 +33,15 @@ mod assignment {
         }
 
         /// Increment (add 1 to) x.
-        pub fn increment_mut_ref(x: &mut i64) {
+        pub fn increment_v1(x: &mut i64) {
             *x += 1;
         }
 
         /// Return x + 1.
-        /// This should be implemented by calling the `increment_v1` function above
-        pub fn increment(x: i64) -> i64 {
+        /// This should be implemented by calling the `increment_v1` function above.
+        pub fn increment_v2(x: i64) -> i64 {
             let mut x = x;
-            increment_mut_ref(&mut x);
+            increment_v1(&mut x);
             x
         }
     }
@@ -51,7 +52,7 @@ mod assignment {
         use weblab::{solution_only, template_only};
 
         /// Return whether these number are equal.
-        /// Note that both numbers are passed by value
+        /// Note that both numbers are passed by value.
         pub fn is_equal_v1(a: i64, b: i64) -> bool {
             todo!()
         }
@@ -81,7 +82,7 @@ mod assignment {
         }
 
         /// Return x + 1.
-        /// This should be implemented by calling the `increment` function above
+        /// This should be implemented by calling the `increment` function above.
         pub fn increment_v2(x: i64) -> i64 {
             todo!()
         }
@@ -137,27 +138,27 @@ mod assignment {
         fn test_increment_v1() {
             let mut x = -3;
 
-            increment_mut_ref(&mut x);
+            increment_v1(&mut x);
             assert_eq!(x, -2);
 
-            increment_mut_ref(&mut x);
+            increment_v1(&mut x);
             assert_eq!(x, -1);
 
             x = 19;
-            increment_mut_ref(&mut x);
+            increment_v1(&mut x);
             assert_eq!(x, 20);
 
-            increment_mut_ref(&mut x);
+            increment_v1(&mut x);
             assert_eq!(x, 21);
         }
 
         #[test]
         fn test_increment_v2() {
-            assert_eq!(increment(100), 101);
-            assert_eq!(increment(-18), -17);
-            assert_eq!(increment(7319287), 7319288);
-            assert_eq!(increment(0), 1);
-            assert_eq!(increment(-1), 0);
+            assert_eq!(increment_v2(100), 101);
+            assert_eq!(increment_v2(-18), -17);
+            assert_eq!(increment_v2(7319287), 7319288);
+            assert_eq!(increment_v2(0), 1);
+            assert_eq!(increment_v2(-1), 0);
         }
     }
 }

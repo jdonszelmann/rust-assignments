@@ -1,7 +1,11 @@
 use weblab::weblab;
 
 #[weblab(programming_assignment)]
-/// In the last exercise, you implemented the fizzbuzz game. Now, implement the FizzBuzzWoofYum game.
+/// Fizz buzz is a group word game for children to teach them about division.
+/// Players take turns to count incrementally, replacing any number divisible by 3 with the word "Fizz", and any number divisible by 5 with the word "Buzz".
+/// Any number that is divisible by 15 is replaced by "FizzBuzz".
+///
+/// In this exercise, you have to implement the FizzBuzzWoofYum game.
 ///
 /// - Any number that is divisible by 3, is replaced by Fizz.
 /// - Any number that is divisible by 5, is replaced by Buzz.
@@ -42,10 +46,11 @@ use weblab::weblab;
 /// 30. "FizzBuzz"
 ///
 /// Given a number n, output the first n numbers of the FizzBuzzWoofYum sequence.
-/// The output should be a `Vec` of `String`s, each `String` being a seperate number of the sequence.
+/// The output should be a `Vec` of `String`s, each `String` being a separate number of the sequence.
 ///
 /// Hint: There is a better way of doing this then writing 16 separate if statements.
 #[weblab(title = "Fizz Buzz Woof Yum")]
+#[weblab(weight = 2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

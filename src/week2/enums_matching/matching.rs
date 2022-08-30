@@ -6,16 +6,22 @@ use weblab::weblab;
 /// In rust, a "match" block works like a more powerful "switch" block.
 ///
 /// In each of the exercises, you are asked to return a value based on the input. Use "match" to solve these assignments
+///
+/// Note that a match statement always needs to be "exhaustive". That means that
+/// there *must* always be at least one "match arm" that is executed. You can use
+/// an underscore (`_`) to give a default case to execute if none of the previous
+/// cases worked.
 #[weblab(title = "Matching")]
+#[weblab(weight = 2)]
 mod assignment {
     #[weblab(solution)]
     #[allow(clippy::match_like_matches_macro)]
     mod solution {
         use weblab::{solution_only, template_only};
 
-        // return 1 if v is either 1, 3 or 5
-        // return 2 if v is either 0, 2 or 4
-        // return 3 in any other situation
+        /// return 1 if v is either 1, 3 or 5
+        /// return 2 if v is either 0, 2 or 4
+        /// return 3 in any other situation
         pub fn exercise_1(v: u8) -> u8 {
             solution_only! {
                 match v {
@@ -29,9 +35,9 @@ mod assignment {
             }
         }
 
-        // return 1 if v is between 0 (inclusive) and 100 (exclusive)
-        // return 2 if v is between 100 (inclusive) and 200 (exclusive)
-        // return 3 in any other situation
+        /// return 1 if v is between 0 (inclusive) and 100 (exclusive)
+        /// return 2 if v is between 100 (inclusive) and 200 (exclusive)
+        /// return 3 in any other situation
         pub fn exercise_2(v: u8) -> u8 {
             solution_only! {
                 match v {
@@ -45,9 +51,9 @@ mod assignment {
             }
         }
 
-        // return 1 if v is in the first half of the latin/english alphabet (a-n) (uppercase *or* lowercase)
-        // return 2 if v is in the second half of the latin/english alphabet (o-z) (uppercase *or* lowercase)
-        // return 3 if v is not in the latin/english alphabet
+        /// return 1 if v is in the first half of the latin/english alphabet (a-n) (uppercase *or* lowercase)
+        /// return 2 if v is in the second half of the latin/english alphabet (o-z) (uppercase *or* lowercase)
+        /// return 3 if v is not in the latin/english alphabet
         pub fn exercise_3(v: char) -> u8 {
             solution_only! {
                 match v {
@@ -61,7 +67,7 @@ mod assignment {
             }
         }
 
-        // Check if the character in v is a digit (0-9)
+        /// Check if the character in v is a digit (0-9)
         pub fn exercise_4(v: char) -> bool {
             solution_only! {
                 match v {
@@ -74,13 +80,15 @@ mod assignment {
             }
         }
 
-        // Check if v is a digit. If so, return a u8 with which number it is. Use a match block
-        // and some math instead of one of the built-in functions. Hint: it may help to cast a char
-        // to a number (`v as u32`) to solve this problem. In the standard library, there is
-        // `char::to_digit() to solve this exact problem. Try not to use its implementation, but if you're
-        // stuck, use it for inspiration and maybe to check your solution.
-        //
-        // If v is not a digit, return None.
+        /// Check if v is a digit. If so, return a u8 with which number (wrapped in a `Some()`)
+        /// it is. Use a match block and some math instead of one of the built-in functions.
+        ///
+        /// Hint: it may help to cast a char to a number (`v as u32`) to solve this problem.
+        /// In the standard library, there is `char::to_digit() to solve this exact problem.
+        /// Try not to use its implementation, but if you're stuck, use it for inspiration
+        /// and maybe to check your solution.
+        ///
+        /// If v is not a digit, return None.
         pub fn exercise_5(v: char) -> Option<u32> {
             solution_only! {
                 match v {

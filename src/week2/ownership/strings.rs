@@ -9,23 +9,24 @@ use weblab::weblab;
 ///
 /// Implement all of the functions.
 #[weblab(title = "Hello Words")]
+#[weblab(weight = 3)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
-        /// Return a `String` containing the content "Hello World"
+        /// Return a `String` containing the content "Hello World".
         pub fn make_a_string() -> String {
             String::from("Hello World")
         }
 
-        /// Given two `&str`s, concatenate them
-        /// For example: concat("abc", "def") == "abcdef"
+        /// Given two `&str`s, concatenate them.
+        /// For example: concat("abc", "def") == "abcdef".
         pub fn concat(a: &str, b: &str) -> String {
             String::from(a) + b
         }
 
         /// Given two `&str`s, interleave them.
         /// The strings are guaranteed to be the same length.
-        /// For example: concat("abc", "def") == "adbecf"
+        /// For example: interleave("abc", "def") == "adbecf".
         pub fn interleave(a: &str, b: &str) -> String {
             let mut buffer = String::with_capacity(a.len() + b.len());
 
@@ -52,25 +53,20 @@ mod assignment {
     #[allow(unused_variables)]
     #[weblab(solution_template)]
     mod solution_template {
-        /// Return a `&str` containing the content "Hello World"
-        pub fn make_a_str() -> &'static str {
-            todo!()
-        }
-
-        /// Return a `String` containing the content "Hello World"
+        /// Return a `String` containing the content "Hello World".
         pub fn make_a_string() -> String {
             todo!()
         }
 
-        /// Given two `&str`s, concatenate them
-        /// For example: concat("abc", "def") == "abcdef"
+        /// Given two `&str`s, concatenate them.
+        /// For example: concat("abc", "def") == "abcdef".
         pub fn concat(a: &str, b: &str) -> String {
             todo!()
         }
 
         /// Given two `&str`s, interleave them.
         /// The strings are guaranteed to be the same length.
-        /// For example: concat("abc", "def") == "adbecf"
+        /// For example: concat("abc", "def") == "adbecf".
         pub fn interleave(a: &str, b: &str) -> String {
             todo!()
         }

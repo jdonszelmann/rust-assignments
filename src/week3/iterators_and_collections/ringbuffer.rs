@@ -5,7 +5,7 @@ use weblab::weblab;
 /// They are often used as a queue for data. For example, holding keystrokes
 /// from a keyboard until time is available to handle them.
 ///
-/// However, compared to arbitrary-size queue datastructures, a ringbuffer used a fixed
+/// However, compared to arbitrary-size queue datastructures, a ringbuffer uses a fixed
 /// amount of memory. When the buffer is full, the oldest value in the queue is simply
 /// overwritten, and thus lost (though some implementations may alternatively error in such a case).
 ///
@@ -21,9 +21,10 @@ use weblab::weblab;
 /// To achieve this wrapping behavior, often, the remainder operation is used.
 ///
 /// For this assignment:
+///
 /// * Make a `struct Ringbuffer<T>`, *which is generic* over a type T, so it can store arbitrary data.
 ///     * In tests, we use different integer types for T. You may thus bound T to be `Clone` and `Eq` if that's required for your implementation
-/// * implement an associated function `fn new(size: usize) -> Ringbuffer<T>` that creates a new ringbuffer of a specific size.
+/// * implement an associated function `fn new(size: usize) -> RingBuffer<T>` that creates a new ringbuffer of a specific size.
 /// * implement a method `fn enqueue(&mut self, v: T) -> Option<T>` which optionally returns the value overwritten by this enqueue if the buffer is full
 /// * implement a method `fn dequeue(&mut self) -> Option<T>` which returns the next value in the queue
 /// * implement a method `fn peek(&self) -> Option<&T>` which returns a reference to the value that would be dequeued next (but doesn't actually remove it)
@@ -33,6 +34,7 @@ use weblab::weblab;
 ///
 /// The actual implementation of the ringbuffer, and its internals are up to you. There is more than one correct answer.
 #[weblab(title = "Ringbuffer")]
+#[weblab(weight = 5)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
