@@ -4,4 +4,4 @@ mod built_in_traits;
 mod increment;
 mod shapes;
 
-weblab_folder!("traits", shapes, increment);
+weblab_folder!("traits", sum, shapes, increment, built_in_traits);

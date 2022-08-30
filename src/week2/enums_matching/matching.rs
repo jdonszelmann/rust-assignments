@@ -12,6 +12,7 @@ use weblab::weblab;
 /// an underscore (`_`) to give a default case to execute if none of the previous
 /// cases worked.
 #[weblab(title = "Matching")]
+#[weblab(weight=2)]
 mod assignment {
     #[weblab(solution)]
     #[allow(clippy::match_like_matches_macro)]
@@ -79,11 +80,13 @@ mod assignment {
             }
         }
 
-        /// Check if v is a digit. If so, return a u8 with which number it is. Use a match block
-        /// and some math instead of one of the built-in functions. Hint: it may help to cast a char
-        /// to a number (`v as u32`) to solve this problem. In the standard library, there is
-        /// `char::to_digit() to solve this exact problem. Try not to use its implementation, but if you're
-        /// stuck, use it for inspiration and maybe to check your solution.
+        /// Check if v is a digit. If so, return a u8 with which number (wrapped in a `Some()`)
+        /// it is. Use a match block and some math instead of one of the built-in functions.
+        ///
+        /// Hint: it may help to cast a char to a number (`v as u32`) to solve this problem.
+        /// In the standard library, there is `char::to_digit() to solve this exact problem.
+        /// Try not to use its implementation, but if you're stuck, use it for inspiration
+        /// and maybe to check your solution.
         ///
         /// If v is not a digit, return None.
         pub fn exercise_5(v: char) -> Option<u32> {

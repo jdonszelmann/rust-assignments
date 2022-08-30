@@ -7,6 +7,7 @@ use weblab::weblab;
 ///
 /// You are not allowed to change any function signatures.
 #[weblab(title = "All about vecs")]
+#[weblab(weight=2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

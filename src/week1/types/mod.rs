@@ -9,6 +9,7 @@ use weblab::weblab_folder;
 
 weblab_folder!(
     "types",
+    sum,
     integer_sizes,
     vector3,
     ownership,

@@ -2,6 +2,7 @@ use weblab::inline_question_list;
 
 inline_question_list! {
     title: "String Theory",
+    weight: 3.0,
     question:
     /// In the previous assignment, you were asked to implement the following function:
     /// ```
@@ -14,6 +15,10 @@ inline_question_list! {
 
     open_question!(
         title: "Why receive &str",
+        weight: 1.0,
+        checklist: [
+            "provide a good reason (see reference answer)"
+        ],
         question:
         /// Explain why it makes sense for this function to receive `&str` as an argument, rather than `String`
         answer:
@@ -25,6 +30,10 @@ inline_question_list! {
 
     open_question!(
         title: "Why return String",
+        weight: 1.0,
+        checklist: [
+            "correct explanation that the length is unknown and has to be heap allocated"
+        ],
         question:
         /// Explain why it makes sense for this function to return `String`, rather than `&str`
         answer:
@@ -35,8 +44,13 @@ inline_question_list! {
 
     open_question!(
         title: "str",
+        weight: 2.0,
+        checklist: [
+            "answer question 1 (difference)"
+            "answer question 2 (both exists)"
+        ],
         question:
-        /// Explain the difference between `str` and `&str`. Why do both exist? What do you use `str` for?
+        /// Explain the difference between `str` and `&str`. Why do both exist?
         answer:
         /// A `str` is an *unsized* type. It's the size of a sequence of characters of unknown length.
         /// Because the length isn't known, we can't have a variable with `str` as type, because the

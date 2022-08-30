@@ -2,6 +2,7 @@ use weblab::inline_question_list;
 
 inline_question_list! {
     title: "integer sizes",
+    weight: 1.0,
     mc_question! {
         title: "1",
         question:

@@ -27,8 +27,9 @@ use weblab::weblab;
 /// $$
 ///
 /// ## Assignment
-/// Create a function `fibonacci(n: u64) -> u64;` that computes and returns the `n`th fibonacci number for any `n`.
+/// Create a function `fibonacci(n: u64) -> u64;` that computes and returns (in a reasonable time) the `n`th fibonacci number for any `n`.
 #[weblab(title = "fibonacci")]
+#[weblab(weight=2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

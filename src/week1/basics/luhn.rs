@@ -44,6 +44,7 @@ use weblab::weblab;
 /// Unfortunately, the modulus operator is very hard to define properly.
 /// If you need a modulo operation on negative numbers, have a look at `rem_euclid`.
 #[weblab(title = "Luhn Algorithm")]
+#[weblab(weight=2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

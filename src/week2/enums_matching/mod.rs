@@ -13,13 +13,14 @@ mod tic_tac_toe;
 
 weblab_folder!(
     "enums and matching",
+    sum,
+    safe_division,
     matching,
     enum_definition1,
     enum_definition2,
-    safe_division,
+    tic_tac_toe,
     structural_matching,
     creating_patterns,
     result_exercise,
     binary_tree,
-    tic_tac_toe
 );

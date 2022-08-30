@@ -1,10 +1,14 @@
 use weblab::inline_question_list;
 
 inline_question_list! {
-   title: "ownership rules"
-
+    title: "ownership rules"
+    weight: 3.0,
     open_question!(
         title: "explain the example",
+        weight: 1.0,
+        checklist: [
+            "correct explanation"
+        ],
         question:
         /// Explain why the following code does not work.
         ///
@@ -31,6 +35,11 @@ inline_question_list! {
 
     open_question!(
         title: "solving the problem",
+        weight: 2.0,
+        checklist: [
+            "correct solution 1"
+            "correct solution 2"
+        ],
         question:
         /// Explain two strategies to fix the code from the previous question.
         answer:

@@ -50,6 +50,7 @@ use weblab::weblab;
 ///
 /// Hint: There is a better way of doing this then writing 16 separate if statements.
 #[weblab(title = "Fizz Buzz Woof Yum")]
+#[weblab(weight = 2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

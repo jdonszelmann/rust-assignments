@@ -16,6 +16,7 @@ use weblab::weblab;
 /// You may have elements come out in any order. In real situations, such an iterator is most useful if
 /// the items come out in sorted order. You may attempt this, but it is more challenging.
 #[weblab(title = "Tree iterator")]
+#[weblab(weight=3)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

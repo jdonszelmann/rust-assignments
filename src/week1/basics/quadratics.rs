@@ -16,6 +16,7 @@ use weblab::weblab;
 /// *Note*
 /// sqrt is a method of f64 not a function. So you can use it as a.sqrt() instead of sqrt(a).
 #[weblab(title = "quadratics")]
+#[weblab(weight=2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

@@ -13,6 +13,7 @@ use weblab::weblab;
 ///
 /// Implement a function that is given a board, and checks if the player has won.
 #[weblab(title = "Tic Tac Toe - 1 Player")]
+#[weblab(weight=3)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
