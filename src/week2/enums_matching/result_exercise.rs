@@ -19,10 +19,10 @@ use weblab::weblab;
 ///
 /// For the `InvalidFullName`, `InvalidUserName`, and `InvalidAge` errors, include the part of the string (so the full name, username and age respectively) as the enum variant.
 /// If the string contains multiple error, return the first property that was violated.
-#[warn(clippy::enum_variant_names)]
 #[weblab(title = "Account Decoding")]
 mod assignment {
     #[weblab(solution)]
+    #[allow(clippy::enum_variant_names)]
     mod solution {
         use weblab::{solution_only, template_only};
 
