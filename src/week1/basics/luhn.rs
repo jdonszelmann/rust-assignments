@@ -29,7 +29,7 @@ use weblab::weblab;
 /// False
 /// ```
 ///
-/// Now define a function `luhn_final(i64, i64, i64) -> bool;` that returns the fourth digit of a four-digit bank card number. For example:
+/// Now define a function `luhn_final(i64, i64, i64) -> i64;` that returns the fourth digit of a four-digit bank card number. For example:
 ///
 /// ```
 /// > luhn_final(1, 7, 8)
@@ -42,8 +42,9 @@ use weblab::weblab;
 /// # NOTE
 /// in `luhn_final`, do note that the modulus operator (`%`) works differently on negative numbers than you might expect.
 /// Unfortunately, the modulus operator is very hard to define properly.
-/// Search for `rem_euclid`, which has more useful mathematical properties, especially on negative numbers.
+/// If you need a modulo operation on negative numbers, have a look at `rem_euclid`.
 #[weblab(title = "Luhn Algorithm")]
+#[weblab(weight = 2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
@@ -73,8 +74,9 @@ mod assignment {
 
         pub fn luhn_final(a: i64, b: i64, c: i64) -> i64 {
             solution_only! {
-                let total = 10 - (luhn_double(a) + b + luhn_double(c));
-                total.rem_euclid(10)
+                let sum = luhn_double(a) + b + luhn_double(c);
+                let rem = sum % 10;
+                10 - rem
             }
 
             template_only! {todo!()}

@@ -18,6 +18,7 @@ use weblab::weblab;
 /// We also know that the height of any other node depends on the height of its children. Specifically, it's one more than
 /// the heighest of the two children. Those two properties are enough to implement the `height` function.
 #[weblab(title = "Binary Search Tree")]
+#[weblab(weight = 5)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
@@ -48,7 +49,7 @@ mod assignment {
                 }
             }
 
-            // Return the number of non-leaf nodes in the tree. You can use recursion to solve this problem.
+            /// Return the number of non-leaf nodes in the tree. You can use recursion to solve this problem.
             pub fn size(&self) -> usize {
                 solution_only! {
                     match self {
@@ -130,22 +131,29 @@ mod assignment {
     #[weblab(test)]
     mod test {
         use super::solution::*;
-        use itertools::Itertools;
         use weblab::{solution_only, template_only};
 
+        fn leaf<T>() -> BinaryTree<T> {
+            BinaryTree::Leaf
+        }
+
+        fn node<T>(t: T, s: BinaryTree<T>, l: BinaryTree<T>) -> BinaryTree<T> {
+            BinaryTree::Node {
+                value: t,
+                smaller: Box::new(s),
+                larger: Box::new(l),
+            }
+        }
+
+        template_only! {
+            #[test]
+            fn test() {
+                let tree = node(1, node(0, leaf(), leaf()), node(2, leaf(), leaf()));
+                todo!()
+            }
+        }
+
         solution_only! {
-            fn leaf<T>() -> BinaryTree<T> {
-                BinaryTree::Leaf
-            }
-
-            fn node<T>(t: T, s: BinaryTree<T>, l: BinaryTree<T>) -> BinaryTree<T> {
-                BinaryTree::Node {
-                    value: t,
-                    smaller: Box::new(s),
-                    larger: Box::new(l),
-                }
-            }
-
             #[test]
             fn test_size_skel() {
                 assert_eq!(node(1, node(0, leaf(), leaf()), node(2, leaf(), leaf())).size(), 3);

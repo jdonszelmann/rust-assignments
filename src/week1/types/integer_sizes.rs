@@ -2,6 +2,7 @@ use weblab::inline_question_list;
 
 inline_question_list! {
     title: "integer sizes",
+    weight: 1.0,
     mc_question! {
         title: "1",
         question:
@@ -53,7 +54,7 @@ inline_question_list! {
         /// of something can't be larger than memory is, and a pointer can also not be larger than memory is.
         /// That's where the name comes from. `isize` is like `usize`, but also stores negative numbers.
         option "`u64`",
-        option "`u64`",
+        option "`u32`",
         option "`usize`" correct,
         option "`isize`",
         randomize

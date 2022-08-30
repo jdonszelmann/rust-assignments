@@ -5,17 +5,35 @@ use weblab::weblab;
 /// The digits have the following representations:
 /// $$
 /// 0: 0000
-/// 1: 0001
-/// 2: 0010
-/// 3: 0011
-/// 4: 0100
-/// 5: 0101
-/// 6: 0110
-/// 7: 0111
-/// 8: 1000
-/// 9: 1001
-/// (note that 1100-1111 are unused)
 /// $$
+/// $$
+/// 1: 0001
+/// $$
+/// $$
+/// 2: 0010
+/// $$
+/// $$
+/// 3: 0011
+/// $$
+/// $$
+/// 4: 0100
+/// $$
+/// $$
+/// 5: 0101
+/// $$
+/// $$
+/// 6: 0110
+/// $$
+/// $$
+/// 7: 0111
+/// $$
+/// $$
+/// 8: 1000
+/// $$
+/// $$
+/// 9: 1001
+/// $$
+/// (note that 1100-1111 are unused)
 ///
 /// A few examples of how numbers would be represented in BCD:
 ///
@@ -32,6 +50,7 @@ use weblab::weblab;
 /// 2. `to_bcd(u64) -> u64`, which converts a "normal" binary u64 number to 16 bcd digits.
 ///     For numbers that are out of range (such as 2^63, which can not be represented as 16-digit BCD) the function should panic.
 #[weblab(title = "Binary Coded Decimal")]
+#[weblab(weight = 3)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
@@ -85,16 +104,32 @@ mod assignment {
         use weblab::{solution_only, template_only};
 
         #[test]
-        fn from_bcd_example() {
+        fn from_bcd_example_1() {
             assert_eq!(from_bcd(0b0001_0010_0011), 123);
+        }
+
+        #[test]
+        fn from_bcd_example_2() {
             assert_eq!(from_bcd(0b1000_1001_0000), 890);
+        }
+
+        #[test]
+        fn from_bcd_example_3() {
             assert_eq!(from_bcd(0b0), 0);
         }
 
         #[test]
-        fn to_bcd_example() {
+        fn to_bcd_example_1() {
             assert_eq!(0b0001_0010_0011, to_bcd(123));
+        }
+
+        #[test]
+        fn to_bcd_example_2() {
             assert_eq!(0b1000_1001_0000, to_bcd(890));
+        }
+
+        #[test]
+        fn to_bcd_example_3() {
             assert_eq!(0b0, to_bcd(0));
         }
 

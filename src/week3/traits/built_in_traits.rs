@@ -6,11 +6,16 @@ use weblab::weblab;
 /// and the magnitude of the number (or absolute value) for the remaining bits.
 ///
 /// A few examples of 32-bits sign-and-magnitude numbers:
-/// 0 0000000000000000000000000000000 -> 0
-/// 0 0000000000000000000000000000111 -> 7
-/// 1 0000000000000000000000000000111 -> -7
-/// 1 0000000000000000000000000001001 -> -9
-/// 1 0000000000000000000000000000000 -> -0 (This number is considered equal to +0, even though its bits are different)
+///
+/// `0 0000000000000000000000000000000 ->  0`
+///
+/// `0 0000000000000000000000000000111 ->  7`
+///
+/// `1 0000000000000000000000000000111 -> -7`
+///
+/// `1 0000000000000000000000000001001 -> -9`
+///
+/// `1 0000000000000000000000000000000 -> -0` (This number is considered equal to +0, even though its bits are different)
 ///
 /// An implementation of sig-and-magnitude numbers is provided.
 /// Implement the following traits:
@@ -28,6 +33,7 @@ use weblab::weblab;
 /// Note that some of these traits can be implemented by deriving the implementation.
 /// This can save a lot of work in cases where the implementation is trivial.
 #[weblab(title = "Sign Magnitude Representation")]
+#[weblab(weight = 5)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
@@ -44,11 +50,11 @@ mod assignment {
 
         impl SignMagnitude {
             pub fn sign(self) -> bool {
-                (self.0 & 0b10000000000000000000000000000000) != 0
+                (self.0 & 0x8000_0000) != 0
             }
 
             pub fn magnitude(self) -> u32 {
-                self.0 & 0b01111111111111111111111111111111
+                self.0 & 0x7fff_ffff
             }
 
             solution_only! {
@@ -70,7 +76,7 @@ mod assignment {
 
                 fn from_i32(from: i32) -> Self {
                     if from < 0 {
-                        Self((!(from.wrapping_sub(1)) as u32) | 0b10000000000000000000000000000000)
+                        Self((!(from.wrapping_sub(1)) as u32) | 0x8000_0000)
                     } else {
                         Self(from as u32)
                     }

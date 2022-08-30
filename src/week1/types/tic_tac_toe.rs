@@ -13,6 +13,7 @@ use weblab::weblab;
 ///
 /// Implement a function that is given a board, and checks if the player has won.
 #[weblab(title = "Tic Tac Toe - 1 Player")]
+#[weblab(weight = 3)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
@@ -109,14 +110,45 @@ mod assignment {
                 ];
                 assert_eq!(check_board(board), true);
             }
+
             #[test]
-            fn test_diagonal() {
+            fn test_diagonal_1() {
+                let board2 = [
+                    [true, false, false],
+                    [false, true, false],
+                    [false, false, true],
+                ];
+                assert_eq!(check_board(board2), true);
+            }
+
+            #[test]
+            fn test_diagonal_2() {
                 let board = [
                     [false, false, true],
                     [false, true, false],
                     [true, false, false],
                 ];
                 assert_eq!(check_board(board), true);
+            }
+
+            #[test]
+            fn test_boundaries_2() {
+                let board = [
+                    [true, true, false],
+                    [true, false, false],
+                    [false, false, true],
+                ];
+                assert_eq!(check_board(board), false);
+            }
+
+            #[test]
+            fn test_boundary_2() {
+                let board2 = [
+                    [false, true, true],
+                    [false, true, false],
+                    [false, false, false],
+                ];
+                assert_eq!(check_board(board2), false);
             }
 
             pub fn check_board_ref(board: [[bool; 3]; 3]) -> bool {
