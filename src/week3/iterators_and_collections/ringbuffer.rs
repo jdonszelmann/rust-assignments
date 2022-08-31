@@ -1,11 +1,11 @@
 use weblab::weblab;
 
 #[weblab(programming_assignment)]
-/// A ringbuffer is a datastructure based on an array (or a Vec).
+/// A ringbuffer is a data structure based on an array (or a Vec).
 /// They are often used as a queue for data. For example, holding keystrokes
 /// from a keyboard until time is available to handle them.
 ///
-/// However, compared to arbitrary-size queue datastructures, a ringbuffer uses a fixed
+/// However, compared to arbitrary-size queue data structures, a ringbuffer uses a fixed
 /// amount of memory. When the buffer is full, the oldest value in the queue is simply
 /// overwritten, and thus lost (though some implementations may alternatively error in such a case).
 ///
@@ -18,7 +18,7 @@ use weblab::weblab;
 /// _            ^ end          ^ start
 /// ```
 ///
-/// To achieve this wrapping behavior, often, the remainder operation is used.
+/// To achieve this wrapping behavior, the remainder operation often is used.
 ///
 /// For this assignment:
 ///
@@ -30,9 +30,9 @@ use weblab::weblab;
 /// * implement a method `fn peek(&self) -> Option<&T>` which returns a reference to the value that would be dequeued next (but doesn't actually remove it)
 /// * implement a method `fn len(&self) -> usize` which returns the number of elements in the queue.
 ///
-/// Make sure that both the struct and it's methods are declared `pub` (public) since we can't test them otherwise.
+/// Make sure that both the struct and its methods are declared `pub` (public) since we can't test them otherwise.
 ///
-/// The actual implementation of the ringbuffer, and its internals are up to you. There is more than one correct answer.
+/// The actual implementation of the ringbuffer and its internals are up to you. There is more than one correct answer.
 #[weblab(title = "Ringbuffer")]
 #[weblab(weight = 5)]
 mod assignment {

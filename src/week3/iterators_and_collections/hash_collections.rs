@@ -1,7 +1,7 @@
 use weblab::weblab;
 
 #[weblab(programming_assignment)]
-/// A Set is a collection of elements, without duplicates. To create a set,
+/// A Set is a collection of elements without duplicates. To create a set,
 /// we could use a Vec. Then, every time we inserted we would need to check
 /// the new element against all existing elements to see if it was already present,
 /// in which case we don't insert the new element.
@@ -10,11 +10,11 @@ use weblab::weblab;
 /// We say that the complexity of inserting is `O(n)`, meaning that the time it takes
 /// grows linearly with the number of elements in the set.
 ///
-/// A hashset is a set datastructure that can insert (and look if an element is present)
+/// A hashset is a set data structure that can insert (and look if an element is present)
 /// in `O(1)` time. This means that every lookup takes the same amount of time, regardless
 /// of the number of elements in the set.
 ///
-/// A HashMap is a datastructure that is a Map, meaning a set of pairs (Key, Value). Each key is unique, just like in a HashSet, but each key has an associated value.
+/// A HashMap is a data structure that is a Map, meaning a set of pairs (Key, Value). Each key is unique, just like in a HashSet, but each key has an associated value.
 /// HashMaps have a `get` method to obtain the value associated with a specific key, `insert` to add a new (Key, Value) pair and `remove` to remove a key and its associated value.
 /// The methods have the same speed as a HashSet, O(1).
 ///
@@ -28,7 +28,7 @@ mod assignment {
         use std::collections::{HashMap, HashSet};
         use weblab::{solution_only, template_only};
 
-        /// Return whether there are any duplicate elements in this vec.
+        /// Return whether there are any duplicate elements in vec.
         pub fn has_duplicates(vec: Vec<u64>) -> bool {
             solution_only! {
                 let mut set: HashSet<u64> = HashSet::new();
@@ -45,9 +45,9 @@ mod assignment {
             }
         }
 
-        /// Find the most common element in this Vec.
+        /// Find the most common element in vec.
         /// If multiple elements are equally common, return any of them.
-        /// If the vec is empty, return None.
+        /// If vec is empty, return `None`.
         pub fn most_common_element(vec: Vec<u64>) -> Option<u64> {
             solution_only! {
                 let mut map: HashMap<u64, u64> = HashMap::new();

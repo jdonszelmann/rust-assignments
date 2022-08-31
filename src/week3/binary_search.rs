@@ -3,16 +3,16 @@ use weblab::weblab;
 #[weblab(programming_assignment)]
 /// Binary search is an algorithm that is used to quickly find an element in a sorted list.
 /// To be precise, the index of the value in the list is returned.
-/// For more information, see: https://en.wikipedia.org/wiki/Binary_search_algorithm#Algorithm
+/// For more information, see: [https://en.wikipedia.org/wiki/Binary_search_algorithm#Algorithm](https://en.wikipedia.org/wiki/Binary_search_algorithm#Algorithm)
 ///
 /// A short summary of the algorithm:
 ///
-/// - We keep track of a `min` and `max`, the minimum and maximum possible index
+/// - We keep track of a `min` and `max`, the minimum and maximum possible index.
 /// - We check the value at the index precisely in the middle of `min` and `max`.
-///     - If the value at the index is equal to the value we are searching for, return the index
-///     - If the value at the index is lower than the value we are searching for, we know the value is in the range `[min, middle)`
-///     - If the value at the index is higher than the value we are searching for, we know the value is in the range `(middle, max]`
-/// - We update the bounds to conform to the new range, and rerun. If the range is ever empty, we know the value we are searching for is not in the list. In this case, return None.
+///     - If the value at the index is equal to the value we are searching for, return the index.
+///     - If the value at the index is lower than the value we are searching for, we know the value is in the range `[min, middle)`.
+///     - If the value at the index is higher than the value we are searching for, we know the value is in the range `(middle, max]`.
+/// - We update the bounds to conform to the new range, and rerun. If the range is ever empty, we know the value we are searching for is not in the list. In this case, return `None`.
 #[weblab(title = "Binary Search")]
 #[weblab(weight = 3)]
 mod assignment {
