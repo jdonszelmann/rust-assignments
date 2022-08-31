@@ -3,7 +3,7 @@ use weblab::weblab;
 #[weblab(programming_assignment)]
 /// A ringbuffer is a data structure based on an array (or a Vec).
 /// They are often used as a queue for data. For example, holding keystrokes
-/// from a keyboard until time is available to handle them.
+/// from the keyboard until the processor has time to handle them.
 ///
 /// However, compared to arbitrary-size queue data structures, a ringbuffer uses a fixed
 /// amount of memory. When the buffer is full, the oldest value in the queue is simply
