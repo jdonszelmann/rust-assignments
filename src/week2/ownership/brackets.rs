@@ -6,8 +6,9 @@ use weblab::weblab;
 /// `([)]`, `(` and `(]` are not parenthesis-balanced.
 /// You may assume the string only consists of `(`, `)`, `[` and `]` characters.
 ///
-/// Return whether a given string is parenthesis-balanced.
+/// Return whether a given storing is parenthesis-balanced.
 #[weblab(title = "Brackets")]
+#[weblab(weight = 5)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
@@ -66,6 +67,9 @@ mod assignment {
                 t8: assert!(!is_parenthesis_balanced("("));
                 t9: assert!(!is_parenthesis_balanced("()("));
                 t10: assert!(!is_parenthesis_balanced("([)"));
+                t11: assert!(!is_parenthesis_balanced("[(])"));
+                t12: assert!(!is_parenthesis_balanced("[(])([)]"));
+                t13: assert!(is_parenthesis_balanced("[([]()[])]"));
             }
         }
     }

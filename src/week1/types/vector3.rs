@@ -8,12 +8,12 @@ use weblab::weblab;
 ///
 /// Your task is to:
 ///
-/// * Define the fields of the Vector3 struct. Make sure the names of the fields are `x`, `y` and `z`, that the fields' **types** are `f64`, and **that all fields are marked as public using the `pub` keyword**.
-/// * Define the global function `new`, which constructs a new Vector3.
-/// * Define the global function `add`, which adds two Vector3s.
-/// * Bonus: Write a test, in which you create and add two vectors.
+/// * Define the fields of the `Vector3` struct. Make sure the names of the fields are `x`, `y` and `z`, that the fields' **types** are `f64`, and **that all fields are marked as public using the `pub` keyword**.
+/// * Define the global function `new`, which constructs a new `Vector3`.
+/// * Define the global function `add`, which adds two `Vector3`s.
 ///
 #[weblab(title = "3D Vectors")]
+#[weblab(weight = 1)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

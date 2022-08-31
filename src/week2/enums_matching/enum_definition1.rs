@@ -14,6 +14,7 @@ use weblab::weblab;
 /// For example, if it is Tuesday and you have to wait until Sunday, then you have to wait 5 days. If it Friday and you have to wait until Friday, then you have to wait 0 days.
 /// So `WeekDay::Tuesday.wait_time(WeekDay::Sunday)` should be 5.
 #[weblab(title = "Simple Enum Definitions")]
+#[weblab(weight = 2)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

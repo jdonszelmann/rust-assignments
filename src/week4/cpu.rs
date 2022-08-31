@@ -33,7 +33,7 @@ use weblab::weblab;
 /// - If the CPU ever reaches an instruction that is out of bounds, it should stop executing and return the output
 /// - If any instruction is executed that does not have a defined id, the emulator should panic
 /// - If any arithmetic overflow occurs during the execution of the program, the emulator should panic
-/// - All registers are initialized are 0
+/// - All registers are initialized to 0
 /// - The first instruction that is executed is the instruction at index 0
 ///
 /// The following example program should output \[17]:

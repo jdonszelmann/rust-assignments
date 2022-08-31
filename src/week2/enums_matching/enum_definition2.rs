@@ -16,6 +16,7 @@ use weblab::weblab;
 ///
 /// Make sure the names of your definition exactly match the names above.
 #[weblab(title = "Complex Enum Definitions")]
+#[weblab(weight = 1)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

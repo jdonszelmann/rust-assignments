@@ -34,6 +34,7 @@ use weblab::weblab;
 /// - to_camel_case("not_Legal") = Err(SnakeCaseError::Uppercase)
 ///
 #[weblab(title = "Case Converter")]
+#[weblab(weight = 5)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

@@ -11,6 +11,7 @@ use weblab::weblab;
 /// This uses the Vector3 type from week 1. To implement `safe_division_vec3`, use the `safe_division` function and the `?` operator.
 /// If any of the 3 element-wise divisions fails, return `None`.
 #[weblab(title = "Safe Division")]
+#[weblab(weight = 1)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

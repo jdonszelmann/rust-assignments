@@ -12,7 +12,7 @@ use weblab::weblab;
 /// - Len, which returns the amount of elements that are currently placed on the stack.
 ///
 /// In case the data structure is not clear, you can find more information here:
-/// https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
+/// [https://en.wikipedia.org/wiki/Stack_(abstract_data_type)](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
 ///
 /// The stack methods need to have the following signatures:
 /// ```
@@ -26,6 +26,7 @@ use weblab::weblab;
 ///
 /// Hint: Use a `Vec` to store the elements of the stack.
 #[weblab(title = "Wacky Stacky")]
+#[weblab(weight = 1)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

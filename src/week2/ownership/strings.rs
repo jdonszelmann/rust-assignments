@@ -9,6 +9,7 @@ use weblab::weblab;
 ///
 /// Implement all of the functions.
 #[weblab(title = "Hello Words")]
+#[weblab(weight = 3)]
 mod assignment {
     #[weblab(solution)]
     mod solution {
@@ -25,7 +26,7 @@ mod assignment {
 
         /// Given two `&str`s, interleave them.
         /// The strings are guaranteed to be the same length.
-        /// For example: concat("abc", "def") == "adbecf".
+        /// For example: interleave("abc", "def") == "adbecf".
         pub fn interleave(a: &str, b: &str) -> String {
             let mut buffer = String::with_capacity(a.len() + b.len());
 
