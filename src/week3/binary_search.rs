@@ -3,7 +3,7 @@ use weblab::weblab;
 #[weblab(programming_assignment)]
 /// Binary search is an algorithm that is used to quickly find an element in a sorted list.
 /// To be precise, the index of the value in the list is returned.
-/// For more information, see: [https://en.wikipedia.org/wiki/Binary_search_algorithm#Algorithm](https://en.wikipedia.org/wiki/Binary_search_algorithm#Algorithm)
+/// For more information, see: <https://en.wikipedia.org/wiki/Binary_search_algorithm#Algorithm>
 ///
 /// A short summary of the algorithm:
 ///

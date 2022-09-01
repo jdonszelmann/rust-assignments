@@ -18,7 +18,7 @@ use weblab::weblab;
 /// _            ^ end          ^ start
 /// ```
 ///
-/// To achieve this wrapping behavior, the remainder operation often is used.
+/// To achieve this wrapping behavior, the remainder operation is often used.
 ///
 /// For this assignment:
 ///

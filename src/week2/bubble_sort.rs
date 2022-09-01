@@ -9,7 +9,7 @@ use weblab::weblab;
 /// 3. Repeat the process for the sublist that remains unsorted (so, without the last element)
 ///
 /// The wikipedia page contains a more in-depth explanation together with an animated example.
-/// [https://en.wikipedia.org/wiki/Bubble_sort](https://en.wikipedia.org/wiki/Bubble_sort)
+/// <https://en.wikipedia.org/wiki/Bubble_sort>
 ///
 /// You *are* allowed to use the swap method on Vec
 /// You *are not* allowed to just call the stdlib `.sort()` function.

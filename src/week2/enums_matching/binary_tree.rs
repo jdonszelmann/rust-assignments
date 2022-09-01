@@ -24,8 +24,8 @@ mod assignment {
     mod solution {
         use weblab::{solution_only, template_only};
 
-        /// A binary tree, generic over T. It means that
-        /// regardless of what T is, you can always store it in a binary tree.
+        /// A binary tree, generic over T. That means,
+        /// it does not matter what T is, you can always store it in a binary tree.
         #[derive(PartialEq, Eq, Clone, Debug)]
         pub enum BinaryTree<T> {
             Node {
