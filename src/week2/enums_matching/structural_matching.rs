@@ -1,7 +1,7 @@
 use weblab::weblab;
 
 #[weblab(programming_assignment)]
-/// In rust there is a grand total of *three* ways to compare
+/// In rust there are a grand total of *three* ways to compare
 /// values. However, it's mostly worth  discussing two of them.
 ///
 /// Normal equality is what the `==` operator is used for. When `a == b` returns

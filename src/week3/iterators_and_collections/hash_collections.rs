@@ -28,7 +28,7 @@ mod assignment {
         use std::collections::{HashMap, HashSet};
         use weblab::{solution_only, template_only};
 
-        /// Return whether there are any duplicate elements in vec.
+        /// Return whether there are any duplicate elements in this Vec.
         pub fn has_duplicates(vec: Vec<u64>) -> bool {
             solution_only! {
                 let mut set: HashSet<u64> = HashSet::new();
@@ -45,9 +45,9 @@ mod assignment {
             }
         }
 
-        /// Find the most common element in vec.
+        /// Find the most common element in this Vec.
         /// If multiple elements are equally common, return any of them.
-        /// If vec is empty, return `None`.
+        /// If the Vec is empty, return `None`.
         pub fn most_common_element(vec: Vec<u64>) -> Option<u64> {
             solution_only! {
                 let mut map: HashMap<u64, u64> = HashMap::new();
