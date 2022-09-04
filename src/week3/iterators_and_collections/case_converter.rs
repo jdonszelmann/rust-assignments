@@ -17,14 +17,14 @@ use weblab::weblab;
 /// 3. Words cannot be empty, that is, a function name cannot contain two consecutive underscores. For example, `is__snake_case` is not valid under the convention.
 /// 4. A function name cannot start or end with an underscore. For example, `_is_snake_case` is not valid under the convention.
 ///
-/// Implement a function `is_snake_case` that checks if a string satisfies the rules for snake case. If the input satiesfies all rules, return None. Otherwise, return what rule is the **first** one that is broken.
+/// Implement a function `is_snake_case` that checks if a string satisfies the rules for snake case. If the input satisfies all rules, return `None`. Otherwise, return what rule is the **first** one that is broken.
 ///
 /// ---
 ///
 /// Java uses a different convention called "lower camel case", where all words are concatenated without underscores, and all words except the first start with a capital letter.
 /// For example, `isSnakeCase` and `toCamelCase` are function names that follow the convention.
 ///
-/// Given a name that is in snake case, convert it to camel case.
+/// Given a name that is in snake case, convert it to lower camel case.
 /// If the input is not valid snake case, return an error. Use the `is_snake_case` function you wrote to achieve this.
 ///
 /// Examples:

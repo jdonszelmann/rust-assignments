@@ -4,8 +4,8 @@ use weblab::weblab;
 /// For this exercise, design the `Increment` trait.
 /// It has two methods:
 ///
-/// - `increment`, that should mutate the number and add 1 to it
-/// - `decrement`, that should mutate the number and remove 1 from it
+/// - `increment`, which should mutate the number and add 1 to it
+/// - `decrement`, which should mutate the number and remove 1 from it
 ///
 /// Neither of the methods returns a new value. Instead, they should take a mutable reference.
 ///
@@ -14,7 +14,7 @@ use weblab::weblab;
 /// Note that the testing code will assume all traits are implemented. Since the tests and your code are
 /// compiled together, the tests won't compile if you didn't implement the required traits. In this case,
 /// your score will be 0/0. Read the assignment carefully. To let tests *compile but fail* you can use the
-/// `todo!()` macro, in function bodies, so you don't need to finish all implementations before you can test
+/// `todo!()` macro in function bodies, so you don't need to finish all implementations before you can test
 /// the ones you do have.
 #[weblab(title = "Addable")]
 #[weblab(weight = 2)]
