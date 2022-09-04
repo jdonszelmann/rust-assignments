@@ -65,7 +65,7 @@ mod assignment {
                 if num % 2 == 0 {
                     Cow::Borrowed(o2)
                 } else {
-                    Cow::Owned(o1.clone())
+                    Cow::Owned(o1.to_string())
                 }
             }
         }
