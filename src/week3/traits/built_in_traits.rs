@@ -62,8 +62,10 @@ mod assignment {
             pub fn magnitude(self) -> u32 {
                 self.0 & 0x7fff_ffff
             }
+        }
 
-            solution_only! {
+        solution_only! {
+            impl SignMagnitude {
                 fn normalize(self) -> SignMagnitude {
                     if self.sign() && self.magnitude() == 0 {
                         SignMagnitude(0)
@@ -88,9 +90,7 @@ mod assignment {
                     }
                 }
             }
-        }
 
-        solution_only! {
             impl PartialEq for SignMagnitude {
                 fn eq(&self, other: &Self) -> bool {
                     self.normalize().0 == other.normalize().0
