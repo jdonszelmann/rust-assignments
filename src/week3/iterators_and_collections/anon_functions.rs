@@ -1,7 +1,7 @@
 use weblab::weblab;
 
 #[weblab(programming_assignment)]
-/// Rust has something called a "closure". A Closure is a function you can create, just to give to another function. The function does not need a name,
+/// Rust has something called a "closure". A closure is a function that you can save in a variable or pass to a function as a parameter. The function does not need a name,
 /// and can be created inside other functions using the local variables of the enclosing function. Let's look at an example:
 ///
 /// ```rs

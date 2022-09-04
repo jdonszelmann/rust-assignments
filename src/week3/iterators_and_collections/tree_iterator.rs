@@ -3,8 +3,8 @@ use weblab::weblab;
 #[weblab(programming_assignment)]
 /// You are given an implementation of a binary search tree. You may remember
 /// this tree from last week's exercise about it. The methods from that assignment
-/// can be used here but their implementation is hidden.
-/// That means, you can use the following functions in your program:
+/// can be used here, but their implementation is hidden.
+/// That means you can use the following functions in your program:
 ///
 /// * `fn insert(self, v: T) -> Self`
 /// * `fn contains(&self, v: &T) -> bool`

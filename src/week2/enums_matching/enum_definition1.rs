@@ -5,13 +5,13 @@ use weblab::weblab;
 /// The days should be spelled exactly:
 /// `Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday`
 ///
-/// Then implement a function on `WeekDay` called `next`, that *mutates* the week day and changes it to the next week day.
-/// For example, if it is currently Wednesday. Calling `next` once makes it Thursday.
+/// Then, implement a function on `WeekDay` called `next`, that *mutates* the week day and changes it to the next week day.
+/// For example, if it is currently Wednesday, calling `next` once changes it to Thursday.
 ///
 /// Finally, implement a function on WeekDay called `wait_time`.
-/// It answers the question "if it is currently week day `self`, and I have to wait until week day `until`, how many days do I have to wait?
+/// It answers the question "if it is currently week day `self`, and you have to wait until week day `until`, how many days do you have to wait?
 ///
-/// For example, if it is Tuesday and I have to wait until Sunday, I have to wait 5 days. If it Friday and I have to wait until Friday, I have to wait 0 days.
+/// For example, if it is Tuesday and you have to wait until Sunday, then you have to wait 5 days. If it Friday and you have to wait until Friday, then you have to wait 0 days.
 /// So `WeekDay::Tuesday.wait_time(WeekDay::Sunday)` should be 5.
 #[weblab(title = "Simple Enum Definitions")]
 #[weblab(weight = 2)]

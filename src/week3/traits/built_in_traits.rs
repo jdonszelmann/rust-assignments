@@ -1,9 +1,9 @@
 use weblab::weblab;
 
 #[weblab(programming_assignment)]
-/// In the sign–and-magnitude representation, a signed number is represented by the bit pattern corresponding to the sign of the number for the sign bit
-/// (the most significant bit, set to 0 for a positive number and to 1 for a negative number),
-/// and the magnitude of the number (or absolute value) for the remaining bits.
+/// In the sign–and-magnitude representation, a signed number is represented by the bit pattern where the most significant bit represents the sign of the number
+/// (it is set to 0 for a positive number and to 1 for a negative number),
+/// and the magnitude of the number (or absolute value) is represented by the remaining bits.
 ///
 /// A few examples of 32-bits sign-and-magnitude numbers:
 ///
@@ -36,7 +36,7 @@ use weblab::weblab;
 /// Note that the testing code will assume all traits are implemented. Since the tests and your code are
 /// compiled together, the tests won't compile if you didn't implement the required traits. In this case,
 /// your score will be 0/0. Read the assignment carefully. To let tests *compile but fail* you can use the
-/// `todo!()` macro, in function bodies, so you don't need to finish all implementations before you can test
+/// `todo!()` macro in function bodies, so you don't need to finish all implementations before you can test
 /// the ones you do have.
 #[weblab(title = "Sign Magnitude Representation")]
 #[weblab(weight = 5)]
