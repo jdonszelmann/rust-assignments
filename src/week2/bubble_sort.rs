@@ -15,6 +15,7 @@ use weblab::weblab;
 /// You *are not* allowed to just call the stdlib `.sort()` function.
 #[weblab(title = "Bubble Sort")]
 #[weblab(check = "manually implements bubble sort")]
+#[weblab(weight=3.0)]
 mod assignment {
     #[weblab(solution)]
     mod solution {

@@ -15,6 +15,7 @@ use weblab::weblab;
 /// - We update the bounds to conform to the new range, and rerun. If the range is ever empty, we know the value we are searching for is not in the list. In this case, return `None`.
 #[weblab(title = "Binary Search")]
 #[weblab(weight = 3)]
+#[weblab(check = "search complexity is logarithmic")]
 mod assignment {
     #[weblab(solution)]
     mod solution {
