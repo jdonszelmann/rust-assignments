@@ -2,9 +2,9 @@ use weblab::weblab;
 
 #[weblab(programming_assignment)]
 /// Last week, you implemented a 1-player version of tic tac toe. In this assignment, you need to implement the full game.
-/// This board is now represented using `[[Square; 3]; 3]`, which is a 3x3 array of Squares.
+/// This board is now represented using `[[Square; 3]; 3]`, which is a 3x3 array of `Square`s.
 ///
-/// - A Square is defined as an enum that is either `X`, `O` or `Empty`.
+/// - A `Square` is defined as an enum that is either `X`, `O` or `Empty`.
 ///
 /// Implement a function that is given a board, and checks if any player has won.
 ///

@@ -1,13 +1,13 @@
 use weblab::weblab;
 
 #[weblab(programming_assignment)]
-/// In C, there is a "switch" block. With it you can write multiple conditions, and see if a variable satisfies one of the conditions.
+/// In C, there is a `switch` block. With it you can write multiple conditions, and see if a variable satisfies one of the conditions.
 ///
-/// In rust, a "match" block works like a more powerful "switch" block.
+/// In rust, a `match` block works like a more powerful `switch` block.
 ///
 /// In each of the exercises, you are asked to return a value based on the input. Use "match" to solve these assignments
 ///
-/// Note that a match statement always needs to be "exhaustive". That means that
+/// Note that a match statement always needs to be *exhaustive*. That means that
 /// there *must* always be at least one "match arm" that is executed. You can use
 /// an underscore (`_`) to give a default case to execute if none of the previous
 /// cases worked.
@@ -19,9 +19,9 @@ mod assignment {
     mod solution {
         use weblab::{solution_only, template_only};
 
-        /// return 1 if v is either 1, 3 or 5
-        /// return 2 if v is either 0, 2 or 4
-        /// return 3 in any other situation
+        /// Return 1 if v is either 1, 3 or 5.
+        /// Return 2 if v is either 0, 2 or 4.
+        /// Return 3 in any other situation.
         pub fn exercise_1(v: u8) -> u8 {
             solution_only! {
                 match v {
@@ -35,9 +35,9 @@ mod assignment {
             }
         }
 
-        /// return 1 if v is between 0 (inclusive) and 100 (exclusive)
-        /// return 2 if v is between 100 (inclusive) and 200 (exclusive)
-        /// return 3 in any other situation
+        /// Return 1 if v is between 0 (inclusive) and 100 (exclusive).
+        /// Return 2 if v is between 100 (inclusive) and 200 (exclusive).
+        /// Return 3 in any other situation.
         pub fn exercise_2(v: u8) -> u8 {
             solution_only! {
                 match v {
@@ -51,9 +51,9 @@ mod assignment {
             }
         }
 
-        /// return 1 if v is in the first half of the latin/english alphabet (a-n) (uppercase *or* lowercase)
-        /// return 2 if v is in the second half of the latin/english alphabet (o-z) (uppercase *or* lowercase)
-        /// return 3 if v is not in the latin/english alphabet
+        /// Return 1 if v is in the first half of the latin/english alphabet (a-n) (uppercase *or* lowercase).
+        /// Return 2 if v is in the second half of the latin/english alphabet (o-z) (uppercase *or* lowercase).
+        /// Return 3 if v is not in the latin/english alphabet.
         pub fn exercise_3(v: char) -> u8 {
             solution_only! {
                 match v {

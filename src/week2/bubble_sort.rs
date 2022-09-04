@@ -5,11 +5,11 @@ use weblab::weblab;
 /// Bubble sort works the following way:
 ///
 /// 1. Iterate over the entire list from left to right, comparing the adjacent elements, and swap them if they are not in the correct order.
-/// 2. After doing this for one iteration, the largest element in the list will have moved to the end.
+/// 2. After doing this for one iteration, the largest element in the list will be moved to the end.
 /// 3. Repeat the process for the sublist that remains unsorted (so, without the last element)
 ///
 /// The wikipedia page contains a more in-depth explanation together with an animated example.
-/// https://en.wikipedia.org/wiki/Bubble_sort
+/// <https://en.wikipedia.org/wiki/Bubble_sort>
 ///
 /// You *are* allowed to use the swap method on Vec
 /// You *are not* allowed to just call the stdlib `.sort()` function.
