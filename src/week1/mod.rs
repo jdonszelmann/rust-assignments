@@ -4,4 +4,4 @@ mod basics;
 mod bcd;
 mod types;
 
-weblab_folder!("week 1", sum, basics, bcd, types);
+weblab_folder!("week 1", 1.0, basics, bcd, types);

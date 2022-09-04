@@ -7,7 +7,7 @@ mod traits;
 
 weblab_folder!(
     "week 3",
-    sum,
+    1.0,
     traits,
     lifetimes,
     iterators_and_collections,
