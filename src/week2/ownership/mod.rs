@@ -11,7 +11,7 @@ mod vector3_again;
 
 weblab_folder!(
     "structs and ownership",
-    1.0,
+    sum,
     vector3_again,
     stack,
     // is_it_sized,
