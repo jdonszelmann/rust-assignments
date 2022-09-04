@@ -158,19 +158,19 @@ mod assignment {
         use std::collections::HashSet;
         use weblab::{solution_only, template_only};
 
+        fn leaf<T>() -> BinaryTree<T> {
+            BinaryTree::Leaf
+        }
+
+        fn node<T>(t: T, s: BinaryTree<T>, l: BinaryTree<T>) -> BinaryTree<T> {
+            BinaryTree::Node {
+                value: t,
+                smaller: Box::new(s),
+                larger: Box::new(l),
+            }
+        }
+
         solution_only! {
-            fn leaf<T>() -> BinaryTree<T> {
-                BinaryTree::Leaf
-            }
-
-            fn node<T>(t: T, s: BinaryTree<T>, l: BinaryTree<T>) -> BinaryTree<T> {
-                BinaryTree::Node {
-                    value: t,
-                    smaller: Box::new(s),
-                    larger: Box::new(l),
-                }
-            }
-
             #[test]
             fn test_bt_intact() {
                 assert_eq!(node(1, node(0, leaf(), leaf()), node(2, leaf(), leaf())).size(), 3);
