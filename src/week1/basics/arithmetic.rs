@@ -19,7 +19,7 @@ use weblab::weblab;
 /// Create these functions according to the signature above:
 ///
 /// * `add`, which adds a to b
-/// * `subtract`, which subtracts a from b
+/// * `subtract`, which subtracts b from a
 /// * `multiply`, which multiplies a with b
 /// * `divide`, which divides a by b
 /// * `modulo`, which returns the remainder after division of a by b
