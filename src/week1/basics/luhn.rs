@@ -4,7 +4,7 @@ use weblab::weblab;
 /// The Luhn algorithm (Wikipedia) is used to check bank card numbers for simple errors such as mistyping a digit, and proceeds as follows:
 ///
 /// * consider each digit as a separate number;
-/// * moving left, double every other number from the second last;
+/// * double the first and third number
 /// * subtract 9 from each number that is now greater than 9;
 /// * add all the resulting numbers together;
 /// * if the total is divisible by 10, the card number is valid.
