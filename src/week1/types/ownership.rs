@@ -13,6 +13,7 @@ inline_question_list! {
         /// Explain why the following code does not work.
         ///
         /// ```rust
+        /// #[derive(Debug)]
         /// struct Test {}
         ///
         /// fn do_something(a: Test) {
