@@ -38,8 +38,8 @@ inline_question_list! {
         title: "solving the problem",
         weight: 2.0,
         checklist: [
-            "correct solution 1"
-            "correct solution 2"
+            "correct solution 1 (reference, clone or return. Note, any two of these 3 should give full points)"
+            "correct solution 2 (reference, clone or return)"
         ],
         question:
         /// Explain two strategies to fix the code from the previous question.
