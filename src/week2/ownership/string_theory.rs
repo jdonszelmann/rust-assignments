@@ -32,7 +32,7 @@ inline_question_list! {
         title: "Why return String",
         weight: 1.0,
         checklist: [
-            "correct explanation that the length is unknown and has to be heap allocated"
+            "correct explanation that the length is unknown and has to be heap allocated or that ownership has to be transferred back to the caller"
         ],
         question:
         /// Explain why it makes sense for this function to return `String`, rather than `&str`
