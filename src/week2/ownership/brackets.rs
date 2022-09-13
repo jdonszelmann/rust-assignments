@@ -12,7 +12,6 @@ use weblab::weblab;
 mod assignment {
     #[weblab(solution)]
     mod solution {
-        use std::collections::VecDeque;
         use weblab::{solution_only, template_only};
 
         pub fn is_parenthesis_balanced(str: &str) -> bool {
