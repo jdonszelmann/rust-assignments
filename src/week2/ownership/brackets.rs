@@ -14,10 +14,10 @@ mod assignment {
     mod solution {
         use weblab::{solution_only, template_only};
 
-        pub fn is_parenthesis_balanced(str: &str) -> bool {
+        pub fn is_parenthesis_balanced(input: &str) -> bool {
             solution_only! {
                 let mut stack = Vec::new();
-                for c in str.chars() {
+                for c in input.chars() {
                     match c {
                         '(' => stack.push(')'),
                         '[' => stack.push(']'),
