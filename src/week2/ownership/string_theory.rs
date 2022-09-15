@@ -50,7 +50,7 @@ inline_question_list! {
             "answer question 2 (both exists)"
         ],
         question:
-        /// Explain the difference between `str` and `&str`. Why do both exist?
+        ///  Explain the difference between `str` and `&str`. Why can't we create variables of type str? And instead have to use &str?
         answer:
         /// A `str` is an *unsized* type. It's the size of a sequence of characters of unknown length.
         /// Because the length isn't known, we can't have a variable with `str` as type, because the
