@@ -80,7 +80,7 @@ mod assignment {
             }
         }
 
-        /// Check if v is a digit. If so, return a u8 with which number (wrapped in a `Some()`)
+        /// Check if v is a digit. If so, return a u32 with which number (wrapped in a `Some()`)
         /// it is. Use a match block and some math instead of one of the built-in functions.
         ///
         /// Hint: it may help to cast a char to a number (`v as u32`) to solve this problem.
